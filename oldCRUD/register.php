@@ -27,9 +27,9 @@
 			if($password == $confirm_password){
 				//Connect to database
 				$servername = "localhost";
-				$dbusername = "admin";
-				$dbpassword = "admin";
-				$dbname = "ariadologin";
+				$dbusername = "Group4PS_Admin";
+				$dbpassword = "group_4_PS!!!1111";
+				$dbname = "userregistration";
 				$conn = new mysqli($servername, $dbusername, $dbpassword, $dbname);
 				if ($conn->connect_error) {
 				    die("Connection failed: " . $conn->connect_error);

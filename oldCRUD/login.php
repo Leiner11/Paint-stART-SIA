@@ -21,9 +21,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	// Connect to the database
 	$host = 'localhost';  // replace with your database host
-	$dbname = 'ariadologin'; // replace with your database name
-	$username = 'admin'; // replace with your database username
-	$password = 'admin'; // replace with your database password
+	$dbname = 'userregistration'; // replace with your database name
+	$username = 'Group4PS_Admin'; // replace with your database username
+	$password = 'group_4_PS!!!1111'; // replace with your database password
 	$db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 
 	// Get the user's entered username and password
