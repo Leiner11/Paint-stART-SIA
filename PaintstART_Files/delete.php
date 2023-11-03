@@ -32,7 +32,7 @@
 				<form>
 				<button type="submit" name="action" value="delete" class="btn btn-primary">Delete</button><br><br>
 				</form>
-				<form action="check.php" method="POST">
+
 				<button type="submit" class="btn btn-primary" formaction="index.php">Home</button>
 				</form>
 			</div>
@@ -40,16 +40,13 @@
 	</div>
 </body>
 </html>
-
-
-
 <?php
 
 // Database credentials
 $host = "localhost";
-$username = "admin";
-$password = "admin";
-$dbname = "userprofile";
+$username = "Group4PS_Admin";
+$password = "group_4_PS!!!1111";
+$dbname = "userregistration";
 
 // Create a new database connection
 $conn = new mysqli($host, $username, $password, $dbname);
@@ -60,44 +57,56 @@ if ($conn->connect_error) {
 }
 
 
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+
 // Check if the form has been submitted
-
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // Get the form data
 
-  $username = $_POST["username"] ?? ' ';
-  $password = $_POST["password"] ?? ' ';
-  $confirm_password = $_POST["confirm_password"] ?? ' ';
-  $action = $_POST["action"] ?? ' ';
+	$sql = "SELECT * FROM register WHERE username = ? AND password = ?";
+	$stmt = $conn->prepare($sql);
+	$stmt->bind_param("ss", $username, $password);
+	$stmt->execute();
+	$result = $stmt->get_result();
 
-  // Check if the action is to delete the account
-  if ($action == "delete") {
-    $sql = "DELETE FROM users WHERE username = '$username' AND password = '$password'";
-    
-    if ($conn->query($sql) === TRUE) {
-      	header("Location: delete_success_message.php");
-		exit();
+	if ($result->num_rows == 1) {
+		// Get the form data
+		$username = $_POST["username"] ?? ' ';
+		$password = $_POST["password"] ?? ' ';
+		$confirm_password = $_POST["confirm_password"] ?? ' ';
+		$action = $_POST["action"] ?? ' ';
 
-    } else {
-      echo "Error deleting account: " . $conn->error;
-    }
+		// Check if the action is to delete the account
+		if ($action == "delete") {
+			$sql = "DELETE FROM register WHERE username = '$username' AND password = '$password'";
+			
+			if ($conn->query($sql) === TRUE) {
+				header("Location: delete_success_message.php");
+				exit();
 
-  } elseif ($action == "delete_confirm") {
-    // Delete the user's account
-    $sql = "DELETE FROM users WHERE username = '$username' AND password = '$password'";
-    
-    if ($conn->query($sql) === TRUE) {
-		header("Location: delete_success_message.php");
-		exit();
+			} else {
+			echo "Error deleting account: " . $conn->error;
+			}
 
-    } else {
-      echo "Error deleting account: " . $conn->error;
-    }
-  }
+		} elseif ($action == "delete_confirm") {
+			// Delete the user's account
+			$sql = "DELETE FROM register WHERE username = '$username' AND password = '$password'";
+			
+			if ($conn->query($sql) === TRUE) {
+				header("Location: delete_success_message.php");
+				exit();
+
+			} else {
+			echo "Error deleting account: " . $conn->error;
+			}
+		}
+
+	} else if ($result->num_rows == 0) {
+		echo"Error deleting account.";
+	}
     }
 
 // Close the database connection
 $conn->close();
-
 ?>
