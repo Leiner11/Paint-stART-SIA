@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login Page</title>
-</head>
-<body>
-	<h2>Login</h2>
-	<form method="POST" action="login.php">
-		<label>Username:</label>
-		<input type="text" name="username"><br>
-		<label>Password:</label>
-		<input type="password" name="password"><br>
-		<input type="submit" value="Login">
-	</form>
-</body>
-</html>
-
 <?php
-// Check if the form has been submitted
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
 	// Connect to the database
 	$host = 'localhost';  // replace with your database host
 	$dbname = 'userregistration'; // replace with your database name
@@ -39,13 +19,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 	// Check if the user exists
 	if ($stmt->rowCount() > 0) {
 		// User exists, set session variable and redirect to home page
-		session_start();
-		$_SESSION['username'] = $username;
-		header('Location: index.php');
+		header("Location: index.html");
 		exit();
 	} else {
 		// User does not exist, display error message
 		echo "<p>Invalid username or password.</p>";
 	}
-}
 ?>
