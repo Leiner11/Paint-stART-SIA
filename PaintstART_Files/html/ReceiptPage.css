@@ -106,7 +106,7 @@ body, html {
    background: radial-gradient(closest-side, rgba(148, 102, 34, 0.00) 0%,rgba(222, 160, 141, 1.00) 100%);
     width: 1924px;
     height: 1112px;
-    position: absolute;
+    position:fixed;
     left: 0px;
    top: 1px;
    }
@@ -162,7 +162,7 @@ body, html {
     font: 800 26.16px 'Inter', sans-serif;
     position: absolute;
     left: 313.91px;
-   top: 253.74px;
+   top: 280.74px;
    }
 
 .cost-76-00 {
@@ -171,7 +171,7 @@ body, html {
     font: 800 26.16px 'Inter', sans-serif;
     position: absolute;
     left: 313.91px;
-   top: 451.24px;
+   top: 430.24px;
    }
 
 .character-illustration {
@@ -179,7 +179,7 @@ body, html {
     text-align: left;
     font: 400 30.08px 'Inter', sans-serif;
     position: absolute;
-    left: 27.47px;
+    left: 178px;
    top: 307.37px;
    }
 
@@ -188,8 +188,8 @@ body, html {
     text-align: left;
     font: 400 30.08px 'Inter', sans-serif;
     position: absolute;
-    left: 27.47px;
-   top: 361px;
+    left: 178px;
+   top: 420px;
    }
 
 .character-with-matching-accessories-span {
@@ -217,8 +217,8 @@ body, html {
     text-align: left;
     font: 800 30.08px 'Inter', sans-serif;
     position: absolute;
-    left: 104.6px;
-   top: 510.26px;
+    left: 270px;
+   top: 580px;
    }
 
 ._156-00 {
@@ -226,8 +226,8 @@ body, html {
     text-align: left;
     font: 800 30.08px 'Inter', sans-serif;
     position: absolute;
-    left: 313.6px;
-   top: 510.26px;
+    left: 466px;
+   top: 573px;
    }
 
 .line-38 {
@@ -237,8 +237,8 @@ body, html {
     width: 498px;
     height: 0px;
     position: absolute;
-    left: 39.6px;
-   top: 565.26px;
+    left: 180px;
+   top: 540px;
    }
 
 .transaction-id {
@@ -246,8 +246,8 @@ body, html {
     text-align: left;
     font: 400 30.08px 'Impact', sans-serif;
     position: absolute;
-    left: 46.6px;
-   top: 617.26px;
+    left: 230px;
+   top: 585px;
    }
 
 ._0009411456788175 {
@@ -255,8 +255,8 @@ body, html {
     text-align: left;
     font: 400 25px 'Impact', sans-serif;
     position: absolute;
-    left: 173.6px;
-   top: 661.26px;
+    left: 467px;
+   top: 585.26px;
    }
 
 .thank-you-for-commissioning-me-enjoy {
@@ -264,8 +264,8 @@ body, html {
     text-align: left;
     font: 400 18.15px 'Arial', sans-serif;
     position: absolute;
-    left: 91.6px;
-   top: 728.26px;
+    left: 275px;
+   top: 650.26px;
    }
 
 .box {
@@ -282,7 +282,7 @@ body, html {
     height: 121.64px;
     position: absolute;
     left: 0px;
-   top: 0px;
+   top: -130px;
    }
 
 .thank-you-for-purchasing {
@@ -291,7 +291,7 @@ body, html {
     font: 400 66.71px 'Impact', sans-serif;
     position: absolute;
     left: 27.47px;
-   top: 20.93px;
+   top: -112px;
    }
 
 .frame-1 {
@@ -300,7 +300,7 @@ body, html {
     height: 1225px;
     position: absolute;
     left: 771px;
-   top: -14px;
+   top: -130px;
    }
 
 .girl-image {
@@ -311,21 +311,12 @@ body, html {
    top: 10px;
    }
 
-.paintst-art {
-   color: #000000;
-    text-align: left;
-    font: 400 66.71px 'Impact', sans-serif;
-    position: absolute;
-    left: 309px;
-   top: 921px;
-   }
-
 .print-button {
    width: 456.48px;
     height: 83.71px;
     position: absolute;
     left: 1389.72px;
-   top: 752.18px;
+   top: 620px;
    }
 
 .print-receipt {
@@ -392,10 +383,87 @@ body, html {
     transition-duration: .3s;
   }
   
+  .suggestion-area {
+   background: rgb(224, 191, 255);
+    border-radius: 12.18px;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 0.94px;
+    width: 499.39px;
+    height: 50px;
+    position: absolute;
+    left: 185px;
+   top: 685px;
+   }
   
-  
-  
-  
-  
-  
-  
+   .add-comment-here {
+      position: relative;
+      left: -1086px;
+      top: 255px;
+  }
+
+  .input-text {
+   background: transparent;
+   border: none;
+   font: 400 18.74px 'Inter', sans-serif;
+   color: #000000;
+   width: 470px; 
+   outline: none;
+   height: 30px; 
+   resize: none; 
+   overflow: auto; 
+}
+
+.paintst-art {
+   color: #000000;
+    text-align: left;
+    font: 400 25px 'Impact', sans-serif;
+    position: absolute;
+    left: 200px;
+   top: 760px;
+   }
+
+   .Btn2 {
+      width: 230px;
+      height: 50px;
+      display: flex;
+      top: 250px;
+      left: -1180px;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(15, 15, 15);
+      border: none;
+      border-radius: 12.18px;
+      color: white;
+      font-weight: 600;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+      position: relative;
+      overflow: hidden;
+      transition-duration: .3s;
+    }
+
+    .Btn2::before {
+      width: 240px;
+      height: 130px;
+      position: absolute;
+      content: "";
+      background-color: white;
+      border-radius: 50%;
+      left: -100%;
+      top: 0;
+      transition-duration: .3s;
+      mix-blend-mode: difference;
+    }
+    
+    .Btn2:hover::before {
+      transition-duration: .3s;
+      transform: translate(100%,-50%);
+      border-radius: 0;
+    }
+    
+    .Btn2:active {
+      transform: translate(5px,5px);
+      transition-duration: .3s;
+    }
