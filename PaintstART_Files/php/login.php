@@ -22,7 +22,7 @@
 		$username = $stmt->fetch();
 
 		session_start();
-		$_SESSION['user_status'] = $username['username'];
+		$_SESSION['username'];
 		header("Location: check_login.php");
 		exit();
 	} else {

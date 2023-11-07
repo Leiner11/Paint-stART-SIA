@@ -1,9 +1,14 @@
 <?php
 session_start();
 
-session_unset();
-session_destroy();
+if (session_status() == PHP_SESSION_ACTIVE) {
+    // Unset specific session variables
+    unset($_SESSION['userLoggedIn']);
 
-header("location: login.php");
+    // Destroy the session
+    session_destroy();
+}
+
+header("Location: /PaintstART_Files/html/login.html");
 exit;
 ?>

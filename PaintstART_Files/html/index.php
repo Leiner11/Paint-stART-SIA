@@ -43,6 +43,28 @@ https://templatemo.com/tm-586-scholar
   </div>
   <!-- ***** Preloader End ***** -->
 
+<!-- ***** PHP code to check user log-in status ***** -->
+<?php
+    session_start();
+    if (isset($_SESSION["username"])) {
+      $userLoggedIn = $_SESSION['username'];
+      $listItemName = ($userLoggedIn) ? 'My Account' : 'Login';
+      $listItemHref = ($userLoggedIn) ? 'userprofile.html' : 'login.html';
+    } else {
+      $userLoggedIn = false;
+      $listItemName = 'Login';
+      $listItemHref = 'login.html';
+    }
+?>
+
+<script>
+    function updateUserStatus() {
+      var userStatusLi = document.getElementById('user_status');
+      userStatusLi.innerHTML = '<a href="' + '<?php echo $listItemHref; ?>' + '">' + '<?php echo $listItemName; ?>' + '</a>';
+    }
+    window.onload = updateUserStatus;
+</script>
+
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
     <div class="container">
@@ -60,7 +82,7 @@ https://templatemo.com/tm-586-scholar
                       <li class="scroll-to-section"><a href="#services">Information</a></li>
                       <li class="scroll-to-section"><a href="#courses">Digital Arts</a></li>
                       <li class="scroll-to-section"><a href="#events">Offered Pricing</a></li>
-                      <li class="scroll-to-section" id="login_status"><a href="/PaintstART_Files/html/login.html">Login</a></li>
+                      <li class="scroll-to-section" id="user_status"><a href="/PaintstART_Files/html/login.html"></a></li>
                   </ul>   
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -753,6 +775,5 @@ https://templatemo.com/tm-586-scholar
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
-
   </body>
 </html>
