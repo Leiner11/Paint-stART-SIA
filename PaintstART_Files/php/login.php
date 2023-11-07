@@ -7,19 +7,23 @@
 	$db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 
 	// Get the user's entered email and password
-	$username = $_POST['email'];
+	$email = $_POST['email'];
 	$password = $_POST['password'];
 
 	// Query the database for the user's details
 	$stmt = $db->prepare("SELECT * FROM user_profile WHERE email=:email AND password=:password");
-	$stmt->bindValue(':email', $username);
+	$stmt->bindValue(':email', $email);
 	$stmt->bindValue(':password', $password);
 	$stmt->execute();
 
 	// Check if the user exists
 	if ($stmt->rowCount() > 0) {
 		// User exists, set session variable and redirect to home page
-		header("Location: index.html");
+		$username = $stmt->fetch();
+
+		session_start();
+		$_SESSION['user_status'] = $username['username'];
+		header("Location: check_login.php");
 		exit();
 	} else {
 		// User does not exist, display error message
