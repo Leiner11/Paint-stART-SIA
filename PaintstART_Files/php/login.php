@@ -21,8 +21,9 @@
 	// Check if the user exists
 	if ($stmt->rowCount() > 0) {
 		// User exists, set session variable and redirect to home page
-		$username = $stmt->fetch();
-		$_SESSION['username'];
+		$user = $stmt->fetch();
+		$_SESSION['username'] = $user['username'];
+		$_SESSION['loggedInUser'] = $user['username'];
 		header("Location: check_login.php");
 		exit();
 	} else {

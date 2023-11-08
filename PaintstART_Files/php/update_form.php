@@ -68,7 +68,7 @@ if (isset($_POST['update'])) {
 	$current_username = $_POST['current_username'];
 	$current_password = $_POST['current_password'];
 
-	$sql = "UPDATE register SET username='$new_username', password='$new_password' WHERE username='$current_username' AND password='$current_password'";
+	$sql = "UPDATE user_profile SET username='$new_username', password='$new_password' WHERE username='$current_username' AND password='$current_password'";
 
 	if ($conn->query($sql) === TRUE) {
 		echo "Username and password updated successfully.";
