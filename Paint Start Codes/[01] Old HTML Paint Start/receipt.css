@@ -1,0 +1,256 @@
+html ,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.receipt-page, .receipt-page * {
+    box-sizing: border-box;
+    }
+.receipt-page {
+   background: #ffffff;
+    padding: 104px 384px 104px 384px;
+    width: 1924px;
+    height: 1113px;
+    position: relative;
+    overflow: hidden;
+   }
+
+.gradient {
+   background: radial-gradient(closest-side, rgba(148, 102, 34, 0.00) 0%,rgba(222, 160, 141, 1.00) 100%);
+    width: 1924px;
+    height: 1112px;
+    position: absolute;
+    left: 0px;
+   top: 1px;
+   }
+
+.receipt-frame {
+   width: 575.5px;
+    height: 973.12px;
+    position: absolute;
+    left: 152.4px;
+   top: 70.74px;
+   }
+
+.rectangle-88 {
+   background: #ffffff;
+    border-radius: 31.39px;
+    width: 575.5px;
+    height: 973.12px;
+    position: absolute;
+    left: 0px;
+   top: 0px;
+   }
+
+.purchase-details {
+   color: #000000;
+    text-align: left;
+    font: 400 51.01px 'Impact', sans-serif;
+    position: absolute;
+    left: 71.94px;
+   top: 39.24px;
+   }
+
+.original-character {
+   color: #000000;
+    text-align: left;
+    font: 400 30.08px 'Impact', sans-serif;
+    position: absolute;
+    left: 27.47px;
+   top: 141.26px;
+   }
+
+.includes-colored-8-x-8-size {
+   color: #000000;
+    text-align: left;
+    font: 400 30.08px 'Impact', sans-serif;
+    position: absolute;
+    left: 27.47px;
+   top: 194.88px;
+   }
+
+.cost-86-00 {
+   color: #000000;
+    text-align: left;
+    font: 400 26.16px 'Impact', sans-serif;
+    position: absolute;
+    left: 313.91px;
+   top: 253.74px;
+   }
+
+.cost-76-00 {
+   color: #000000;
+    text-align: left;
+    font: 400 26.16px 'Impact', sans-serif;
+    position: absolute;
+    left: 313.91px;
+   top: 451.24px;
+   }
+
+.character-illustration {
+   color: #000000;
+    text-align: left;
+    font: 400 30.08px 'Impact', sans-serif;
+    position: absolute;
+    left: 27.47px;
+   top: 307.37px;
+   }
+
+.character-with-matching-accessories {
+   color: #000000;
+    text-align: left;
+    font: 400 30.08px 'Impact', sans-serif;
+    position: absolute;
+    left: 27.47px;
+   top: 361px;
+   }
+
+.character-with-matching-accessories-span {
+   
+           color: #000000;
+   
+           font: 400 30.08px 'Impact', sans-serif;
+   
+           
+           
+       }
+
+.character-with-matching-accessories-span2 {
+   
+           color: #000000;
+   
+           font: 400 30.08px 'Impact', sans-serif;
+   
+           
+           
+       }
+
+.amount {
+   color: #000000;
+    text-align: left;
+    font: 400 30.08px 'Impact', sans-serif;
+    position: absolute;
+    left: 104.6px;
+   top: 510.26px;
+   }
+
+._156-00 {
+   color: #000000;
+    text-align: left;
+    font: 400 30.08px 'Impact', sans-serif;
+    position: absolute;
+    left: 300.6px;
+   top: 510.26px;
+   }
+
+.line-38 {
+   border-style: solid;
+    border-color: #000000;
+    border-width: 4px 0 0 0;
+    width: 498px;
+    height: 0px;
+    position: absolute;
+    left: 39.6px;
+   top: 565.26px;
+   }
+
+.transaction-id {
+   color: #000000;
+    text-align: left;
+    font: 400 30.08px 'Impact', sans-serif;
+    position: absolute;
+    left: 46.6px;
+   top: 617.26px;
+   }
+
+._0009411456788175 {
+   color: #000000;
+    text-align: left;
+    font: 400 25px 'Impact', sans-serif;
+    position: absolute;
+    left: 173.6px;
+   top: 661.26px;
+   }
+
+.thank-you-for-commissioning-me-enjoy {
+   color: #000000;
+    text-align: left;
+    font: 400 18.15px 'Arial', sans-serif;
+    position: absolute;
+    left: 91.6px;
+   top: 728.26px;
+   }
+
+.box {
+   width: 1033.28px;
+    height: 121.64px;
+    position: absolute;
+    left: 689.97px;
+   top: 664.55px;
+   }
+
+.rectangle-86 {
+   background: #f7ff95;
+    width: 1033.28px;
+    height: 121.64px;
+    position: absolute;
+    left: 0px;
+   top: 0px;
+   }
+
+.thank-you-for-purchasing {
+   color: #000000;
+    text-align: left;
+    font: 400 66.71px 'Impact', sans-serif;
+    position: absolute;
+    left: 27.47px;
+   top: 20.93px;
+   }
+
+.print-button {
+   width: 456.48px;
+    height: 83.71px;
+    position: absolute;
+    left: 1389.72px;
+   top: 752.18px;
+   }
+
+.rectangle-87 {
+   background: #ff3535;
+    width: 456.48px;
+    height: 83.71px;
+    position: absolute;
+    left: 0px;
+   top: 0px;
+   }
+
+.print-receipt {
+   color: #ffffff;
+    text-align: left;
+    font: 400 58.86px 'Impact', sans-serif;
+    position: absolute;
+    left: 14.39px;
+   top: 5.23px;
+   }
+
+.girl-image {
+   width: 1546px;
+    height: 1204.63px;
+    position: absolute;
+    left: 465px;
+   top: 45.89px;
+   }
+
+.paintst-art {
+   color: #000000;
+    text-align: left;
+    font: 400 66.71px 'Impact', sans-serif;
+    position: absolute;
+    left: 309px;
+   top: 921px;
+   }
+

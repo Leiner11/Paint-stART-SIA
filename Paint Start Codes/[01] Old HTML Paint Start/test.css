@@ -1,0 +1,172 @@
+.register-page, .register-page * {
+    box-sizing: border-box;
+    }
+.register-page {
+   background: linear-gradient(180deg, rgba(3, 7, 30, 1.00) 0%,rgba(220, 47, 2, 1.00) 100%);
+    padding: 241px 618px 241px 618px;
+    width: 1924px;
+    height: 1133px;
+    position: relative;
+    overflow: hidden;
+   }
+
+.main-reg {
+   width: 688px;
+    height: 506px;
+    position: absolute;
+    left: 618px;
+   top: 241px;
+   }
+
+.register-area {
+   background: #ffffff;
+    border-radius: 34.12px;
+    width: 688px;
+    height: 748px;
+    position: absolute;
+    left: 0px;
+   top: -73px;
+    box-shadow: 0px 4px 84px 0px rgba(0, 0, 0, 0.25);
+   }
+
+.paint-st-art {
+   color: #000000;
+    text-align: left;
+    font: 700 91.11px 'Inter', sans-serif;
+    position: absolute;
+    left: 111px;
+   top: 27px;
+   }
+
+.have-an-account-log-in-instead {
+   color: #000000;
+    text-align: left;
+    font: 300 18.54px 'Inter', sans-serif;
+    position: absolute;
+    left: 208px;
+   top: 598px;
+   }
+
+.register {
+   width: 500px;
+    height: 68px;
+    position: absolute;
+    left: 103px;
+   top: 519px;
+   }
+
+.group-3 {
+   position: absolute;
+    inset: 0;
+   }
+
+.register-button {
+   background: #ffba08;
+    border-radius: 38px;
+    width: 248px;
+    height: 68px;
+    position: absolute;
+    left: 117px;
+   top: 0px;
+   }
+
+.register2 {
+   color: #000000;
+    text-align: left;
+    font: 700 25.69px 'Inter', sans-serif;
+    position: absolute;
+    left: 194px;
+   top: 18px;
+   }
+
+.re-enter {
+   width: 500px;
+    height: 68px;
+    position: absolute;
+    left: 94px;
+   top: 410px;
+   }
+
+.re-enterpassword-field {
+   background: #d9d9d9;
+    border-radius: 8px;
+    width: 500px;
+    height: 68px;
+    position: absolute;
+    left: 0px;
+   top: 0px;
+   }
+
+.re-enter-password {
+   color: #000000;
+    text-align: left;
+    font: 400 25.69px 'Inter', sans-serif;
+    position: absolute;
+    left: 18px;
+   top: 18px;
+   }
+
+.password {
+   width: 500px;
+    height: 68px;
+    position: absolute;
+    left: 94px;
+   top: 301px;
+   }
+
+.group-2 {
+   position: absolute;
+    inset: 0;
+   }
+
+.password-field {
+   background: #d9d9d9;
+    border-radius: 8px;
+    width: 500px;
+    height: 68px;
+    position: absolute;
+    left: 0px;
+   top: 0px;
+   }
+
+.password2 {
+   color: #000000;
+    text-align: left;
+    font: 400 25.69px 'Inter', sans-serif;
+    position: absolute;
+    left: 20px;
+   top: 18px;
+   }
+
+.username {
+   width: 500px;
+    height: 68px;
+    position: absolute;
+    left: 94px;
+   top: 191px;
+   }
+
+.group-1 {
+   position: absolute;
+    inset: 0;
+   }
+
+.username-field {
+   background: #d9d9d9;
+    border-radius: 8px;
+    width: 500px;
+    height: 68px;
+    position: absolute;
+    left: 0px;
+   top: 0px;
+   }
+
+.username2 {
+   color: #000000;
+    text-align: left;
+    font: 400 25.69px 'Inter', sans-serif;
+    position: absolute;
+    left: 21px;
+   top: 18px;
+   }
+

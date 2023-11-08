@@ -1,0 +1,319 @@
+.checkout-page, .checkout-page * {
+    box-sizing: border-box;
+    }
+.checkout-page {
+   background: #ffffff;
+    padding: 104px 384px 104px 384px;
+    width: 1924px;
+    height: 1113px;
+    position: relative;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+   }
+
+.proceed-bt {
+   width: 171px;
+    height: 55px;
+    position: absolute;
+    left: 1153px;
+   top: 859px;
+   }
+
+.proceed-button {
+   background: #f8bebe;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 1px;
+    width: 171px;
+    height: 55px;
+    position: absolute;
+    left: 0px;
+   top: 0px;
+   }
+
+.proceed {
+   color: #000000;
+    text-align: left;
+    font: 400 28px 'Inter', sans-serif;
+    position: absolute;
+    left: 23px;
+   top: 9px;
+   }
+
+.line-30 {
+   border-style: solid;
+    border-color: #000000;
+    border-width: 1px 0 0 0;
+    width: 51px;
+    height: 0px;
+    position: absolute;
+    left: 1092px;
+   top: 890px;
+   }
+
+.total-frame {
+   width: 260px;
+    height: 55px;
+    position: absolute;
+    left: 815px;
+   top: 862px;
+   }
+
+.total {
+   color: #000000;
+    text-align: left;
+    font: 400 32px 'Inter', sans-serif;
+    position: absolute;
+    left: 0px;
+   top: 5px;
+   }
+
+.total-box {
+   background: #dfdfdf;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 1px;
+    width: 168px;
+    height: 55px;
+    position: absolute;
+    left: 92px;
+   top: 0px;
+   }
+
+.suggestion {
+   width: 508.76px;
+    height: 200.5px;
+    position: absolute;
+    left: 815.18px;
+   top: 634.5px;
+   }
+
+.any-additional-request-comments-about-the-art {
+   color: #000000;
+    text-align: left;
+    font: 400 23.42px 'Inter', sans-serif;
+    position: absolute;
+    left: 9.37px;
+   top: 0px;
+   }
+
+.suggestion-area {
+   background: #f8bebe;
+    border-radius: 12.18px;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 0.94px;
+    width: 499.39px;
+    height: 133.04px;
+    position: absolute;
+    left: 9.37px;
+   top: 67.46px;
+   }
+
+.add-comment-here {
+   color: #826d6d;
+    text-align: left;
+    font: 400 18.74px 'Inter', sans-serif;
+    position: absolute;
+    left: 28.11px;
+   top: 81.51px;
+   }
+
+.if-none-then-you-can-leave-it-blank {
+   color: #6a040f;
+    text-align: left;
+    font: 400 18.74px 'Inter', sans-serif;
+    position: absolute;
+    left: 0px;
+   top: 32.79px;
+   }
+
+.colorgrade-option {
+   width: 447.86px;
+    height: 155.54px;
+    position: absolute;
+    left: 815.18px;
+   top: 439.61px;
+   }
+
+.color-grading-option {
+   color: #000000;
+    text-align: left;
+    font: 400 39.71px 'Inter', sans-serif;
+    position: absolute;
+    left: 0px;
+   top: 0px;
+   }
+
+.colored {
+   color: #000000;
+    text-align: left;
+    font: 400 22.06px 'Inter', sans-serif;
+    position: absolute;
+    left: 0px;
+   top: 102.59px;
+   }
+
+.colored2 {
+   border-radius: 7.72px;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 1.1px;
+    width: 82.73px;
+    height: 79.42px;
+    position: absolute;
+    left: 104.79px;
+   top: 76.11px;
+   }
+
+.black-n-white {
+   color: #000000;
+    text-align: left;
+    font: 400 22.06px 'Inter', sans-serif;
+    position: absolute;
+    left: 202.97px;
+   top: 102.59px;
+   }
+
+.blknwhite {
+   background: linear-gradient(180deg, rgba(0, 0, 0, 0.65) 44.57961022853851%,rgba(0, 0, 0, 0.00) 46.49277925491333%);
+    border-radius: 7.72px;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 1.1px;
+    width: 82.73px;
+    height: 79.42px;
+    position: absolute;
+    left: 365.12px;
+   top: 76.11px;
+   }
+
+.size-option {
+   width: 460.04px;
+    height: 202.23px;
+    position: absolute;
+    left: 803px;
+   top: 211px;
+   }
+
+.size-option2 {
+   color: #000000;
+    text-align: left;
+    font: 400 42.99px 'Inter', sans-serif;
+    position: absolute;
+    left: 11.83px;
+   top: 0px;
+   }
+
+.width-text-box {
+   background: #f8bebe;
+    border-radius: 13.01px;
+    border-style: solid;
+    border-color: #000000;
+    border-width: 1.18px;
+    width: 88.7px;
+    height: 85.15px;
+    position: absolute;
+    left: 125.36px;
+   top: 117.08px;
+   }
+
+.width {
+   color: #000000;
+    text-align: left;
+    font: 300 31.16px 'Inter', sans-serif;
+    position: absolute;
+    left: 11.83px;
+   top: 138.37px;
+   }
+
+.height-text-box {
+   border-radius: 0px;
+    position: absolute;
+    left: 371.34px;
+   top: 117.08px;
+    overflow: visible;
+   }
+
+.height {
+   color: #000000;
+    text-align: left;
+    font: 300 31.16px 'Inter', sans-serif;
+    position: absolute;
+    left: 249.53px;
+   top: 138.37px;
+   }
+
+.note-preferred-by-pixels {
+   color: #6a040f;
+    text-align: left;
+    font: 400 23.65px 'Inter', sans-serif;
+    position: absolute;
+    left: 0px;
+   top: 59.13px;
+   }
+
+.mode-payment {
+   width: 368px;
+    height: 164px;
+    position: absolute;
+    left: 166px;
+   top: 770px;
+   }
+
+.rectangle-84 {
+   background: #93e5ff;
+    border-radius: 40px;
+    width: 359px;
+    height: 89px;
+    position: absolute;
+    left: 0px;
+   top: 75px;
+   }
+
+.gcash {
+   width: 202px;
+    height: 67.27px;
+    position: absolute;
+    left: 79px;
+   top: 84px;
+   }
+
+.mode-of-payment {
+   color: #000000;
+    text-align: left;
+    font: 400 46.23px 'Inter', sans-serif;
+    position: absolute;
+    left: 0px;
+   top: 0px;
+    width: 501px;
+    height: 84px;
+   }
+
+.line-design {
+   opacity: 0.5;
+    position: absolute;
+    left: 87px;
+   top: 63px;
+    overflow: visible;
+   }
+
+.checkout-photo {
+   width: 391px;
+    height: 471px;
+    position: absolute;
+    left: 151px;
+   top: 239px;
+   }
+
+.paint-st-art {
+   color: #000000;
+    text-align: left;
+    font: 700 122.99px 'Inter', sans-serif;
+    position: absolute;
+    left: 151px;
+   top: 62px;
+   }
+

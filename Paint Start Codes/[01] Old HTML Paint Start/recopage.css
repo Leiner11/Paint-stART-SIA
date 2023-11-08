@@ -1,0 +1,93 @@
+.reco-page, .reco-page * {
+    box-sizing: border-box;
+    }
+.reco-page {
+   background: #ffffff;
+    padding: 104px 384px 104px 384px;
+    width: 1924px;
+    height: 1709px;
+    position: relative;
+    overflow: hidden;
+   }
+
+.other-arts {
+   color: #000000;
+    text-align: left;
+    font: 700 122.99px 'Inter', sans-serif;
+    position: absolute;
+    left: 199px;
+   top: 89px;
+   }
+
+.art-frame {
+   width: 1565px;
+    height: 1181px;
+    position: absolute;
+    left: 199px;
+   top: 309px;
+   }
+
+.frame-8 {
+   width: 362px;
+    height: 555px;
+    position: absolute;
+    left: 1203px;
+   top: 626px;
+   }
+
+.frame-7 {
+   width: 362px;
+    height: 555px;
+    position: absolute;
+    left: 802px;
+   top: 626px;
+   }
+
+.frame-6 {
+   width: 362px;
+    height: 555px;
+    position: absolute;
+    left: 401px;
+   top: 626px;
+   }
+
+.frame-5 {
+   width: 362px;
+    height: 555px;
+    position: absolute;
+    left: 0px;
+   top: 626px;
+   }
+
+.frame-4 {
+   width: 362px;
+    height: 555px;
+    position: absolute;
+    left: 1203px;
+   top: 0px;
+   }
+
+.frame-3 {
+   width: 362px;
+    height: 555px;
+    position: absolute;
+    left: 802px;
+   top: 0px;
+   }
+
+.frame-2 {
+   width: 362px;
+    height: 555px;
+    position: absolute;
+    left: 401px;
+   top: 0px;
+   }
+
+.frame-1 {
+   width: 362px;
+    height: 555px;
+    position: absolute;
+    left: 0px;
+   top: 0px;
+   }
+

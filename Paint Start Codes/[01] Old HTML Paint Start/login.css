@@ -1,0 +1,147 @@
+html ,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.login-page, .login-page * {
+    box-sizing: border-box;
+    }
+.login-page {
+   background: linear-gradient(180deg, rgba(106, 4, 15, 1.00) 0%,rgba(3, 7, 30, 1.00) 100%);
+    padding: 241px 618px 241px 618px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+   }
+
+.main-login {
+   flex-shrink: 0;
+    width: 688px;
+    height: 506px;
+    position: relative;
+   }
+
+.register-area {
+   background: #ffffff;
+    border-radius: 34.12px;
+    width: 688px;
+    height: 748px;
+    position: absolute;
+    left: 0px;
+   top: -73px;
+    box-shadow: 0px 4px 84px 0px rgba(0, 0, 0, 0.25);
+   }
+
+.paint-st-art {
+   color: #000000;
+    text-align: left;
+    font: 700 91.11px 'Inter', sans-serif;
+    position: absolute;
+    left: 111px;
+   top: 27px;
+   }
+
+.login {
+   width: 500px;
+    height: 68px;
+    position: absolute;
+    left: 103px;
+   top: 411px;
+   }
+
+.group-3 {
+   position: absolute;
+    inset: 0;
+   }
+
+.login-button {
+   background: #ffba08;
+    border-radius: 38px;
+    width: 248px;
+    height: 68px;
+    position: absolute;
+    left: 117px;
+   top: 0px;
+   }
+
+.login2 {
+   color: #000000;
+    text-align: left;
+    font: 700 25.69px 'Inter', sans-serif;
+    position: absolute;
+    left: 208px;
+   top: 18px;
+   }
+
+.password {
+   width: 500px;
+    height: 68px;
+    position: absolute;
+    left: 94px;
+   top: 301px;
+   }
+
+.group-2 {
+   position: absolute;
+    inset: 0;
+   }
+
+.password-field {
+   background: #d9d9d9;
+    border-radius: 8px;
+    width: 500px;
+    height: 68px;
+    position: absolute;
+    left: 0px;
+   top: 0px;
+   }
+
+.password2 {
+   color: #000000;
+    text-align: left;
+    font: 400 25.69px 'Inter', sans-serif;
+    position: absolute;
+    left: 20px;
+   top: 18px;
+   }
+
+.username {
+   width: 500px;
+    height: 68px;
+    position: absolute;
+    left: 94px;
+   top: 191px;
+   }
+
+.group-1 {
+   position: absolute;
+    inset: 0;
+   }
+
+.username-field {
+   background: #d9d9d9;
+    border-radius: 8px;
+    width: 500px;
+    height: 68px;
+    position: absolute;
+    left: 0px;
+   top: 0px;
+   }
+
+.username2 {
+   color: #000000;
+    text-align: left;
+    font: 400 25.69px 'Inter', sans-serif;
+    position: absolute;
+    left: 21px;
+   top: 18px;
+   }
+

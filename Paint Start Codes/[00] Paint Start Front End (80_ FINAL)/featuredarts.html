@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Arts</title>
+</head>
+<body>
+
+  <header>
+    <nav class="navigation">
+      <a href="#">Explore</a>
+      <a href="#">Digital Art Works</a>
+      <a href="#">About Me</a>
+      <button class="btnLogin-popup">Home</button>
+    </nav>
+  </header>
+
+    <div class="main-container" data-el="hero-centered">
+        <section class="section">
+          <nav class="navigation" data-el="navigation">
+            <section class="section-2">
+              <div class="box">
+                <div class="box-2">
+                  <div class="ct-as">
+                  </div>
+                </div>
+              </div>
+            </section>
+          </nav>
+          <div class="container">
+            <div class="about">
+              <div class="description-container">
+                <h2 class="title">Featured Arts</h2>
+                <p class="description"></p>
+              </div>
+              <div class="call-to-actions">
+                <button class="button-2" data-el="button-2">Interested. Request Art.</button>
+              </div>
+            </div>
+            <div class="builder-canvas product-video">
+              <div class="gallery">
+                <div class="column">
+                  <a href="RQ1.html"><img src="Images/one.jpg" style="width: 100%;"></a>
+                </div>
+                <div class="column">
+                  <a href="RQ2.html"><img src="Images/two.jpg" style="width: 100%;"></a>
+                </div>
+                <div class="column">
+                  <a href="RQ3.html"><img src="Images/three.jpg" style="width: 100%;"></a>
+                </div>
+                <div class="column">
+                  <a href="RQ4.html"><img src="Images/four.png" style="width: 150%;"></a>
+                </div>
+              </div>
+              <div class="gallery">
+                <div class="column">
+                  <a href="RQ5.html"><img src="Images/five.png" style="width: 100%;"></a>
+                </div>
+                <div class="column">
+                  <a href="RQ6.html"><img src="Images/six.jpg" style="width: 100%;"></a>
+                </div>
+                <div class="column">
+                  <a href="RQ7.html"><img src="Images/seven.png" style="width: 100%;"></a>
+                </div>
+                <div class="column">
+                  <a href="RQ8.html"><img src="Images/eight.png" style="width: 100%;"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      
+      <style>
+        .main-container {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          min-height: 100px;
+          width: 100%;
+          height: 100vh;
+          margin: 0 auto;
+          padding: 20px;
+        }
+      
+        @media (max-width: 991px) {
+          .main-container {
+            height: 100vh;
+            width: 100%;
+            align-self: stretch;
+          }
+        }
+
+        /*font ng buttons on top right*/
+      *{
+        font-family: 'Poppins', sans-serif;
+      }
+
+/* body format */
+        body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('Images/Background1.jpg') no-repeat;
+    background-size: cover;
+    background-position:center;
+}
+
+        .main-container {
+
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          min-height: 100px;
+          width: 100%;
+          height: 100vh;
+          margin: 0 auto;
+          padding: 20px;
+        }
+      
+        @media (max-width: 991px) {
+          .main-container {
+            height: 100vh;
+            width: 100%;
+            align-self: stretch;
+          }
+        }
+
+/*header format with buttons */
+        header
+{
+    position: fixed;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    padding: 20px 65%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.navigation a
+{
+    position: relative;
+    font-size: 1.1em;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation a::after
+{
+    content:'';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after
+{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup
+{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navigation .btnLogin-popup:hover
+{
+    background: #fff;
+    color: #162938;
+}
+
+/* end */
+      
+        .section {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          min-height: 100px;
+          width: 100%;
+          height: 100vh;
+          margin: 0 auto;
+          padding: 20px;
+          align-self: stretch;
+          flex-grow: 1;
+          max-width: 1200px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      
+        @media (max-width: 991px) {
+          .section {
+            height: 100vh;
+            width: 100%;
+            align-self: stretch;
+          }
+        }
+      
+        .section-2 {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          height: auto;
+          flex-grow: 1;
+          padding: 8px 20px 8px 0;
+          width: 100%;
+          align-self: stretch;
+          max-width: 1200px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      
+        .box {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+        }
+      
+        @media (max-width: 991px) {
+          .box {
+            justify-content: flex-start;
+            align-items: flex-start;
+          }
+        }
+      
+        @media (max-width: 640px) {
+          .box {
+            align-items: center;
+          }
+        }
+      
+        .box-2 {
+          align-self: stretch;
+          display: flex;
+          flex-direction: row;
+          gap: 20px;
+          justify-content: space-between;
+          width: 100%;
+          align-items: center;
+          position: relative;
+          margin: 12px 0;
+        }
+      
+        @media (max-width: 991px) {
+          .ct-as {
+            display: none;
+          }
+        }
+      
+        @media (max-width: 640px) {
+          .ct-as {
+            display: none;
+          }
+        }
+      
+        .divider {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          height: 32px;
+          width: 2px;
+          background-color: rgba(207, 207, 207, 1);
+          margin: auto 0;
+        }
+      
+        .box-3 {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          margin-left: 16px;
+          gap: 16px;
+        }
+      
+        .button {
+          all: unset;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          appearance: none;
+          color: rgba(0, 0, 0, 1);
+          border-radius: 4px;
+          text-align: center;
+          cursor: pointer;
+          flex-grow: 0;
+          padding: 12px;
+        }
+      
+        .container {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          height: auto;
+          flex-grow: 0;
+          width: 100%;
+          align-self: stretch;
+          gap: 36px;
+          margin: 48px auto auto;
+        }
+      
+        @media (max-width: 991px) {
+          .container {
+            width: 100%;
+            align-self: stretch;
+            margin: auto;
+          }
+        }
+      
+        .about {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          align-self: stretch;
+          height: auto;
+          flex-grow: 0;
+          margin: 48px auto 0;
+        }
+      
+        @media (max-width: 991px) {
+          .about {
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            padding: 0 24px;
+          }
+        }
+      
+        @media (max-width: 640px) {
+          .about {
+            padding: 0 16px;
+          }
+        }
+      
+        .description-container {
+          display: flex;
+          flex-direction: column;
+          max-width: 860px;
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+      
+        .title {
+          max-width: 860px;
+          color: rgb(255, 255, 255);
+          letter-spacing: -0.5px;
+          text-align: center;
+          margin: 0 auto;
+          font: 700 64px/120.00000476837158% "Poppins", sans-serif;
+        }
+      
+        @media (max-width: 991px) {
+          .title {
+            font-size: 48px;
+          }
+        }
+      
+        @media (max-width: 640px) {
+          .title {
+            font-size: 36px;
+            letter-spacing: 0px;
+            width: auto;
+            align-self: stretch;
+          }
+        }
+      
+        .description {
+          max-width: 860px;
+          margin-top: 8px;
+          color: rgba(43, 43, 43, 1);
+          letter-spacing: 0px;
+          text-align: center;
+          font: 300 24px/120% "Poppins", sans-serif;
+        }
+      
+        @media (max-width: 991px) {
+          .description {
+            color: rgba(74, 74, 74, 1);
+            font-weight: 300;
+          }
+        }
+      
+        @media (max-width: 640px) {
+          .description {
+            font-size: 16px;
+            line-height: 120%;
+          }
+        }
+      
+        .call-to-actions {
+          width: 80%;
+          align-self: center;
+          display: flex;
+          flex-direction: row;
+          gap: 16px;
+          align-items: center;
+          margin: 24px auto 0;
+        }
+      
+        .button-2 {
+          all: unset;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          appearance: none;
+          color: rgb(255, 255, 255);
+          border-radius: 200px;
+          text-align: center;
+          cursor: pointer;
+          border-width: 2px;
+          border-style: solid;
+          border-color: rgb(255, 255, 255);
+          width: auto;
+          flex-grow: 1;
+          max-width: 30%;
+          margin: 20px auto 0;
+          padding: 24px;
+        }
+      
+        @media (max-width: 640px) {
+          .button-2 {
+            max-width: 100%;
+            padding: 16px 0;
+          }
+        }
+      
+        .product-video {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          width: 100%;
+          position: relative;
+          min-height: 651px;
+          margin: 36px auto 0;
+        }
+      
+        .gallery {
+          display: flex;
+          flex-direction: row;
+          gap: 20px;
+        }
+      
+        @media (max-width: 991px) {
+          .gallery {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0px;
+          }
+        }
+      
+        .column {
+          display: flex;
+          flex-direction: column;
+          line-height: normal;
+          width: 25%;
+          margin-left: 0px;
+        }
+      
+        @media (max-width: 991px) {
+          .column {
+            width: 100%;
+          }
+        }
+      
+        .img {
+          aspect-ratio: 1.08;
+          object-fit: cover;
+          object-position: center;
+          width: 100%;
+          margin-top: 20px;
+          min-height: 20px;
+          min-width: 20px;
+          overflow: hidden;
+        }
+
+        .column:hover{
+          opacity: 0.5;
+          transition: 1;
+        }
+      
+        .column-2 {
+          display: flex;
+          flex-direction: column;
+          line-height: normal;
+          width: 25%;
+          margin-left: 20px;
+        }
+      
+        @media (max-width: 991px) {
+          .column-2 {
+            width: 100%;
+          }
+        }
+      
+        .img-2 {
+          aspect-ratio: 1.09;
+          object-fit: cover;
+          object-position: center;
+          width: 100%;
+          margin-top: 20px;
+          min-height: 20px;
+          min-width: 20px;
+          overflow: hidden;
+        }
+      
+        .column-3 {
+          display: flex;
+          flex-direction: column;
+          line-height: normal;
+          width: 25%;
+          margin-left: 20px;
+        }
+      
+        @media (max-width: 991px) {
+          .column-3 {
+            width: 100%;
+          }
+        }
+      
+        .column-4 {
+          display: flex;
+          flex-direction: column;
+          line-height: normal;
+          width: 25%;
+          margin-left: 20px;
+        }
+      
+        @media (max-width: 991px) {
+          .column-4 {
+            width: 100%;
+          }
+        }
+      
+        .img-3 {
+          aspect-ratio: 1.07;
+          object-fit: cover;
+          object-position: center;
+          width: 100%;
+          margin-top: 20px;
+          min-height: 20px;
+          min-width: 20px;
+          overflow: hidden;
+        }
+      
+        .div-5 {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 327px;
+          left: 9px;
+          width: 1147px;
+        }
+      
+        .div-6 {
+          gap: 20px;
+          display: flex;
+        }
+      
+        @media (max-width: 991px) {
+          .div-6 {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 0px;
+          }
+        }
+      
+        .img-4 {
+          aspect-ratio: 1.13;
+          object-fit: cover;
+          object-position: center;
+          width: 100%;
+          margin-top: 20px;
+          min-height: 20px;
+          min-width: 20px;
+          overflow: hidden;
+        }
+      
+        .column-5 {
+          display: flex;
+          flex-direction: column;
+          line-height: normal;
+          width: 25%;
+          margin-left: 20px;
+        }
+      
+        @media (max-width: 991px) {
+          .column-5 {
+            width: 100%;
+          }
+        }
+      
+        .column-6 {
+          display: flex;
+          flex-direction: column;
+          line-height: normal;
+          width: 25%;
+          margin-left: 20px;
+        }
+      
+        @media (max-width: 991px) {
+          .column-6 {
+            width: 100%;
+          }
+        }
+      
+        .img-5 {
+          aspect-ratio: 0.99;
+          object-fit: cover;
+          object-position: center;
+          width: 100%;
+          margin-top: 20px;
+          min-height: 20px;
+          min-width: 20px;
+          overflow: hidden;
+        }
+      
+        .column-7 {
+          display: flex;
+          flex-direction: column;
+          line-height: normal;
+          width: 25%;
+          margin-left: 20px;
+        }
+      
+        @media (max-width: 991px) {
+          .column-7 {
+            width: 100%;
+          }
+        }
+      
+        .img-6 {
+          aspect-ratio: 1.04;
+          object-fit: cover;
+          object-position: center;
+          width: 100%;
+          margin-top: 20px;
+          min-height: 20px;
+          min-width: 20px;
+          overflow: hidden;
+        }
+      </style>
+
+</body>
+</html>

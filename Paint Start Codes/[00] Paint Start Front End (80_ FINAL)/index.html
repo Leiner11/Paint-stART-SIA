@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+
+  <header>
+    <nav class="navigation">
+        <a href="#">Home</a>
+        <a href="#">Digital Art Works</a>
+        <a href="#">About Me</a>
+        <button class="btnLogin-popup">Login</button>
+    </nav>
+</header>
+
+    <div class="main-container" data-el="hero-centered">
+        <section class="section">
+          <nav class="navigation" data-el="navigation">
+            <section class="section-2">
+              <div class="box">
+                <div class="div">
+                  <div class="ct-as">
+                  </div>
+                </div>
+              </div>
+            </section>
+          </nav>
+          <div class="container">
+            <div class="about">
+              <div class="description-container">
+                <h2 class="title">Paint Start</h2>
+                <p class="description">A visual adventure. Welcome!!!</p>
+              </div>
+              <div class="call-to-actions">
+                <button class="button-3" data-el="button-3">Explore Arts</button>
+                <button class="button-4" data-el="button-4">Art Request</button>
+                <button class="button-5" data-el="button-5">About Me</button>
+              </div>
+            </div>
+            <div class="product-video">
+              <img src="Images/Finalgif2.gif">
+            </div>
+          </div>
+        </section>
+      </div>
+      
+      <style>
+
+/*font ng buttons on top right*/
+      *{
+        font-family: 'Poppins', sans-serif;
+      }
+
+/* body format */
+        body
+{
+    overflow-x: hidden;
+    display: cover;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('Images/SAMPLE.png') no-repeat;
+    background-size: cover;
+    background-position:center;
+}
+
+        .main-container {
+
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          min-height: 100px;
+          width: 100%;
+          height: 100vh;
+          margin: 0 auto;
+          padding: 20px;
+        }
+      
+        @media (max-width: 991px) {
+          .main-container {
+            height: 100vh;
+            width: 100%;
+            align-self: stretch;
+          }
+        }
+
+/*header format with buttons */
+        header
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 65%;
+    display: fixed;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.navigation a
+{
+    position: relative;
+    font-size: 1.1em;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation a::after
+{
+    content:'';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after
+{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup
+{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navigation .btnLogin-popup:hover
+{
+    background: #fff;
+    color: #162938;
+}
+
+/* end */
+
+        .section {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          min-height: 100px;
+          width: 100%;
+          height: 100vh;
+          margin: 0 auto;
+          padding: 20px;
+          align-self: stretch;
+          flex-grow: 1;
+          max-width: 1200px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      
+        @media (max-width: 991px) {
+          .section {
+            height: 100vh;
+            width: 100%;
+            align-self: stretch;
+          }
+        }
+      
+        .section-2 {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          height: auto;
+          flex-grow: 1;
+          padding: 8px 20px 8px 0;
+          width: 100%;
+          align-self: stretch;
+          max-width: 1200px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      
+        .box {
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+        }
+      
+        @media (max-width: 991px) {
+          .box {
+            justify-content: flex-start;
+            align-items: flex-start;
+          }
+        }
+      
+        @media (max-width: 640px) {
+          .box {
+            align-items: center;
+          }
+        }
+      
+        .div {
+          position: relative;
+          align-self: stretch;
+          display: flex;
+          flex-direction: row;
+          gap: 20px;
+          justify-content: space-between;
+          width: 100%;
+          align-items: center;
+          margin: 12px 0;
+        }
+      
+        .ct-as {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          flex-grow: 0;
+          width: auto;
+          margin: 1px 0 0 auto;
+        }
+      
+        @media (max-width: 991px) {
+          .ct-as {
+            display: none;
+          }
+        }
+      
+        @media (max-width: 640px) {
+          .ct-as {
+            display: none;
+          }
+        }
+      
+        .div-3 {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          margin-left: 16px;
+          gap: 16px;
+        }
+      
+        .button {
+          all: unset;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          appearance: none;
+          color: rgba(0, 0, 0, 1);
+          border-radius: 4px;
+          text-align: center;
+          cursor: pointer;
+          flex-grow: 0;
+          padding: 12px;
+        }
+      
+        .button-2 {
+          all: unset;
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          background-color: black;
+          appearance: none;
+          color: white;
+          border-radius: 4px;
+          text-align: center;
+          cursor: pointer;
+          flex-grow: 0;
+          padding: 12px;
+        }
+      
+        .container {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          height: auto;
+          flex-grow: 0;
+          width: 100%;
+          align-self: stretch;
+          gap: 36px;
+          margin: 48px auto auto;
+        }
+      
+        @media (max-width: 991px) {
+          .container {
+            width: 100%;
+            align-self: stretch;
+            margin: auto;
+          }
+        }
+      
+        .about {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          align-self: stretch;
+          height: auto;
+          flex-grow: 0;
+          margin: 48px auto 0;
+        }
+      
+        @media (max-width: 991px) {
+          .about {
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            padding: 0 24px;
+          }
+        }
+      
+        @media (max-width: 640px) {
+          .about {
+            padding: 0 16px;
+          }
+        }
+      
+        .description-container {
+          display: flex;
+          flex-direction: column;
+          max-width: 860px;
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+      
+        .title {
+          max-width: 860px;
+          color: rgb(255, 255, 255);
+          letter-spacing: -0.5px;
+          text-align: center;
+          margin: 0 auto;
+          font: 700 64px/120.00000476837158% "Poppins", sans-serif;
+        }
+      
+        @media (max-width: 991px) {
+          .title {
+            font-size: 48px;
+          }
+        }
+      
+        @media (max-width: 640px) {
+          .title {
+            font-size: 36px;
+            letter-spacing: 0px;
+            width: auto;
+            align-self: stretch;
+          }
+        }
+      
+        .description {
+          max-width: 860px;
+          margin-top: 8px;
+          color: rgb(255, 255, 255);
+          letter-spacing: 0px;
+          text-align: center;
+          font: 300 24px/120% "Poppins", sans-serif;
+        }
+      
+        @media (max-width: 991px) {
+          .description {
+            color: rgba(74, 74, 74, 1);
+            font-weight: 300;
+          }
+        }
+      
+        @media (max-width: 640px) {
+          .description {
+            font-size: 16px;
+            line-height: 120%;
+          }
+        }
+      
+        .call-to-actions {
+          width: 80%;
+          align-self: center;
+          display: flex;
+          flex-direction: row;
+          gap: 16px;
+          align-items: center;
+          margin: 24px auto 0;
+        }
+      
+        .button-3 {
+          all: unset;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          appearance: none;
+          color: rgb(255, 255, 255);
+          border-radius: 200px;
+          text-align: center;
+          cursor: pointer;
+          border-width: 2px;
+          border-style: solid;
+          border-color: rgb(255, 255, 255);
+          width: auto;
+          flex-grow: 1;
+          max-width: 30%;
+          margin: 20px auto 0 0;
+          padding: 24px;
+        }
+      
+        @media (max-width: 640px) {
+          .button-3 {
+            max-width: 100%;
+            padding: 16px 0;
+          }
+        }
+      
+        .button-4 {
+          all: unset;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          appearance: none;
+          color: rgb(247, 247, 247);
+          border-radius: 200px;
+          text-align: center;
+          cursor: pointer;
+          border-width: 2px;
+          border-style: solid;
+          border-color: rgb(255, 255, 255);
+          width: auto;
+          flex-grow: 1;
+          max-width: 30%;
+          margin: 20px auto 0 0;
+          padding: 24px;
+        }
+      
+        @media (max-width: 640px) {
+          .button-4 {
+            max-width: 100%;
+            padding: 16px 0;
+          }
+        }
+      
+        .button-5 {
+          all: unset;
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          appearance: none;
+          color: rgb(255, 255, 255);
+          border-radius: 200px;
+          text-align: center;
+          cursor: pointer;
+          border-width: 2px;
+          border-style: solid;
+          border-color: rgb(255, 255, 255);
+          width: auto;
+          flex-grow: 1;
+          max-width: 30%;
+          margin: 20px auto 0 0;
+          padding: 24px;
+        }
+      
+        @media (max-width: 640px) {
+          .button-5 {
+            max-width: 100%;
+            padding: 16px 0;
+          }
+        }
+      
+        .product-video {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+          width: 100%;
+          margin: 36px auto 0;
+        }
+      
+        .img {
+          aspect-ratio: 1.54;
+          object-fit: contain;
+          object-position: top;
+          width: 1156%;
+          min-height: 20px;
+          min-width: 20px;
+          overflow: hidden;
+          border-radius: 18px;
+          height: auto;
+          flex-grow: 0;
+          align-self: stretch;
+          max-width: 1000px;
+          margin: 0 auto;
+        }
+      
+        @media (max-width: 991px) {
+          .img {
+            height: auto;
+            flex-grow: 0;
+            border-radius: 18px;
+          }
+        }
+      </style>
+    
+</body>
+</html>

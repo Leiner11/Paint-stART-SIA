@@ -1,0 +1,93 @@
+.featured-arts, .featured-arts * {
+    box-sizing: border-box;
+    }
+.featured-arts {
+   background: #ffffff;
+    padding: 72px 107px 72px 107px;
+    width: 1919px;
+    height: 1111px;
+    position: relative;
+    overflow: hidden;
+   }
+
+.featured {
+   width: 1514px;
+    height: 750px;
+    position: absolute;
+    left: 157px;
+   top: 301px;
+   }
+
+.pic-8 {
+   width: 268px;
+    height: 317.14px;
+    position: absolute;
+    left: 605px;
+   top: 389px;
+   }
+
+.pic-7 {
+   width: 272.95px;
+    height: 323px;
+    position: absolute;
+    left: 297.82px;
+   top: 381px;
+   }
+
+.pic-6 {
+   width: 242px;
+    height: 286.38px;
+    position: absolute;
+    left: 0px;
+   top: 381px;
+   }
+
+.pic-5 {
+   width: 310.98px;
+    height: 368px;
+    position: absolute;
+    left: 1203px;
+   top: -12px;
+   }
+
+.pic-4 {
+   width: 262px;
+    height: 355px;
+    position: absolute;
+    left: 907px;
+   top: 2px;
+   }
+
+.pic-3 {
+   width: 268.33px;
+    height: 355.41px;
+    position: absolute;
+    left: 604.67px;
+   top: 0px;
+   }
+
+.pic-2 {
+   width: 268.33px;
+    height: 355.41px;
+    position: absolute;
+    left: 302.33px;
+   top: 0px;
+   }
+
+.pic-1 {
+   width: 268.33px;
+    height: 355.41px;
+    position: absolute;
+    left: 0px;
+   top: 0.59px;
+   }
+
+.featured-arts2 {
+   color: #6a040f;
+    text-align: left;
+    font: 700 152.99px 'Inter', sans-serif;
+    position: absolute;
+    left: 157px;
+   top: 86px;
+    width: 1165px;
+   }

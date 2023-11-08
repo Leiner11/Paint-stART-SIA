@@ -1,0 +1,219 @@
+html ,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.index, .index * {
+  box-sizing: border-box;
+  }
+.index {
+ background: #6a040f;
+  padding: 241px 618px 241px 618px;
+  width: 1924px;
+  height: 2226px;
+  position: relative;
+  overflow: hidden;
+ }
+
+.featured-arts {
+ background: #ffffff;
+  padding: 72px 107px 72px 107px;
+  width: 1919px;
+  height: 1111px;
+  position: absolute;
+  left: 0px;
+ top: 1115px;
+  overflow: hidden;
+ }
+
+.featured {
+ width: 1475px;
+  height: 600px;
+  position: absolute;
+  left: 157px;
+ top: 322px;
+ }
+
+.pic-3 {
+ width: 453px;
+  height: 600px;
+  position: absolute;
+  left: 1022px;
+ top: 0px;
+ }
+
+.pic-2 {
+ width: 453px;
+  height: 600px;
+  position: absolute;
+  left: 511px;
+ top: 0px;
+ }
+
+.pic-1 {
+ width: 453px;
+  height: 600px;
+  position: absolute;
+  left: 0px;
+ top: 1px;
+ }
+
+.featured-arts2 {
+ color: #6a040f;
+  text-align: left;
+  font: 700 152.99px 'Inter', sans-serif;
+  position: absolute;
+  left: 157px;
+ top: 86px;
+  width: 1165px;
+ }
+
+.description {
+ position: absolute;
+  inset: 0;
+ }
+
+.about-me-text {
+ color: #ffffff;
+  text-align: justified;
+  font: 600 20px 'Inter', sans-serif;
+  position: absolute;
+  left: 1017px;
+ top: 845px;
+  width: 304.28px;
+  height: 96px;
+ }
+
+.art-request-text {
+ color: #ffffff;
+  text-align: left;
+  font: 600 20px 'Inter', sans-serif;
+  position: absolute;
+  left: 692px;
+ top: 850px;
+  width: 271px;
+  height: 96px;
+ }
+
+.explore-art-text {
+ color: #ffffff;
+  text-align: justified;
+  font: 600 20px 'Inter', sans-serif;
+  position: absolute;
+  left: 384px;
+ top: 850px;
+  width: 236px;
+ }
+
+.buttons {
+ width: 1156px;
+  height: 47px;
+  position: absolute;
+  left: 384px;
+ top: 773px;
+ }
+
+.about-me-button {
+ color: #ffffff;
+  text-align: left;
+  font: 700 38.97px 'Inter', sans-serif;
+  position: absolute;
+  left: 633px;
+ top: 0px;
+  width: 271px;
+ }
+
+.art-request-button {
+ color: #ffffff;
+  text-align: left;
+  font: 700 38.97px 'Inter', sans-serif;
+  position: absolute;
+  left: 308px;
+ top: 0px;
+  width: 293px;
+ }
+
+.explore-arts-button {
+ color: #ffffff;
+  text-align: left;
+  font: 700 38.97px 'Inter', sans-serif;
+  position: absolute;
+  left: 0px;
+ top: 0px;
+  width: 292px;
+ }
+
+.slideshow-frame {
+ background: #d9d9d9;
+  width: 1156px;
+  height: 313px;
+  position: absolute;
+  left: 384px;
+ top: 410px;
+ }
+
+.header {
+ width: 921px;
+  height: 204px;
+  position: absolute;
+  left: 384px;
+ top: 156px;
+ }
+
+._2023 {
+ color: #ffffff;
+  text-align: left;
+  font: 400 19.48px 'Inter', sans-serif;
+  position: absolute;
+  left: 859px;
+ top: 27px;
+ }
+
+.line-one {
+ border-style: solid;
+  border-color: #ffffff;
+  border-width: 2px 0 0 0;
+  width: 145px;
+  height: 0px;
+  position: absolute;
+  left: 0px;
+ top: 183px;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(1, 1);
+ }
+
+.line-one2 {
+ border-style: solid;
+  border-color: #ffffff;
+  border-width: 2px 0 0 0;
+  width: 145px;
+  height: 0px;
+  position: absolute;
+  left: 621px;
+ top: 183px;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(1, 1);
+ }
+
+.digital-art-commission {
+ color: #ffffff;
+  text-align: left;
+  font: 700 35.19px 'Inter', sans-serif;
+  position: absolute;
+  left: 189px;
+ top: 161px;
+ }
+
+.paint-st-art {
+ color: #ffffff;
+  text-align: left;
+  font: 700 133.13px 'Inter', sans-serif;
+  position: absolute;
+  left: 0px;
+ top: 0px;
+ }
+
