@@ -7,7 +7,6 @@ else {
 	echo('Invalid account. Re-login again.');
 }
 
-// Establish a connection to the database
 $servername = "localhost";
 $username = "Group4PS_Admin";
 $password = "group_4_PS!!!1111";
@@ -15,7 +14,6 @@ $dbname = "users";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
@@ -39,6 +37,5 @@ if (isset($_POST['update'])) {
 			echo "Error updating username and password: " . $conn->error;
 		}
 }
-
 $conn->close();
 ?>

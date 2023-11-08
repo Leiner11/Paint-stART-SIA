@@ -2,10 +2,10 @@
 	session_start();
 	
 	// Connect to the database
-	$host = 'localhost';  // replace with your database host
-	$dbname = 'users'; // replace with your database name
-	$username = 'Group4PS_Admin'; // replace with your database username
-	$password = 'group_4_PS!!!1111'; // replace with your database password
+	$host = 'localhost'; 
+	$dbname = 'users'; 
+	$username = 'Group4PS_Admin'; 
+	$password = 'group_4_PS!!!1111'; 
 	$db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 
 	// Get the user's entered email and password

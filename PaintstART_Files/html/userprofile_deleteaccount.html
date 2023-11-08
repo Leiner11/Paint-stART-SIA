@@ -526,7 +526,7 @@
                      <nav class="side-menu">
                         <ul class="nav">
                            <li class="active"><a href="#"><span class="fa fa-user"></span> Edit Profile</a></li>
-                           <li><a href="/PaintstART_Files/html/userprofile_updatedetails.html"><span class="fa fa-cog"></span> Update Details</a></li>
+                           <li><a href="#"><span class="fa fa-cog"></span> Update Details</a></li>
                         </ul>
                         <ul class="nav">
                            <li class="active"><a href="#"><span class="fa fa-user"></span> My Profile</a></li>
@@ -537,60 +537,60 @@
                      </nav>
                   </div>
                   <div class="content-panel">
-                     <form action="/PaintstART_Files/html/userprofile_deleteaccount.html" class="form-horizontal" method="POST">
+                     <form action="/PaintstART_Files/php/delete_success_message.php" class="form-horizontal" method="POST">
                         <fieldset class="fieldset">
                            <h3 class="fieldset-title">Edit Profile</h3>
                            <div class="form-group avatar">
                               <figure class="figure col-md-2 col-sm-3 col-xs-12">
                                  <img class="img-rounded img-responsive" src="Images/ASTARION-EXAMPLEPROFILE.jpg" alt>
                               </figure>
-                              <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-                                 <input type="file" class="file-uploader pull-left">
-                                 <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
+                           </div>
+                           <div class="form-group">
+                              <label for="new_username" label class="col-md-2 col-sm-3 col-xs-12 control-label">Enter Username</label>
+                              <div class="col-md-10 col-sm-9 col-xs-12">
+                                 <input type="text" class="form-control" id="username" name="new_username" value="" required>
                               </div>
                            </div>
                            <div class="form-group">
-                              <label for="new_username" label class="col-md-2 col-sm-3 col-xs-12 control-label">Username</label>
-                              <div class="col-md-10 col-sm-9 col-xs-12">
-                                 <input type="text" class="form-control" value="NeckBiter" readonly>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <label for="firstname" label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
-                              <div class="col-md-10 col-sm-9 col-xs-12">
-                                 <input type="text" class="form-control" value="Astarion" readonly>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <label for="lastname" label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
-                              <div class="col-md-10 col-sm-9 col-xs-12">
-                                 <input type="text" class="form-control" value="Ascunin" readonly>
-                              </div>
-                           </div>
-                        </fieldset>
-                        <fieldset class="fieldset">
-                           <h3 class="fieldset-title">Contact Info</h3>
-                           <div class="form-group">
-                              <label for="email" label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
-                              <div class="col-md-10 col-sm-9 col-xs-12">
-                                 <input type="email" class="form-control" value="NoRatForLunch@baldursgate.com" readonly>
-                                 <p class="help-block">This is your email </p>
-                              </div>
-                           </div>
-                           <div class="form-group">
-                              <label class="col-md-2  col-sm-3 col-xs-12 control-label">Twitter</label>
-                              <div class="col-md-10 col-sm-9 col-xs-12">
-                                 <input type="text" class="form-control" value="RAAAH" readonly>
-                                 <p class="help-block">Your twitter username</p>
-                              </div>
-                           </div>
+                            <label for="current_password" label class="col-md-2 col-sm-3 col-xs-12 control-label">Enter Password</label>
+                            <div class="col-md-10 col-sm-9 col-xs-12">
+                               <input type="text" class="form-control" id="password" name="current_password" value="" required>
+                            </div>
+                         </div>
+
+                         <div class="form-group">
+                            <label for="current_password" label class="col-md-2 col-sm-3 col-xs-12 control-label">Re-enter Password</label>
+                            <div class="col-md-10 col-sm-9 col-xs-12">
+                               <input type="text" class="form-control" id="password" name="current_password" value="" required>
+                            </div>
+                         </div>
+                         <div class="form-group">
+                            <label for="new_email" label class="col-md-2 col-sm-3 col-xs-12 control-label">Enter Email Address</label>
+                            <div class="col-md-10 col-sm-9 col-xs-12">
+                               <input type="email" class="form-control" id="email" name="new_email" value="" required>
+                            </div>
+                         </div>
                         </fieldset>
                         <hr>
                         <div class="form-group">
                            <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                              <input class="btn btn-primary" name="update" type="submit" value="Delete Profile">
-                           </div>
+                              <input class="btn btn-primary" name="delete" type="submit" value="PERMANENTLY DELETE ACCOUNT" onclick="confirmDeleteAccount()">
+                            </div>
                         </div>
+                        <script>
+                            function confirmDeleteAccount() {
+                                var confirmation = confirm("Are you sure you want to permanently delete your account? This action cannot be undone.");
+                        
+                                if (confirmation) {
+                                    // User clicked "OK," proceed with the deletion action
+                                    // You can redirect to a delete account PHP script here
+                                    window.location.href = "/PaintstART_Files/php/delete_success_message.php";
+                                } else {
+                                    // User clicked "Cancel," do nothing or provide feedback
+                                    // Optionally, you can prevent the form submission by returning false
+                                }
+                            }
+                        </script>
                      </form>
                   </div>
                </div>
