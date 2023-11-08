@@ -4,8 +4,6 @@ session_start();
 if (session_status() == PHP_SESSION_ACTIVE) {
     // Unset specific session variables
     unset($_SESSION['userLoggedIn']);
-
-    // Destroy the session
     session_destroy();
 }
 

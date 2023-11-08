@@ -1,4 +1,6 @@
 <?php
+	session_start();
+	
 	// Connect to the database
 	$host = 'localhost';  // replace with your database host
 	$dbname = 'users'; // replace with your database name
@@ -20,8 +22,6 @@
 	if ($stmt->rowCount() > 0) {
 		// User exists, set session variable and redirect to home page
 		$username = $stmt->fetch();
-
-		session_start();
 		$_SESSION['username'];
 		header("Location: check_login.php");
 		exit();
