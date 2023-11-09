@@ -5,16 +5,12 @@
   </head>
   <body>
     <?php
-      // Retrieve the user's name from the database if they are logged in
-      $db_hostname = 'localhost'; // replace with your database hostname
-      $db_database = 'userregistration'; // replace with your database name
-      $db_username = 'Group4PS_Admin'; // replace with your database username
-      $db_password = 'group_4_PS!!!1111'; // replace with your database password
+    require_once './Config.php';
 
-      $conn = mysqli_connect($db_hostname, $db_username, $db_password, $db_database);
-      if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-      }
+    // Check the connection
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
 
       session_start();
 

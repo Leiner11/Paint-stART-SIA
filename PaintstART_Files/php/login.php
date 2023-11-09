@@ -1,33 +1,38 @@
 <?php
-	session_start();
-	
-	// Connect to the database
-	$host = 'localhost'; 
-	$dbname = 'users'; 
-	$username = 'Group4PS_Admin'; 
-	$password = 'group_4_PS!!!1111'; 
-	$db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+session_start();
+require_once './Config.php';
 
-	// Get the user's entered email and password
-	$email = $_POST['email'];
-	$password = $_POST['password'];
+// Check the connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
-	// Query the database for the user's details
-	$stmt = $db->prepare("SELECT * FROM user_profile WHERE email=:email AND password=:password");
-	$stmt->bindValue(':email', $email);
-	$stmt->bindValue(':password', $password);
-	$stmt->execute();
+// Get the user's entered email and password
+$email = $_POST['email'];
+$password = $_POST['password'];
 
-	// Check if the user exists
-	if ($stmt->rowCount() > 0) {
-		// User exists, set session variable and redirect to home page
-		$user = $stmt->fetch();
-		$_SESSION['username'] = $user['username'];
-		$_SESSION['loggedInUser'] = $user['username'];
-		header("Location: check_login.php");
-		exit();
-	} else {
-		// User does not exist, display error message
-		echo "<p>Invalid username or password.</p>";
-	}
+// Query the database for the user's details
+$sql = "SELECT * FROM user_profile WHERE email=? AND password=?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ss", $email, $password);
+$stmt->execute();
+$result = $stmt->get_result();
+
+// Check if the user exists
+if ($result->num_rows > 0) {
+    // User exists, set session variable and redirect to home page
+    $user = $result->fetch_assoc();
+    $_SESSION['username'] = $user['username'];
+    $_SESSION['loggedInUser'] = $user['username'];
+    header("Location: check_login.php");
+    exit();
+} else {
+    // User does not exist, display error message
+    echo "<p>Invalid username or password.</p>";
+}
+
+// Close the statement
+$stmt->close();
+// Close the connection
+$conn->close();
 ?>

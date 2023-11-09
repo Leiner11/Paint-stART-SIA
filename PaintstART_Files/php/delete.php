@@ -1,12 +1,5 @@
 <?php
-// Database credentials
-$host = "localhost";
-$username = "Group4PS_Admin";
-$password = "group_4_PS!!!1111";
-$dbname = "users";
-
-// Create a new database connection
-$conn = new mysqli($host, $username, $password, $dbname);
+require_once './Config.php';
 
 // Check the connection
 if ($conn->connect_error) {

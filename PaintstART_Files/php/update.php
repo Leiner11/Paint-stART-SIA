@@ -7,15 +7,11 @@ else {
 	echo('Invalid account. Re-login again.');
 }
 
-$servername = "localhost";
-$username = "Group4PS_Admin";
-$password = "group_4_PS!!!1111";
-$dbname = "users";
+require_once './Config.php';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
+// Check the connection
 if ($conn->connect_error) {
-	die("Connection failed: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
 // If the user submitted the form to update the username and password, update the database
