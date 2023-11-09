@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -516,39 +518,51 @@
                <div class="module-inner">
                   <div class="side-bar">
                      <div class="user-info">
-                        <img class="img-profile img-circle img-responsive center-block" src="Images/ASTARION-EXAMPLEPROFILE.jpg" alt>
+                        <img class="img-profile img-circle img-responsive center-block" src="" alt>
                         <ul class="meta list list-unstyled">
                            <li class="name">Astarion Ascunin
                               <label class="label label-info">User</label>
                            </li>
                         </ul>
                      </div>
+                     
                      <nav class="side-menu">
+                        
                         <ul class="nav">
                            <li class="active"><a href="#"><span class="fa fa-user"></span> Edit Profile</a></li>
                            <li><a href="#"><span class="fa fa-cog"></span> Update Details</a></li>
                         </ul>
                         <ul class="nav">
                            <li class="active"><a href="#"><span class="fa fa-user"></span> My Profile</a></li>
-                           <li><a href="#"><span class="fa fa-cog"></span> Information</a></li>
+                           <li><a href="/PaintstART_Files/html/userprofile.html"><span class="fa fa-cog"></span> My Information</a></li>
                            <li><a href="#"><span class="fa fa"></span> Order History</a></li>
                            <li><a href="/PaintstART_Files/php/logout.php"><span class="fa fa"></span> Logout</a></li>
+                           <br<br><br><br>
+                           <li><a href="/PaintstART_Files/html/index.php"><span class="fa fa"></span> Go Back</a></li>
                         </ul>
                      </nav>
                   </div>
+                  
                   <div class="content-panel">
-                     <form action="/PaintstART_Files/php/update.php" class="form-horizontal" method="POST">
                         <fieldset class="fieldset">
                            <h3 class="fieldset-title">Edit Profile</h3>
-                           <div class="form-group avatar">
-                              <figure class="figure col-md-2 col-sm-3 col-xs-12">
-                                 <img class="img-rounded img-responsive" src="Images/ASTARION-EXAMPLEPROFILE.jpg" alt>
-                              </figure>
-                              <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-                                 <input type="file" class="file-uploader pull-left">
-                                 <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
+
+                        <div id="content">
+                           <form method="POST" action="" enctype="multipart/form-data">
+                              <div class="form-group avatar">
+                                 <figure class="figure col-md-2 col-sm-3 col-xs-12">
+                                    <img class="img-rounded img-responsive" src="<?php echo $imageSource ?>" alt>
                               </div>
-                           </div>
+                                 </figure>
+                                 <div class="form-inline col-md-10 col-sm-9 col-xs-12">
+                                    <input type="file" class="file-uploader pull-left" name="uploadfile" value=""/>
+                                    <button type="submit" class="btn btn-sm btn-default-alt pull-left" name="upload">Update Image</button><br><br>
+                                 </div>
+		                     </form>
+                        </div>
+
+
+                        <form action="/PaintstART_Files/php/update.php" class="form-horizontal" method="POST">
                            <div class="form-group">
                               <label for="new_username" label class="col-md-2 col-sm-3 col-xs-12 control-label">Username</label>
                               <div class="col-md-10 col-sm-9 col-xs-12">
@@ -601,5 +615,47 @@
       <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
       <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <script type="text/javascript"></script>
+
+      
+      
+      <?php
+      //NOT COMPLETE YET, DELETE IF THIS IF NOT NEEDED
+         error_reporting(0);
+
+         $msg = "";
+
+         // If upload button is clicked ...
+         if (isset($_POST['upload'])) {
+
+            $filename = $_FILES["uploadfile"]["name"];
+            $tempname = $_FILES["uploadfile"]["tmp_name"];
+            $folder = "./user_images/" . $filename;
+
+            $db = mysqli_connect("localhost", "Group4PS_Admin", "group_4_PS!!!1111", "users");
+
+            // Get all the submitted data from the form
+            $sql = "INSERT INTO portfolio_images (filename) VALUES ('$filename')";
+
+            // Execute query
+            mysqli_query($db, $sql);
+
+            // Now let's move the uploaded image into the folder: image
+            if (move_uploaded_file($tempname, $folder)) {
+               $imageSource = "./user_images/" . $filename;
+               echo "<h3> Image uploaded successfully!</h3>";
+            } else {
+               echo "<h3> Failed to upload image!</h3>";
+            }
+            
+         }
+      ?>
+         <?php
+            $query = "SELECT * FROM portfolio_images";
+            $result = mysqli_query($db, $query);
+
+            while ($data = mysqli_fetch_assoc($result)) {
+            $imageSource = "./user_images/" . $data['filename'];
+            }
+         ?>
    </body>
 </html>

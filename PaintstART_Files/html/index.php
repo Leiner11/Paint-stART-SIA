@@ -383,7 +383,7 @@ https://templatemo.com/tm-586-scholar
               </div>
               <div class="col-lg-3 col-md-6">
                 <div class="counter end">
-                  <h2 class="timer count-title count-number" data-to="10" data-speed="1000"></h2>
+                  <h2 class="timer count-title count-number" data-to="4" data-speed="1000"></h2>
                   <p class="count-text ">Years Experience</p>
                 </div>
               </div>
@@ -762,7 +762,7 @@ https://templatemo.com/tm-586-scholar
   <footer>
     <div class="container">
       <div class="col-lg-12">
-        <p>Copyright © 2023 Paint stART. All rights reserved. &nbsp;&nbsp;&nbsp; Group 3 from J3S</p>
+        <p>Copyright © 2023 Paint stART. All rights reserved. &nbsp;&nbsp;&nbsp; <br>J3S: Group-3 </p>
       </div>
     </div>
   </footer>
