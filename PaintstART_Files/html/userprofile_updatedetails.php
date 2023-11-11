@@ -534,7 +534,7 @@
                         </ul>
                         <ul class="nav">
                            <li class="active"><a href="#"><span class="fa fa-user"></span> My Profile</a></li>
-                           <li><a href="/PaintstART_Files/html/userprofile.html"><span class="fa fa-cog"></span> My Information</a></li>
+                           <li><a href="/PaintstART_Files/html/userprofile.php"><span class="fa fa-cog"></span> My Information</a></li>
                            <li><a href="#"><span class="fa fa"></span> Order History</a></li>
                            <li><a href="/PaintstART_Files/php/logout.php"><span class="fa fa"></span> Logout</a></li>
                            <br<br><br><br>

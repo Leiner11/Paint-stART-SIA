@@ -22,8 +22,12 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     // User exists, set session variable and redirect to home page
     $user = $result->fetch_assoc();
+    $userID = $user['userID'];
+    
     $_SESSION['username'] = $user['username'];
+    $_SESSION['userID'] = $userID;
     $_SESSION['loggedInUser'] = $user['username'];
+
     header("Location: check_login.php");
     exit();
 } else {

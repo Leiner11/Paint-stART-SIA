@@ -45,25 +45,29 @@ https://templatemo.com/tm-586-scholar
 
 <!-- ***** PHP code to check user log-in status ***** -->
 <?php
-    session_start();
-    if (isset($_SESSION["username"])) {
+  session_start();
+  if (isset($_SESSION["username"])) {
+      $userID = $_SESSION['userID'];
       $userLoggedIn = $_SESSION['username'];
+      //$userId = $_SESSION['userID']; Uncomment if we want to show the UserID
+      //$listItemName = ($userLoggedIn) ? 'My Account (ID: ' . $userId . ')' : 'Login'; Uncomment if we want to show the UserID
       $listItemName = ($userLoggedIn) ? 'My Account' : 'Login';
-      $listItemHref = ($userLoggedIn) ? 'userprofile.html' : 'login.html';
-    } else {
+      $listItemHref = ($userLoggedIn) ? 'userprofile.php' : 'login.html';
+  } else {
       $userLoggedIn = false;
       $listItemName = 'Login';
       $listItemHref = 'login.html';
-    }
+  }
 ?>
 
 <script>
     function updateUserStatus() {
-      var userStatusLi = document.getElementById('user_status');
-      userStatusLi.innerHTML = '<a href="' + '<?php echo $listItemHref; ?>' + '">' + '<?php echo $listItemName; ?>' + '</a>';
+        var userStatusLi = document.getElementById('user_status');
+        userStatusLi.innerHTML = '<a href="' + '<?php echo $listItemHref; ?>' + '">' + '<?php echo $listItemName; ?>' + '</a>';
     }
     window.onload = updateUserStatus;
 </script>
+
 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
@@ -80,7 +84,7 @@ https://templatemo.com/tm-586-scholar
                     <ul class="nav">
                       <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                       <li class="scroll-to-section"><a href="#services">Information</a></li>
-                      <li class="scroll-to-section"><a href="#courses">Digital Arts</a></li>
+                      <li class="scroll-to-section"><a href="/PaintstART_Files/html/album/HoriClientPortfolio.html">Digital Arts</a></li>
                       <li class="scroll-to-section"><a href="#events">Offered Pricing</a></li>
                       <li class="scroll-to-section" id="user_status"><a href="/PaintstART_Files/html/login.html"></a></li>
                   </ul>   
