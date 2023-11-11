@@ -1,3 +1,75 @@
+<?php
+    session_start();
+    require_once './Config.php';
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Check if userID is set in the session
+    if (isset($_SESSION['userID'])) {
+        $userID = $_SESSION['userID'];
+        echo "User ID: $userID";
+    } else {
+        echo "User ID not set in the session.";
+    }
+
+    // Get the user's information from the database
+    $sql = "SELECT username, firstname, lastname, email FROM user_profile WHERE userID = ?";
+    $stmt = $conn->prepare($sql);
+
+    // Check for errors in preparing the statement
+    if (!$stmt) {
+        die("Error in preparing the statement: " . $conn->error);
+    }
+
+    $stmt->bind_param("i", $userID);
+
+    // Check for errors in binding parameters
+    if (!$stmt) {
+        die("Error in binding parameters: " . $stmt->error);
+    }
+
+    $stmt->execute();
+
+    // Check for errors in executing the statement
+    if (!$stmt) {
+        die("Error in executing the statement: " . $stmt->error);
+    }
+
+    $result = $stmt->get_result();
+
+    // Check if the user exists
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+
+        // Populate the form fields
+        echo '<script>';
+        echo 'document.getElementById("username").value = "' . $user['username'] . '";';
+        echo 'document.getElementById("firstname").value = "' . $user['firstname'] . '";';
+        echo 'document.getElementById("lastname").value = "' . $user['lastname'] . '";';
+        echo 'document.getElementById("email").value = "' . $user['email'] . '";';
+        //echo 'document.getElementById("twitter").value = "' . $user['twitter'] . '";';
+        echo '</script>';
+    } else {
+        echo "User not found.";
+    }
+
+    // Close the statement
+    $stmt->close();
+    // Close the connection
+    $conn->close();
+?>
+<script>
+    function populateUserAccount() {
+        var userStatusLi = document.getElementById('username');
+        userStatusLi.innerHTML = '" . $user['username'] . "';
+    }
+    window.onload = populateUserAccount;
+</script>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -509,6 +581,7 @@
 
    </head>
    <body>
+
       <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
       <div class="container">
          <div class="view-account">
@@ -538,42 +611,44 @@
                         </ul>
                      </nav>
                   </div>
+
+
                   <div class="content-panel">
                      <form action="/PaintstART_Files/html/userprofile_deleteaccount.html" class="form-horizontal" method="POST">
                         <fieldset class="fieldset">
                            <h3 class="fieldset-title">Edit Profile</h3>
                            <div class="form-group">
-                              <label for="new_username" label class="col-md-2 col-sm-3 col-xs-12 control-label">Username</label>
+                              <label for="new_username" label class="col-md-2 col-sm-3 col-xs-12 control-label" >Username</label>
                               <div class="col-md-10 col-sm-9 col-xs-12">
-                                 <input type="text" class="form-control" value="NeckBiter" readonly>
+                                 <input type="text" class="form-control" id="username" value="" readonly>
                               </div>
                            </div>
                            <div class="form-group">
-                              <label for="firstname" label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
+                              <label for="firstname" label class="col-md-2 col-sm-3 col-xs-12 control-label" >First Name</label>
                               <div class="col-md-10 col-sm-9 col-xs-12">
-                                 <input type="text" class="form-control" value="Astarion" readonly>
+                                 <input type="text" class="form-control" id="firstname" value="" readonly>
                               </div>
                            </div>
                            <div class="form-group">
-                              <label for="lastname" label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
+                              <label for="lastname" label class="col-md-2 col-sm-3 col-xs-12 control-label" >Last Name</label>
                               <div class="col-md-10 col-sm-9 col-xs-12">
-                                 <input type="text" class="form-control" value="Ascunin" readonly>
+                                 <input type="text" class="form-control" id="lastname" value="" readonly>
                               </div>
                            </div>
                         </fieldset>
                         <fieldset class="fieldset">
                            <h3 class="fieldset-title">Contact Info</h3>
                            <div class="form-group">
-                              <label for="email" label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
+                              <label for="email" label class="col-md-2  col-sm-3 col-xs-12 control-label" >Email</label>
                               <div class="col-md-10 col-sm-9 col-xs-12">
-                                 <input type="email" class="form-control" value="NoRatForLunch@baldursgate.com" readonly>
+                                 <input type="email" class="form-control" id="email" value="" readonly>
                                  <p class="help-block">This is your email </p>
                               </div>
                            </div>
                            <div class="form-group">
-                              <label class="col-md-2  col-sm-3 col-xs-12 control-label">Twitter</label>
+                              <label class="col-md-2  col-sm-3 col-xs-12 control-label" >Twitter</label>
                               <div class="col-md-10 col-sm-9 col-xs-12">
-                                 <input type="text" class="form-control" value="RAAAH" readonly>
+                                 <input type="text" class="form-control" id="twitter" value="" readonly>
                                  <p class="help-block">Your twitter username</p>
                               </div>
                            </div>
@@ -595,3 +670,5 @@
       <script type="text/javascript"></script>
    </body>
 </html>
+
+

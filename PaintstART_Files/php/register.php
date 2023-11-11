@@ -11,7 +11,7 @@
 				//Insert user data into database
 				$sql = "INSERT INTO user_profile (username, email, password) VALUES ('$username', '$email', '$password')";
 				if ($conn->query($sql) === TRUE) {
-				    echo "New record created successfully";
+				    header("Location: /paintstart_files/html/login.html");
 				} else {
 				    echo "Error: " . $sql . "<br>" . $conn->error;
 				}
