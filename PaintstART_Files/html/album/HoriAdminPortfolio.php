@@ -1,66 +1,4 @@
-<?php
-error_reporting(E_ALL);
-
-require_once 'Config.php';
-
-$msg = "";
-$recentlyUploadedImage = [];
-
-// Database connection (using variables from Config.php)
-$db = mysqli_connect(host, username, password, dbname);
-
-if (!$db) {
-  die("Connection failed: " . mysqli_connect_error());
-}
-
-// Function to get recently uploaded images from the database
-function getRecentlyUploadedImages($db)
-{
-  $recentlyUploadedImage = [];
-  $query = "SELECT card_identifier, filename FROM portfolio_images WHERE id IN (SELECT MAX(id) FROM portfolio_images GROUP BY card_identifier)";
-  $result = mysqli_query($db, $query);
-  while ($row = mysqli_fetch_assoc($result)) {
-    $recentlyUploadedImage[$row['card_identifier']] = $row['filename'];
-  }
-  return $recentlyUploadedImage;
-}
-
-// If upload button is clicked ...
-if (isset($_POST['upload'])) {
-  $cardIdentifier = mysqli_real_escape_string($db, $_POST['cardIdentifier']);
-  $filename = $_FILES["uploadfile"]["name"];
-  $tempname = $_FILES["uploadfile"]["tmp_name"];
-  $folder = "./images/" . $filename;
-
-  // Get all the submitted data from the form
-  $sql = "INSERT INTO portfolio_images (filename, card_identifier) VALUES ('$filename', '$cardIdentifier')";
-
-  // Execute query
-  mysqli_query($db, $sql);
-
-  // Now let's move the uploaded image into the folder: images
-  if (move_uploaded_file($tempname, $folder)) {
-    $msg = "Image uploaded successfully!";
-    $absolutePath = realpath($folder);
-    // Ensure the file exists before storing the path
-    if ($absolutePath !== false && file_exists($absolutePath)) {
-      $recentlyUploadedImage = getRecentlyUploadedImages($db); // Update with the latest data
-    } else {
-      $msg = "Failed to move the uploaded image or the file does not exist!";
-    }
-  } else {
-    $msg = "Failed to upload image!";
-  }
-}
-
-// Get recently uploaded images from the database
-$recentlyUploadedImage = getRecentlyUploadedImages($db);
-
-// Close the database connection
-mysqli_close($db);
-?>
-
-
+<?php include './php/portfolio_upload.php'; ?>
 
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -281,7 +219,7 @@ mysqli_close($db);
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-<!-- CARD 1 -->
+          <!-- CARD 1 -->
           <div class="col">
             <div class="card shadow-sm">
               <img id="portfolioImage1" src="" alt="Image">
@@ -296,17 +234,17 @@ mysqli_close($db);
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput1').click();">
                           <span id="fileLabel1">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput1" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput1" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(1)">
                       </div>
                       <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('1')" id="deleteButton1">Delete</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
-<!-- CARD 2 -->
+          <!-- CARD 2 -->
           <div class="col">
             <div class="card shadow-sm">
               <img id="portfolioImage2" src="" alt="Image">
@@ -324,14 +262,14 @@ mysqli_close($db);
                         <input type="file" class="image-file-input" name="uploadfile" id="imageInput2" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(2)">
                       </div>
                       <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('2')" id="deleteButton2">Delete</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
-<!-- CARD 3 -->
+          <!-- CARD 3 -->
           <div class="col">
             <div class="card shadow-sm">
               <img id="portfolioImage3" src="" alt="Image">
@@ -349,14 +287,14 @@ mysqli_close($db);
                         <input type="file" class="image-file-input" name="uploadfile" id="imageInput3" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(3)">
                       </div>
                       <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('3')" id="deleteButton3">Delete</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
-<!-- CARD 4 -->
+          <!-- CARD 4 -->
           <div class="col">
             <div class="card shadow-sm">
               <img id="portfolioImage4" src="" alt="Image">
@@ -371,17 +309,17 @@ mysqli_close($db);
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput4').click();">
                           <span id="fileLabel4">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput4" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput4" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(4)">
                       </div>
                       <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('4')" id="deleteButton4">Delete</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
-<!-- CARD 5 -->
+          <!-- CARD 5 -->
           <div class="col">
             <div class="card shadow-sm">
               <img id="portfolioImage5" src="" alt="Image">
@@ -396,17 +334,17 @@ mysqli_close($db);
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput5').click();">
                           <span id="fileLabel5">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput5" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(2)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput5" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(5)">
                       </div>
                       <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('5')" id="deleteButton5">Delete</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
-<!-- CARD 6 -->
+          <!-- CARD 6 -->
           <div class="col">
             <div class="card shadow-sm">
               <img id="portfolioImage6" src="" alt="Image">
@@ -421,17 +359,17 @@ mysqli_close($db);
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput6').click();">
                           <span id="fileLabel6">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput6" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(3)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput6" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(6)">
                       </div>
                       <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('6')" id="deleteButton6">Delete</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
-<!-- CARD 7 -->
+          <!-- CARD 7 -->
           <div class="col">
             <div class="card shadow-sm">
               <img id="portfolioImage7" src="" alt="Image">
@@ -446,17 +384,17 @@ mysqli_close($db);
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput7').click();">
                           <span id="fileLabel7">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput7" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput7" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(7)">
                       </div>
                       <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('7')" id="deleteButton7">Delete</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
-<!-- CARD 8 -->
+          <!-- CARD 8 -->
           <div class="col">
             <div class="card shadow-sm">
               <img id="portfolioImage8" src="" alt="Image">
@@ -471,17 +409,17 @@ mysqli_close($db);
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput8').click();">
                           <span id="fileLabel8">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput8" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(2)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput8" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(8)">
                       </div>
                       <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('8')" id="deleteButton8">Delete</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
-<!-- CARD 9 -->
+          <!-- CARD 9 -->
           <div class="col">
             <div class="card shadow-sm">
               <img id="portfolioImage9" src="" alt="Image">
@@ -496,10 +434,10 @@ mysqli_close($db);
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput9').click();">
                           <span id="fileLabel9">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput9" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(3)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput9" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(9)">
                       </div>
                       <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('9')" id="deleteButton9">Delete</button>
                     </div>
                   </div>
                 </form>
@@ -547,6 +485,32 @@ mysqli_close($db);
 
   <!-- Include this script in the HTML -->
   <script>
+    function deleteImage(cardIdentifier) {
+      // Create a form and submit it to trigger the delete action
+      var form = document.createElement('form');
+      form.method = 'POST';
+      form.action = ''; // Set the appropriate action
+
+      var input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = 'cardIdentifier';
+      input.value = cardIdentifier;
+
+      form.appendChild(input);
+
+      // Add a hidden input to specify the delete action
+      var deleteInput = document.createElement('input');
+      deleteInput.type = 'hidden';
+      deleteInput.name = 'delete';
+      deleteInput.value = 'delete';
+      form.appendChild(deleteInput);
+
+      document.body.appendChild(form);
+
+      // Submit the form
+      form.submit();
+    }
+
     var recentlyUploadedImage = {
       '1': '<?php echo isset($recentlyUploadedImage['1']) ? $recentlyUploadedImage['1'] : ''; ?>',
       '2': '<?php echo isset($recentlyUploadedImage['2']) ? $recentlyUploadedImage['2'] : ''; ?>',
@@ -572,6 +536,8 @@ mysqli_close($db);
       var fileInput = document.getElementById('imageInput' + cardIdentifier);
       var fileInputLabel = document.getElementById('fileLabel' + cardIdentifier);
 
+      console.log('Updating image source for card ' + cardIdentifier);
+
       if (recentlyUploadedImage[cardIdentifier] !== '') {
         // Construct the full path
         var imagePath = "./images/" + recentlyUploadedImage[cardIdentifier];
@@ -588,6 +554,7 @@ mysqli_close($db);
       } else {
         console.log('No image path available');
       }
+      console.log('Truncated filename:', truncatedFilename);
     }
 
     function updateImageSrcAfterUpload(cardIdentifier, imagePath) {
@@ -597,30 +564,38 @@ mysqli_close($db);
 
     window.onload = function() {
       // Update images on page load
-      updateImageSrc('1');
-      console.log(recentlyUploadedImage);
-      updateImageSrc('2');
-      console.log(recentlyUploadedImage);
-      updateImageSrc('3');
-      console.log(recentlyUploadedImage);
-      updateImageSrc('4');
-      console.log(recentlyUploadedImage);
-      updateImageSrc('5');
-      console.log(recentlyUploadedImage);
-      updateImageSrc('6');
-      console.log(recentlyUploadedImage);
-      updateImageSrc('7');
-      console.log(recentlyUploadedImage);
-      updateImageSrc('8');
-      console.log(recentlyUploadedImage);
-      updateImageSrc('9');
-      console.log(recentlyUploadedImage);
+      for (let i = 1; i <= 9; i++) {
+        updateImageSrc(i.toString());
+        console.log(recentlyUploadedImage);
+      }
+      // Add an event listener to the Delete button for each card
+      for (let i = 1; i <= 9; i++) {
+        const deleteButton = document.getElementById('deleteButton' + i);
+        if (deleteButton) {
+          deleteButton.addEventListener('click', function() {
+            const cardIdentifier = i.toString();
+            deleteImage(cardIdentifier);
+          });
+        }
+      }
+
+      function deleteImage(cardIdentifier) {
+        // Make an AJAX request to the server to delete the image
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', './php/deleteImage.php', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            // Handle the response, you can update the UI accordingly
+            console.log(xhr.responseText);
+            // Optionally, you can refresh the page or update the UI after deletion
+            updateImageSrc(cardIdentifier);
+          }
+        };
+        xhr.send('cardIdentifier=' + cardIdentifier);
+      }
     };
   </script>
-
-
-
-
 </body>
 
 </html>
