@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>Paint stART</title>
+  <title>Paint stART</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-<!--
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css">
+  <link rel="stylesheet" href="assets/css/templatemo-scholar.css">
+  <link rel="stylesheet" href="assets/css/owl.css">
+  <link rel="stylesheet" href="assets/css/animate.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <!--
 
 TemplateMo 586 Scholar
 
 https://templatemo.com/tm-586-scholar
 
 -->
-  </head>
+</head>
 
 <body>
 
@@ -43,58 +43,58 @@ https://templatemo.com/tm-586-scholar
   </div>
   <!-- ***** Preloader End ***** -->
 
-<!-- ***** PHP code to check user log-in status ***** -->
-<?php
+  <!-- ***** PHP code to check user log-in status ***** -->
+  <?php
   session_start();
   if (isset($_SESSION["username"])) {
-      $userID = $_SESSION['userID'];
-      $userLoggedIn = $_SESSION['username'];
-      //$userId = $_SESSION['userID']; Uncomment if we want to show the UserID
-      //$listItemName = ($userLoggedIn) ? 'My Account (ID: ' . $userId . ')' : 'Login'; Uncomment if we want to show the UserID
-      $listItemName = ($userLoggedIn) ? 'My Account' : 'Login';
-      $listItemHref = ($userLoggedIn) ? 'userprofile.php' : 'login.html';
+    $userID = $_SESSION['userID'];
+    $userLoggedIn = $_SESSION['username'];
+    //$userId = $_SESSION['userID']; Uncomment if we want to show the UserID
+    //$listItemName = ($userLoggedIn) ? 'My Account (ID: ' . $userId . ')' : 'Login'; Uncomment if we want to show the UserID
+    $listItemName = ($userLoggedIn) ? 'My Account' : 'Login';
+    $listItemHref = ($userLoggedIn) ? 'userprofile.php' : 'login.html';
   } else {
-      $userLoggedIn = false;
-      $listItemName = 'Login';
-      $listItemHref = 'login.html';
+    $userLoggedIn = false;
+    $listItemName = 'Login';
+    $listItemHref = 'login.html';
   }
-?>
+  ?>
 
-<script>
+  <script>
     function updateUserStatus() {
-        var userStatusLi = document.getElementById('user_status');
-        userStatusLi.innerHTML = '<a href="' + '<?php echo $listItemHref; ?>' + '">' + '<?php echo $listItemName; ?>' + '</a>';
+      var userStatusLi = document.getElementById('user_status');
+      userStatusLi.innerHTML = '<a href="' + '<?php echo $listItemHref; ?>' + '">' + '<?php echo $listItemName; ?>' + '</a>';
     }
     window.onload = updateUserStatus;
-</script>
+  </script>
 
 
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <h1>PaintstART</h1>
-                    </a>
-                    <!-- ***** Serach Start ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                      <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                      <li class="scroll-to-section"><a href="#services">Information</a></li>
-                      <li class="scroll-to-section"><a href="/PaintstART_Files/html/album/HoriClientPortfolio.html">Digital Arts</a></li>
-                      <li class="scroll-to-section"><a href="#events">Offered Pricing</a></li>
-                      <li class="scroll-to-section" id="user_status"><a href="/PaintstART_Files/html/login.html"></a></li>
-                  </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <h1>PaintstART</h1>
+            </a>
+            <!-- ***** Serach Start ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+              <li class="scroll-to-section"><a href="#services">Information</a></li>
+              <li class="scroll-to-section"><a href="/PaintstART_Files/html/album/HoriClientPortfolio.html">Digital Arts</a></li>
+              <li class="scroll-to-section"><a href="#events">Offered Pricing</a></li>
+              <li class="scroll-to-section" id="user_status"><a href="/PaintstART_Files/html/login.html"></a></li>
+            </ul>
+            <a class='menu-trigger'>
+              <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
         </div>
+      </div>
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
@@ -235,7 +235,7 @@ https://templatemo.com/tm-586-scholar
               </h2>
               <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                 <div class="accordion-body">
-                  The only thing you need to have a perfect digital art is to help and provide us an exact ideas that will give us an idea of what's your want you want to be. Another thing is that having an open mind is a must because if you limit all the possibilities that can apply in the art then it will not be a perfect masterpiece!                </div>
+                  The only thing you need to have a perfect digital art is to help and provide us an exact ideas that will give us an idea of what's your want you want to be. Another thing is that having an open mind is a must because if you limit all the possibilities that can apply in the art then it will not be a perfect masterpiece! </div>
               </div>
             </div>
           </div>
@@ -254,7 +254,7 @@ https://templatemo.com/tm-586-scholar
     </div>
   </div>
 
-  <section class="section courses" id="courses" >
+  <section class="section courses" id="courses">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -284,7 +284,9 @@ https://templatemo.com/tm-586-scholar
             <div class="thumb">
               <a href="/PaintstART_Files/html/RQ1.html"><img src="assets/images/Firefly1.png" alt=""></a>
               <span class="category">Dracotaur</span>
-              <span class="price"><h6><em>$</em>80</h6></span>
+              <span class="price">
+                <h6><em>$</em>80</h6>
+              </span>
             </div>
             <div class="down-content">
               <span class="author">Half Dragon, Half Human</span>
@@ -297,7 +299,9 @@ https://templatemo.com/tm-586-scholar
             <div class="thumb">
               <a href="/PaintstART_Files/html/RQ2.html"><img src="assets/images/2d1.png" alt=""></a>
               <span class="category">Assassin</span>
-              <span class="price"><h6><em>$</em>90</h6></span>
+              <span class="price">
+                <h6><em>$</em>90</h6>
+              </span>
             </div>
             <div class="down-content">
               <span class="author">Cosplay</span>
@@ -310,7 +314,9 @@ https://templatemo.com/tm-586-scholar
             <div class="thumb">
               <a href="/PaintstART_Files/html/RQ3.html"><img src="assets/images/Hurt1.png" alt=""></a>
               <span class="category">Emotional</span>
-              <span class="price"><h6><em>$</em>55</h6></span>
+              <span class="price">
+                <h6><em>$</em>55</h6>
+              </span>
             </div>
             <div class="down-content">
               <span class="author">Personal Art</span>
@@ -323,7 +329,9 @@ https://templatemo.com/tm-586-scholar
             <div class="thumb">
               <a href="/PaintstART_Files/html/RQ4.html"><img src="assets/images/Flower.png" alt=""></a>
               <span class="category">Enchanter</span>
-              <span class="price"><h6><em>$</em>65</h6></span>
+              <span class="price">
+                <h6><em>$</em>65</h6>
+              </span>
             </div>
             <div class="down-content">
               <span class="author">Half Demon, Half Human</span>
@@ -336,7 +344,9 @@ https://templatemo.com/tm-586-scholar
             <div class="thumb">
               <a href="/PaintstART_Files/html/RQ5.html"><img src="assets/images/Zakito.png" alt=""></a>
               <span class="category">Ganster</span>
-              <span class="price"><h6><em>$</em>120</h6></span>
+              <span class="price">
+                <h6><em>$</em>120</h6>
+              </span>
             </div>
             <div class="down-content">
               <span class="author">Digital Art Ganster</span>
@@ -349,7 +359,9 @@ https://templatemo.com/tm-586-scholar
             <div class="thumb">
               <a href="/PaintstART_Files/html/RQ6.html"><img src="assets/images/three.png" alt=""></a>
               <span class="category">IRL Digital Art</span>
-              <span class="price"><h6><em>$</em>100</h6></span>
+              <span class="price">
+                <h6><em>$</em>100</h6>
+              </span>
             </div>
             <div class="down-content">
               <span class="author">Unwind</span>
@@ -370,7 +382,7 @@ https://templatemo.com/tm-586-scholar
               <div class="col-lg-3 col-md-6">
                 <div class="counter">
                   <h2 class="timer count-title count-number" data-to="169" data-speed="1000"></h2>
-                   <p class="count-text ">Digital Arts Created</p>
+                  <p class="count-text ">Digital Arts Created</p>
                 </div>
               </div>
               <div class="col-lg-3 col-md-6">
@@ -433,7 +445,7 @@ https://templatemo.com/tm-586-scholar
           <div class="section-heading">
             <h6>TESTIMONIALS</h6>
             <h2>Comments and feedbacks about us</h2>
-            <p>So what are you waiting for? Try commission an art to us now and we'll provide you a top quality of outcome you could possibly see! And if you're already received an art in the past you can share it to your friends, we'll be appreciated <3</p>
+            <p>So what are you waiting for? Try commission an art to us now and we'll provide you a top quality of outcome you could possibly see! And if you're already received an art in the past you can share it to your friends, we'll be appreciated <3< /p>
           </div>
         </div>
       </div>
@@ -779,5 +791,6 @@ https://templatemo.com/tm-586-scholar
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
   <script src="assets/js/custom.js"></script>
-  </body>
+</body>
+
 </html>

@@ -22,9 +22,10 @@ if (isset($_POST['update'])) {
 	$new_email = $_POST['new_email'];
 	$new_firstName = $_POST['new_firstname'];
 	$new_lastName = $_POST['new_lastname'];
+	$twitter = $_POST['twitter'];
 
 	$sql = "UPDATE user_profile SET username='$new_username', password='$new_password', 
-	firstname='$new_firstName', lastname='$new_lastName',  email='$new_email' 
+	firstname='$new_firstName', lastname='$new_lastName',  email='$new_email', twitter='$twitter' 
 		WHERE username='$current_username' AND password='$current_password'";
 
 		if ($conn->query($sql) === TRUE) {
@@ -34,4 +35,3 @@ if (isset($_POST['update'])) {
 		}
 }
 $conn->close();
-?>

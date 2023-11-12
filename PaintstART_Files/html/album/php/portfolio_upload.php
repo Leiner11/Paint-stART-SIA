@@ -95,4 +95,3 @@ $recentlyUploadedImage = getRecentlyUploadedImages($db);
 
 // Close the database connection
 mysqli_close($db);
-?>

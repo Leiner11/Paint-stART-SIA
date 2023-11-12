@@ -11,4 +11,3 @@ $_SESSION['username'] = $userLoggedIn;
 
 header("Location: /PaintstART_Files/html/index.php");
 exit();
-?>

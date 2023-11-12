@@ -9,4 +9,3 @@ if (session_status() == PHP_SESSION_ACTIVE) {
 
 header("Location: /PaintstART_Files/html/login.html");
 exit;
-?>

@@ -14,4 +14,3 @@ else {
 
 //Close connection
 $conn->close();
-?>
