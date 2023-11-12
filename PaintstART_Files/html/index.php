@@ -52,11 +52,11 @@ https://templatemo.com/tm-586-scholar
     //$userId = $_SESSION['userID']; Uncomment if we want to show the UserID
     //$listItemName = ($userLoggedIn) ? 'My Account (ID: ' . $userId . ')' : 'Login'; Uncomment if we want to show the UserID
     $listItemName = ($userLoggedIn) ? 'My Account' : 'Login';
-    $listItemHref = ($userLoggedIn) ? 'userprofile.php' : 'login.html';
+    $listItemHref = ($userLoggedIn) ? 'userprofile.php' : 'login.php';
   } else {
     $userLoggedIn = false;
     $listItemName = 'Login';
-    $listItemHref = 'login.html';
+    $listItemHref = 'login.php';
   }
   ?>
 
@@ -84,9 +84,9 @@ https://templatemo.com/tm-586-scholar
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
               <li class="scroll-to-section"><a href="#services">Information</a></li>
-              <li class="scroll-to-section"><a href="/PaintstART_Files/html/album/HoriClientPortfolio.html">Digital Arts</a></li>
+              <li class="scroll-to-section"><a href="/PaintstART_Files/html/album/HoriClientPortfolio.php">Digital Arts</a></li>
               <li class="scroll-to-section"><a href="#events">Offered Pricing</a></li>
-              <li class="scroll-to-section" id="user_status"><a href="/PaintstART_Files/html/login.html"></a></li>
+              <li class="scroll-to-section" id="user_status"><a href="/PaintstART_Files/html/login.php"></a></li>
             </ul>
             <a class='menu-trigger'>
               <span>Menu</span>

@@ -1,48 +1,23 @@
 <?php include './php/portfolio_upload.php'; ?>
 
-<script>
-  function toggleEditText(cardId) {
-    // Get the elements by their IDs
-    var cardText = document.getElementById('cardText' + cardId);
-    var editCardText = document.getElementById('editCardText' + cardId);
-
-    // Toggle visibility of text and input field
-    if (cardText.style.display === 'none' || cardText.style.display === '') {
-      cardText.style.display = 'block';
-      editCardText.style.display = 'none';
-    } else {
-      cardText.style.display = 'none';
-      editCardText.style.display = 'block';
-
-      // Copy the current text to the input field for editing
-      editCardText.value = cardText.innerText;
-
-      // Set focus on the input field for a better user experience
-      editCardText.focus();
-    }
-  }
-</script>
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-bs-theme="auto">
 
 <head>
   <script src="../assets/js/color-modes.js"></script>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.118.2">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
+  <meta name="generator" content="Hugo 0.118.2" />
   <title>Digital Art Portfolio</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/" />
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
 
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-
-  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <style>
     .bd-placeholder-img {
@@ -62,10 +37,11 @@
     .b-example-divider {
       width: 100%;
       height: 3rem;
-      background-color: rgba(0, 0, 0, .1);
-      border: solid rgba(0, 0, 0, .15);
+      background-color: rgba(0, 0, 0, 0.1);
+      border: solid rgba(0, 0, 0, 0.15);
       border-width: 1px 0;
-      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+        inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
     }
 
     .b-example-vr {
@@ -75,7 +51,7 @@
     }
 
     .bi {
-      vertical-align: -.125em;
+      vertical-align: -0.125em;
       fill: currentColor;
     }
 
@@ -122,8 +98,6 @@
       display: block !important;
     }
   </style>
-
-
 </head>
 
 <body>
@@ -187,14 +161,21 @@
     </ul>
   </div>
 
-
   <header data-bs-theme="dark">
     <div class="collapse text-bg-dark" id="navbarHeader">
       <div class="container">
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
             <h4>About</h4>
-            <p class="text-body-secondary">Here are all of the arts that the artist made. Hope you appreciate it and you are welcome anytime to request an art to me! If you're thinking of requesting an art to me then you should think of your desired art first then you can communicate with me so that we can make your future art the best thing that you could ever see! So what are you waiting for? Come join the world of ART!</p>
+            <p class="text-body-secondary">
+              Here are all of the arts that the artist made. Hope you
+              appreciate it and you are welcome anytime to request an art to
+              me! If you're thinking of requesting an art to me then you
+              should think of your desired art first then you can communicate
+              with me so that we can make your future art the best thing that
+              you could ever see! So what are you waiting for? Come join the
+              world of ART!
+            </p>
           </div>
           <div class="col-sm-4 offset-md-1 py-4">
             <h4>Contact</h4>
@@ -224,19 +205,22 @@
   </header>
 
   <main>
-
     <section class="py-5 text-center container">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
           <h1 class="fw-light">Curse360 Portfolio</h1>
-          <p class="lead text-body-secondary">A wide variety of limitless imagination pour into one art where it expresses freely and have different kind of effect and impact towards unto one person.</p>
+          <p class="lead text-body-secondary">
+            A wide variety of limitless imagination pour into one art where it
+            expresses freely and have different kind of effect and impact
+            towards unto one person.
+          </p>
           <p>
+            <a href="/PaintstART_Files/html/checkout/checkout.html" class="btn btn-primary my-2">Request a Commission</a>
             <a href="/PaintstART_Files/html/index.php" class="btn btn-secondary my-2">Back to Homepage</a>
           </p>
         </div>
       </div>
     </section>
-
 
     <div class="album py-5 bg-body-tertiary">
       <div class="container">
@@ -247,26 +231,14 @@
             <div class="card shadow-sm">
               <img id="portfolioImage1" src="" alt="Image">
               <div class="card-body">
-                <!-- Display the text -->
-                <p class="card-text" id="cardText1">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-
-                <!-- Input field for editing (initially hidden) -->
-                <input type="text" class="form-control" id="editCardText1" style="display: none;">
-
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form1">
                   <input type="hidden" name="cardIdentifier" value="1">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <!-- Toggle visibility of text and input field on button click -->
-                      <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton1" onclick="toggleEditText(1)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput1').click();">
-                          <span id="fileLabel1">Select Image...</span>
-                        </button>
                         <input type="file" class="image-file-input" name="uploadfile" id="imageInput1" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(1)">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('1')" id="deleteButton1">Delete</button>
                     </div>
                   </div>
                 </form>
@@ -284,21 +256,16 @@
                   <input type="hidden" name="cardIdentifier" value="2">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput2').click();">
-                          <span id="fileLabel2">Select Image...</span>
-                        </button>
                         <input type="file" class="image-file-input" name="uploadfile" id="imageInput2" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(2)">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('2')" id="deleteButton2">Delete</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
+
           <!-- CARD 3 -->
           <div class="col">
             <div class="card shadow-sm">
@@ -309,21 +276,16 @@
                   <input type="hidden" name="cardIdentifier" value="3">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput3').click();">
-                          <span id="fileLabel3">Select Image...</span>
-                        </button>
                         <input type="file" class="image-file-input" name="uploadfile" id="imageInput3" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(3)">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('3')" id="deleteButton3">Delete</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
+
           <!-- CARD 4 -->
           <div class="col">
             <div class="card shadow-sm">
@@ -334,21 +296,16 @@
                   <input type="hidden" name="cardIdentifier" value="4">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput4').click();">
-                          <span id="fileLabel4">Select Image...</span>
-                        </button>
                         <input type="file" class="image-file-input" name="uploadfile" id="imageInput4" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(4)">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('4')" id="deleteButton4">Delete</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
+
           <!-- CARD 5 -->
           <div class="col">
             <div class="card shadow-sm">
@@ -359,21 +316,16 @@
                   <input type="hidden" name="cardIdentifier" value="5">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput5').click();">
-                          <span id="fileLabel5">Select Image...</span>
-                        </button>
                         <input type="file" class="image-file-input" name="uploadfile" id="imageInput5" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(5)">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('5')" id="deleteButton5">Delete</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
+
           <!-- CARD 6 -->
           <div class="col">
             <div class="card shadow-sm">
@@ -384,21 +336,16 @@
                   <input type="hidden" name="cardIdentifier" value="6">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput6').click();">
-                          <span id="fileLabel6">Select Image...</span>
-                        </button>
                         <input type="file" class="image-file-input" name="uploadfile" id="imageInput6" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(6)">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('6')" id="deleteButton6">Delete</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
+
           <!-- CARD 7 -->
           <div class="col">
             <div class="card shadow-sm">
@@ -409,21 +356,16 @@
                   <input type="hidden" name="cardIdentifier" value="7">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput7').click();">
-                          <span id="fileLabel7">Select Image...</span>
-                        </button>
                         <input type="file" class="image-file-input" name="uploadfile" id="imageInput7" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(7)">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('7')" id="deleteButton7">Delete</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
+
           <!-- CARD 8 -->
           <div class="col">
             <div class="card shadow-sm">
@@ -434,21 +376,16 @@
                   <input type="hidden" name="cardIdentifier" value="8">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput8').click();">
-                          <span id="fileLabel8">Select Image...</span>
-                        </button>
                         <input type="file" class="image-file-input" name="uploadfile" id="imageInput8" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(8)">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('8')" id="deleteButton8">Delete</button>
                     </div>
                   </div>
                 </form>
               </div>
             </div>
           </div>
+
           <!-- CARD 9 -->
           <div class="col">
             <div class="card shadow-sm">
@@ -459,15 +396,9 @@
                   <input type="hidden" name="cardIdentifier" value="9">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput9').click();">
-                          <span id="fileLabel9">Select Image...</span>
-                        </button>
                         <input type="file" class="image-file-input" name="uploadfile" id="imageInput9" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(9)">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('9')" id="deleteButton9">Delete</button>
                     </div>
                   </div>
                 </form>
@@ -498,8 +429,6 @@
         </div>
       </div>
     </div>
-
-
   </main>
 
   <footer class="text-body-secondary py-5">
@@ -508,10 +437,16 @@
         <a href="#">Back to top</a>
       </p>
       <p class="mb-1">Copyright © 2023 Paint stART. All rights reserved.</p>
-      <p class="mb-0">New to Digital Art? <a href="../index.html">Visit the homepage</a> and see for youself what we can offer you!</p>
+      <p class="mb-0">
+        New to Digital Art? <a href="../index.php">Visit the homepage</a> and
+        see for youself what we can offer you!
+      </p>
     </div>
   </footer>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
 
   <!-- Include this script in the HTML -->
   <script>

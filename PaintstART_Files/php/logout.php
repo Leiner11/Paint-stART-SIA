@@ -7,5 +7,5 @@ if (session_status() == PHP_SESSION_ACTIVE) {
     session_destroy();
 }
 
-header("Location: /PaintstART_Files/html/login.html");
+header("Location: /PaintstART_Files/html/login.php");
 exit;

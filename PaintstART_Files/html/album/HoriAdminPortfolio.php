@@ -1,5 +1,28 @@
 <?php include './php/portfolio_upload.php'; ?>
 
+<script>
+  function toggleEditText(cardId) {
+    // Get the elements by their IDs
+    var cardText = document.getElementById('cardText' + cardId);
+    var editCardText = document.getElementById('editCardText' + cardId);
+
+    // Toggle visibility of text and input field
+    if (cardText.style.display === 'none' || cardText.style.display === '') {
+      cardText.style.display = 'block';
+      editCardText.style.display = 'none';
+    } else {
+      cardText.style.display = 'none';
+      editCardText.style.display = 'block';
+
+      // Copy the current text to the input field for editing
+      editCardText.value = cardText.innerText;
+
+      // Set focus on the input field for a better user experience
+      editCardText.focus();
+    }
+  }
+</script>
+
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
 
@@ -224,12 +247,18 @@
             <div class="card shadow-sm">
               <img id="portfolioImage1" src="" alt="Image">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <!-- Display the text -->
+                <p class="card-text" id="cardText1">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
+
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText1" style="display: none;">
+
                 <form method="POST" action="" enctype="multipart/form-data" id="form1">
                   <input type="hidden" name="cardIdentifier" value="1">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <!-- Toggle visibility of text and input field on button click -->
+                      <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton1" onclick="toggleEditText(1)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput1').click();">
                           <span id="fileLabel1">Select Image...</span>
@@ -244,12 +273,13 @@
               </div>
             </div>
           </div>
+
           <!-- CARD 2 -->
           <div class="col">
             <div class="card shadow-sm">
               <img id="portfolioImage2" src="" alt="Image">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form2">
                   <input type="hidden" name="cardIdentifier" value="2">
                   <div class="d-flex justify-content-between align-items-center">
@@ -274,7 +304,7 @@
             <div class="card shadow-sm">
               <img id="portfolioImage3" src="" alt="Image">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form3">
                   <input type="hidden" name="cardIdentifier" value="3">
                   <div class="d-flex justify-content-between align-items-center">
@@ -299,7 +329,7 @@
             <div class="card shadow-sm">
               <img id="portfolioImage4" src="" alt="Image">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form4">
                   <input type="hidden" name="cardIdentifier" value="4">
                   <div class="d-flex justify-content-between align-items-center">
@@ -324,7 +354,7 @@
             <div class="card shadow-sm">
               <img id="portfolioImage5" src="" alt="Image">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form5">
                   <input type="hidden" name="cardIdentifier" value="5">
                   <div class="d-flex justify-content-between align-items-center">
@@ -349,7 +379,7 @@
             <div class="card shadow-sm">
               <img id="portfolioImage6" src="" alt="Image">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form6">
                   <input type="hidden" name="cardIdentifier" value="6">
                   <div class="d-flex justify-content-between align-items-center">
@@ -374,7 +404,7 @@
             <div class="card shadow-sm">
               <img id="portfolioImage7" src="" alt="Image">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form7">
                   <input type="hidden" name="cardIdentifier" value="7">
                   <div class="d-flex justify-content-between align-items-center">
@@ -399,7 +429,7 @@
             <div class="card shadow-sm">
               <img id="portfolioImage8" src="" alt="Image">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form8">
                   <input type="hidden" name="cardIdentifier" value="8">
                   <div class="d-flex justify-content-between align-items-center">
@@ -424,7 +454,7 @@
             <div class="card shadow-sm">
               <img id="portfolioImage9" src="" alt="Image">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form3">
                   <input type="hidden" name="cardIdentifier" value="9">
                   <div class="d-flex justify-content-between align-items-center">
