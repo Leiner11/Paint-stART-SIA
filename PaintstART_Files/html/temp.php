@@ -4,50 +4,54 @@ error_reporting(E_ALL);
 require_once 'Config.php';
 
 $msg = "";
-$recentlyUploadedImage = "";
+$recentlyUploadedImage = [];
 
 // Database connection (using variables from Config.php)
 $db = mysqli_connect(host, username, password, dbname);
 
 if (!$db) {
-  die("Connection failed: " . mysqli_connect_error());
+    die("Connection failed: " . mysqli_connect_error());
 }
 
-// Retrieve the most recently uploaded image path from the database
-$result = mysqli_query($db, "SELECT filename FROM portfolio_images ORDER BY id DESC LIMIT 1");
-$row = mysqli_fetch_assoc($result);
-if ($row) {
-  $recentlyUploadedImage = "./images/" . $row['filename'];
+// Function to get recently uploaded images from the database
+function getRecentlyUploadedImages($db) {
+    $recentlyUploadedImage = [];
+    $query = "SELECT * FROM portfolio_images";
+    $result = mysqli_query($db, $query);
+    while ($row = mysqli_fetch_assoc($result)) {
+        $recentlyUploadedImage[$row['card_identifier']] = $row['filename'];
+    }
+    return $recentlyUploadedImage;
 }
 
 // If upload button is clicked ...
 if (isset($_POST['upload'])) {
+    $cardIdentifier = mysqli_real_escape_string($db, $_POST['cardIdentifier']);
+    $filename = $_FILES["uploadfile"]["name"];
+    $tempname = $_FILES["uploadfile"]["tmp_name"];
+    $folder = "./images/" . $filename;
 
-  $filename = $_FILES["uploadfile"]["name"];
-  $tempname = $_FILES["uploadfile"]["tmp_name"];
-  $folder = "./images/" . $filename;
+    // Get all the submitted data from the form
+    $sql = "INSERT INTO portfolio_images (filename, card_identifier) VALUES ('$filename', '$cardIdentifier')";
 
-  // Get all the submitted data from the form
-  $sql = "INSERT INTO portfolio_images (filename) VALUES ('$filename')";
+    // Execute query
+    mysqli_query($db, $sql);
 
-  // Execute query
-  mysqli_query($db, $sql);
-
-  // Now let's move the uploaded image into the folder: images
-  if (move_uploaded_file($tempname, $folder)) {
-    $msg = "Image uploaded successfully!";
-  } else {
-    $msg = "Failed to upload image!";
-  }
-
-  // Update the $recentlyUploadedImage variable with the path of the newly uploaded image
-  $recentlyUploadedImage = $folder;
+    // Now let's move the uploaded image into the folder: images
+    if (move_uploaded_file($tempname, $folder)) {
+        $msg = "Image uploaded successfully!";
+    } else {
+        $msg = "Failed to upload image!";
+    }
 }
+
+// Get recently uploaded images from the database
+$recentlyUploadedImage = getRecentlyUploadedImages($db);
 
 // Close the database connection
 mysqli_close($db);
-
 ?>
+
 
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
@@ -271,42 +275,20 @@ mysqli_close($db);
 
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage" src="" alt="Image">
+              <img id="portfolioImage1" src="" alt="Image">
               <div class="card-body">
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <form method="POST" action="" enctype="multipart/form-data">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
-                      <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput').click();">
-                          <span id="fileLabel">Select Image...</span>
-                        </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc()">
-                      </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
 
-          <div class="col">
-            <div class="card shadow-sm">
-              <img id="portfolioImage" src="" alt="Image">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <form method="POST" action="" enctype="multipart/form-data">
+                <form method="POST" action="" enctype="multipart/form-data" id="form1">
+                  <input type="hidden" name="cardIdentifier" value="1">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput').click();">
+                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput1').click();">
                           <span id="fileLabel">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc()">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput1" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
                       </div>
                       <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
@@ -318,19 +300,58 @@ mysqli_close($db);
           </div>
 
 
+          <div class="col">
+            <div class="card shadow-sm">
+              <img id="portfolioImage2" src="" alt="Image">
+              <div class="card-body">
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+
+
+                <form method="POST" action="" enctype="multipart/form-data" id="form2">
+                  <input type="hidden" name="cardIdentifier" value="2">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
+                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput').click();">
+                          <span id="fileLabel">Select Image...</span>
+                        </button>
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput2" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(2)">
+                      </div>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+
 
           <div class="col">
             <div class="card shadow-sm">
-              <img src="Images3/Horizontal Arts/3h.png" alt="Girl in a jacket">
+              <img id="portfolioImage3" src="" alt="Image">
               <div class="card-body">
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Upload Image</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+
+
+                <form method="POST" action="" enctype="multipart/form-data" id="form3">
+                  <input type="hidden" name="cardIdentifier" value="3">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
+                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput').click();">
+                          <span id="fileLabel">Select Image...</span>
+                        </button>
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput3" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(3)">
+                      </div>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                    </div>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>
@@ -463,41 +484,41 @@ mysqli_close($db);
   </footer>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Include this script in the HTML -->
-  <script>
-    <?php
-    // Output JavaScript code with the path to the recently uploaded image
-    echo "var recentlyUploadedImage = '" . (isset($recentlyUploadedImage) ? $recentlyUploadedImage : '') . "';";
-    ?>
+<!-- Include this script in the HTML -->
+<script>
+    var recentlyUploadedImage = {
+        '1': '<?php echo isset($recentlyUploadedImage['1']) ? $recentlyUploadedImage['1'] : ''; ?>',
+        '2': '<?php echo isset($recentlyUploadedImage['2']) ? $recentlyUploadedImage['2'] : ''; ?>',
+        '3': '<?php echo isset($recentlyUploadedImage['3']) ? $recentlyUploadedImage['3'] : ''; ?>'
+    };
 
-    function updateImageSrc() {
-      // Get the image element by its ID
-      var imageElement = document.getElementById('portfolioImage');
-
-      // Update the src attribute with the path to the recently uploaded image
-      if (recentlyUploadedImage !== '') {
-        imageElement.src = recentlyUploadedImage;
-      }
-
-      // Get the input element by its ID
-      var fileInput = document.getElementById('imageInput');
-
-      // Update the label text with the selected filename
-      var fileLabel = document.getElementById('fileLabel');
-      fileLabel.innerHTML = fileInput.files.length > 0 ? truncateFilename(fileInput.files[0].name, 20) : 'Select Image...';
+    function updateImageSrc(cardIdentifier) {
+        var imageElement = document.getElementById('portfolioImage' + cardIdentifier);
+        if (recentlyUploadedImage[cardIdentifier] !== '') {
+            // Construct the full path
+            imageElement.src = "./images/" + recentlyUploadedImage[cardIdentifier];
+        } else {
+            console.log('No image path available');
+        }
     }
 
     function truncateFilename(filename, maxLength) {
-      if (filename.length > maxLength) {
-        return filename.substring(0, maxLength - 3) + '...';
-      }
-      return filename;
+        if (filename.length > maxLength) {
+            return filename.substring(0, maxLength - 3) + '...';
+        }
+        return filename;
     }
 
-    // Call the function when the page is loaded
-    window.onload = updateImageSrc;
-  </script>
+    function updateImageSrcAfterUpload(cardIdentifier, imagePath) {
+        recentlyUploadedImage[cardIdentifier] = imagePath;
+        updateImageSrc(cardIdentifier);
+    }
 
+    console.log(recentlyUploadedImage);
+    updateImageSrc('1');
+    updateImageSrc('2');
+    updateImageSrc('3');
+</script>
 
 </body>
 
