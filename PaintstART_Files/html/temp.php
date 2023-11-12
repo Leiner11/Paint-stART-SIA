@@ -10,39 +10,47 @@ $recentlyUploadedImage = [];
 $db = mysqli_connect(host, username, password, dbname);
 
 if (!$db) {
-    die("Connection failed: " . mysqli_connect_error());
+  die("Connection failed: " . mysqli_connect_error());
 }
 
 // Function to get recently uploaded images from the database
-function getRecentlyUploadedImages($db) {
-    $recentlyUploadedImage = [];
-    $query = "SELECT * FROM portfolio_images";
-    $result = mysqli_query($db, $query);
-    while ($row = mysqli_fetch_assoc($result)) {
-        $recentlyUploadedImage[$row['card_identifier']] = $row['filename'];
-    }
-    return $recentlyUploadedImage;
+function getRecentlyUploadedImages($db)
+{
+  $recentlyUploadedImage = [];
+  $query = "SELECT card_identifier, filename FROM portfolio_images WHERE id IN (SELECT MAX(id) FROM portfolio_images GROUP BY card_identifier)";
+  $result = mysqli_query($db, $query);
+  while ($row = mysqli_fetch_assoc($result)) {
+    $recentlyUploadedImage[$row['card_identifier']] = $row['filename'];
+  }
+  return $recentlyUploadedImage;
 }
 
 // If upload button is clicked ...
 if (isset($_POST['upload'])) {
-    $cardIdentifier = mysqli_real_escape_string($db, $_POST['cardIdentifier']);
-    $filename = $_FILES["uploadfile"]["name"];
-    $tempname = $_FILES["uploadfile"]["tmp_name"];
-    $folder = "./images/" . $filename;
+  $cardIdentifier = mysqli_real_escape_string($db, $_POST['cardIdentifier']);
+  $filename = $_FILES["uploadfile"]["name"];
+  $tempname = $_FILES["uploadfile"]["tmp_name"];
+  $folder = "./images/" . $filename;
 
-    // Get all the submitted data from the form
-    $sql = "INSERT INTO portfolio_images (filename, card_identifier) VALUES ('$filename', '$cardIdentifier')";
+  // Get all the submitted data from the form
+  $sql = "INSERT INTO portfolio_images (filename, card_identifier) VALUES ('$filename', '$cardIdentifier')";
 
-    // Execute query
-    mysqli_query($db, $sql);
+  // Execute query
+  mysqli_query($db, $sql);
 
-    // Now let's move the uploaded image into the folder: images
-    if (move_uploaded_file($tempname, $folder)) {
-        $msg = "Image uploaded successfully!";
+  // Now let's move the uploaded image into the folder: images
+  if (move_uploaded_file($tempname, $folder)) {
+    $msg = "Image uploaded successfully!";
+    $absolutePath = realpath($folder);
+    // Ensure the file exists before storing the path
+    if ($absolutePath !== false && file_exists($absolutePath)) {
+      $recentlyUploadedImage = getRecentlyUploadedImages($db); // Update with the latest data
     } else {
-        $msg = "Failed to upload image!";
+      $msg = "Failed to move the uploaded image or the file does not exist!";
     }
+  } else {
+    $msg = "Failed to upload image!";
+  }
 }
 
 // Get recently uploaded images from the database
@@ -51,6 +59,7 @@ $recentlyUploadedImage = getRecentlyUploadedImages($db);
 // Close the database connection
 mysqli_close($db);
 ?>
+
 
 
 <!doctype html>
@@ -272,13 +281,12 @@ mysqli_close($db);
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-
+<!-- CARD 1 -->
           <div class="col">
             <div class="card shadow-sm">
               <img id="portfolioImage1" src="" alt="Image">
               <div class="card-body">
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-
                 <form method="POST" action="" enctype="multipart/form-data" id="form1">
                   <input type="hidden" name="cardIdentifier" value="1">
                   <div class="d-flex justify-content-between align-items-center">
@@ -286,7 +294,7 @@ mysqli_close($db);
                       <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput1').click();">
-                          <span id="fileLabel">Select Image...</span>
+                          <span id="fileLabel1">Select Image...</span>
                         </button>
                         <input type="file" class="image-file-input" name="uploadfile" id="imageInput1" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
                       </div>
@@ -298,23 +306,20 @@ mysqli_close($db);
               </div>
             </div>
           </div>
-
-
+<!-- CARD 2 -->
           <div class="col">
             <div class="card shadow-sm">
               <img id="portfolioImage2" src="" alt="Image">
               <div class="card-body">
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-
-
                 <form method="POST" action="" enctype="multipart/form-data" id="form2">
                   <input type="hidden" name="cardIdentifier" value="2">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput').click();">
-                          <span id="fileLabel">Select Image...</span>
+                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput2').click();">
+                          <span id="fileLabel2">Select Image...</span>
                         </button>
                         <input type="file" class="image-file-input" name="uploadfile" id="imageInput2" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(2)">
                       </div>
@@ -326,24 +331,20 @@ mysqli_close($db);
               </div>
             </div>
           </div>
-
-
-
+<!-- CARD 3 -->
           <div class="col">
             <div class="card shadow-sm">
               <img id="portfolioImage3" src="" alt="Image">
               <div class="card-body">
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-
-
                 <form method="POST" action="" enctype="multipart/form-data" id="form3">
                   <input type="hidden" name="cardIdentifier" value="3">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput').click();">
-                          <span id="fileLabel">Select Image...</span>
+                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput3').click();">
+                          <span id="fileLabel3">Select Image...</span>
                         </button>
                         <input type="file" class="image-file-input" name="uploadfile" id="imageInput3" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(3)">
                       </div>
@@ -355,98 +356,158 @@ mysqli_close($db);
               </div>
             </div>
           </div>
+<!-- CARD 4 -->
+          <div class="col">
+            <div class="card shadow-sm">
+              <img id="portfolioImage4" src="" alt="Image">
+              <div class="card-body">
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <form method="POST" action="" enctype="multipart/form-data" id="form4">
+                  <input type="hidden" name="cardIdentifier" value="4">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
+                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput4').click();">
+                          <span id="fileLabel4">Select Image...</span>
+                        </button>
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput4" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
+                      </div>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+<!-- CARD 5 -->
+          <div class="col">
+            <div class="card shadow-sm">
+              <img id="portfolioImage5" src="" alt="Image">
+              <div class="card-body">
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <form method="POST" action="" enctype="multipart/form-data" id="form5">
+                  <input type="hidden" name="cardIdentifier" value="5">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
+                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput5').click();">
+                          <span id="fileLabel5">Select Image...</span>
+                        </button>
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput5" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(2)">
+                      </div>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+<!-- CARD 6 -->
+          <div class="col">
+            <div class="card shadow-sm">
+              <img id="portfolioImage6" src="" alt="Image">
+              <div class="card-body">
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <form method="POST" action="" enctype="multipart/form-data" id="form6">
+                  <input type="hidden" name="cardIdentifier" value="6">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
+                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput6').click();">
+                          <span id="fileLabel6">Select Image...</span>
+                        </button>
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput6" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(3)">
+                      </div>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+<!-- CARD 7 -->
+          <div class="col">
+            <div class="card shadow-sm">
+              <img id="portfolioImage7" src="" alt="Image">
+              <div class="card-body">
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <form method="POST" action="" enctype="multipart/form-data" id="form7">
+                  <input type="hidden" name="cardIdentifier" value="7">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
+                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput7').click();">
+                          <span id="fileLabel7">Select Image...</span>
+                        </button>
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput7" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
+                      </div>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+<!-- CARD 8 -->
+          <div class="col">
+            <div class="card shadow-sm">
+              <img id="portfolioImage8" src="" alt="Image">
+              <div class="card-body">
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <form method="POST" action="" enctype="multipart/form-data" id="form8">
+                  <input type="hidden" name="cardIdentifier" value="8">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
+                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput8').click();">
+                          <span id="fileLabel8">Select Image...</span>
+                        </button>
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput8" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(2)">
+                      </div>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+<!-- CARD 9 -->
+          <div class="col">
+            <div class="card shadow-sm">
+              <img id="portfolioImage9" src="" alt="Image">
+              <div class="card-body">
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <form method="POST" action="" enctype="multipart/form-data" id="form3">
+                  <input type="hidden" name="cardIdentifier" value="9">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
+                        <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput9').click();">
+                          <span id="fileLabel9">Select Image...</span>
+                        </button>
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput9" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(3)">
+                      </div>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
 
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="Images3/Horizontal Arts/4h.jpg" alt="Girl in a jacket">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Upload Image</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="Images3/Horizontal Arts/5h.png" alt="Girl in a jacket">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Upload Image</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="Images3/Horizontal Arts/6h.png" alt="Girl in a jacket">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Upload Image</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="Images3/Horizontal Arts/7h.png" alt="Girl in a jacket">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Upload Image</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="Images3/Horizontal Arts/8h.png" alt="Girl in a jacket">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Upload Image</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="Images3/Horizontal Arts/9h.png" alt="Girl in a jacket">
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Upload Image</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <nav aria-label="Page navigation example">
             <ul class="pagination">
               <li class="page-item">
@@ -484,41 +545,81 @@ mysqli_close($db);
   </footer>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Include this script in the HTML -->
-<script>
+  <!-- Include this script in the HTML -->
+  <script>
     var recentlyUploadedImage = {
-        '1': '<?php echo isset($recentlyUploadedImage['1']) ? $recentlyUploadedImage['1'] : ''; ?>',
-        '2': '<?php echo isset($recentlyUploadedImage['2']) ? $recentlyUploadedImage['2'] : ''; ?>',
-        '3': '<?php echo isset($recentlyUploadedImage['3']) ? $recentlyUploadedImage['3'] : ''; ?>'
+      '1': '<?php echo isset($recentlyUploadedImage['1']) ? $recentlyUploadedImage['1'] : ''; ?>',
+      '2': '<?php echo isset($recentlyUploadedImage['2']) ? $recentlyUploadedImage['2'] : ''; ?>',
+      '3': '<?php echo isset($recentlyUploadedImage['3']) ? $recentlyUploadedImage['3'] : ''; ?>',
+      '4': '<?php echo isset($recentlyUploadedImage['4']) ? $recentlyUploadedImage['4'] : ''; ?>',
+      '5': '<?php echo isset($recentlyUploadedImage['5']) ? $recentlyUploadedImage['5'] : ''; ?>',
+      '6': '<?php echo isset($recentlyUploadedImage['6']) ? $recentlyUploadedImage['6'] : ''; ?>',
+      '7': '<?php echo isset($recentlyUploadedImage['7']) ? $recentlyUploadedImage['7'] : ''; ?>',
+      '8': '<?php echo isset($recentlyUploadedImage['8']) ? $recentlyUploadedImage['8'] : ''; ?>',
+      '9': '<?php echo isset($recentlyUploadedImage['9']) ? $recentlyUploadedImage['9'] : ''; ?>'
     };
 
-    function updateImageSrc(cardIdentifier) {
-        var imageElement = document.getElementById('portfolioImage' + cardIdentifier);
-        if (recentlyUploadedImage[cardIdentifier] !== '') {
-            // Construct the full path
-            imageElement.src = "./images/" + recentlyUploadedImage[cardIdentifier];
-        } else {
-            console.log('No image path available');
-        }
+    function truncateFilename(filename, maxLength) {
+      console.log('Original Filename:', filename);
+      if (filename.length > maxLength) {
+        return filename.substring(0, maxLength - 3) + '...';
+      }
+      return filename;
     }
 
-    function truncateFilename(filename, maxLength) {
-        if (filename.length > maxLength) {
-            return filename.substring(0, maxLength - 3) + '...';
+    function updateImageSrc(cardIdentifier) {
+      var imageElement = document.getElementById('portfolioImage' + cardIdentifier);
+      var fileInput = document.getElementById('imageInput' + cardIdentifier);
+      var fileInputLabel = document.getElementById('fileLabel' + cardIdentifier);
+
+      if (recentlyUploadedImage[cardIdentifier] !== '') {
+        // Construct the full path
+        var imagePath = "./images/" + recentlyUploadedImage[cardIdentifier];
+        imageElement.src = imagePath;
+
+        // Truncate the filename and set it as alt text
+        var truncatedFilename = truncateFilename(recentlyUploadedImage[cardIdentifier], 10); // Replace 20 with your desired max length
+        imageElement.alt = truncatedFilename;
+
+        // Check if a new file is selected and update the label
+        if (fileInput.value) {
+          fileInputLabel.innerText = truncatedFilename;
         }
-        return filename;
+      } else {
+        console.log('No image path available');
+      }
     }
 
     function updateImageSrcAfterUpload(cardIdentifier, imagePath) {
-        recentlyUploadedImage[cardIdentifier] = imagePath;
-        updateImageSrc(cardIdentifier);
+      recentlyUploadedImage[cardIdentifier] = imagePath;
+      updateImageSrc(cardIdentifier);
     }
 
-    console.log(recentlyUploadedImage);
-    updateImageSrc('1');
-    updateImageSrc('2');
-    updateImageSrc('3');
-</script>
+    window.onload = function() {
+      // Update images on page load
+      updateImageSrc('1');
+      console.log(recentlyUploadedImage);
+      updateImageSrc('2');
+      console.log(recentlyUploadedImage);
+      updateImageSrc('3');
+      console.log(recentlyUploadedImage);
+      updateImageSrc('4');
+      console.log(recentlyUploadedImage);
+      updateImageSrc('5');
+      console.log(recentlyUploadedImage);
+      updateImageSrc('6');
+      console.log(recentlyUploadedImage);
+      updateImageSrc('7');
+      console.log(recentlyUploadedImage);
+      updateImageSrc('8');
+      console.log(recentlyUploadedImage);
+      updateImageSrc('9');
+      console.log(recentlyUploadedImage);
+    };
+  </script>
+
+
+
 
 </body>
 
