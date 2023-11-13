@@ -2,8 +2,6 @@
 session_start();
 require_once './Config.php';
 
-// Your existing PHP code...
-
 if (isset($_SESSION['password_error'])) {
   $passwordError = $_SESSION['password_error'];
   unset($_SESSION['password_error']); // Clear the session variable

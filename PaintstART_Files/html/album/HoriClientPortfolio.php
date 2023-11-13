@@ -445,12 +445,9 @@
   </footer>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-
-
-
-  <!-- Include this script in the HTML -->
   <script>
     function deleteImage(cardIdentifier) {
+
       // Create a form and submit it to trigger the delete action
       var form = document.createElement('form');
       form.method = 'POST';
@@ -562,5 +559,4 @@
     };
   </script>
 </body>
-
 </html>

@@ -48,5 +48,4 @@ if ($result->num_rows > 0) {
       
 // Close the statement
 $stmt->close();
-// Close the connection
 $conn->close();

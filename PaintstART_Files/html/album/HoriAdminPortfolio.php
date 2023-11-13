@@ -2,6 +2,7 @@
 
 <script>
   function toggleEditText(cardId) {
+
     // Get the elements by their IDs
     var cardText = document.getElementById('cardText' + cardId);
     var editCardText = document.getElementById('editCardText' + cardId);
@@ -513,9 +514,9 @@
   </footer>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Include this script in the HTML -->
   <script>
     function deleteImage(cardIdentifier) {
+      
       // Create a form and submit it to trigger the delete action
       var form = document.createElement('form');
       form.method = 'POST';
@@ -569,12 +570,13 @@
       console.log('Updating image source for card ' + cardIdentifier);
 
       if (recentlyUploadedImage[cardIdentifier] !== '') {
+
         // Construct the full path
         var imagePath = "./images/" + recentlyUploadedImage[cardIdentifier];
         imageElement.src = imagePath;
 
         // Truncate the filename and set it as alt text
-        var truncatedFilename = truncateFilename(recentlyUploadedImage[cardIdentifier], 10); // Replace 20 with your desired max length
+        var truncatedFilename = truncateFilename(recentlyUploadedImage[cardIdentifier], 10); // Number can be replaced with desired max length
         imageElement.alt = truncatedFilename;
 
         // Check if a new file is selected and update the label
@@ -598,6 +600,7 @@
         updateImageSrc(i.toString());
         console.log(recentlyUploadedImage);
       }
+
       // Add an event listener to the Delete button for each card
       for (let i = 1; i <= 9; i++) {
         const deleteButton = document.getElementById('deleteButton' + i);
@@ -610,11 +613,13 @@
       }
 
       function deleteImage(cardIdentifier) {
+
         // Make an AJAX request to the server to delete the image
         const xhr = new XMLHttpRequest();
         xhr.open('POST', './php/deleteImage.php', true);
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function() {
+
           if (xhr.readyState === 4 && xhr.status === 200) {
             // Handle the response, you can update the UI accordingly
             console.log(xhr.responseText);

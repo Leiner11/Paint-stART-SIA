@@ -6,7 +6,6 @@ require_once 'Config.php';
 $msg = "";
 $recentlyUploadedImage = [];
 
-// Database connection (using variables from Config.php)
 $db = mysqli_connect(host, username, password, dbname);
 
 if (!$db) {
@@ -32,7 +31,7 @@ if (isset($_POST['upload'])) {
   $tempname = $_FILES["uploadfile"]["tmp_name"];
 
   // Generate a unique identifier (timestamp)
-  $uniqueIdentifier = time(); // You can use other methods to generate a unique identifier
+  $uniqueIdentifier = time(); // Other methods are also okay to generate a unique identifier
 
   // Extract file extension
   $fileExtension = pathinfo($filename, PATHINFO_EXTENSION);
@@ -48,10 +47,11 @@ if (isset($_POST['upload'])) {
   // Execute query
   mysqli_query($db, $sql);
 
-  // Now let's move the uploaded image into the folder: images
+  // Move the uploaded image into the folder: images
   if (move_uploaded_file($tempname, $folder)) {
     $msg = "Image uploaded successfully!";
     $absolutePath = realpath($folder);
+
     // Ensure the file exists before storing the path
     if ($absolutePath !== false && file_exists($absolutePath)) {
       $recentlyUploadedImage = getRecentlyUploadedImages($db); // Update with the latest data
@@ -93,5 +93,4 @@ if (isset($_POST['delete'])) {
 // Get recently uploaded images from the database
 $recentlyUploadedImage = getRecentlyUploadedImages($db);
 
-// Close the database connection
 mysqli_close($db);

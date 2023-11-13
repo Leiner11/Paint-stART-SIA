@@ -762,7 +762,7 @@
       // Execute query
       mysqli_query($db, $sql);
 
-      // Now let's move the uploaded image into the folder: image
+      // Move the uploaded image into the folder: image
       if (move_uploaded_file($tempname, $folder)) {
          $imageSource = "./user_images/" . $filename;
          echo "<h3> Image uploaded successfully!</h3>";

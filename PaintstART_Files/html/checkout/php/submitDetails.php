@@ -2,8 +2,9 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-// Manually set the database name
-$dbname = 'users'; // Replace 'your_database_name' with your actual database name
+// Manually set the database name because it Config.php doesn't work for some reason AAAAAAAAA
+$dbname = 'users';
+
 // Retrieve data from the POST request
 $requestBody = file_get_contents('php://input');
 $formData = $_POST;
@@ -25,21 +26,18 @@ function saveFormDataToDatabase($formData)
         return;
     }
 
-    // Replace these values with your actual database configuration
     $host = "localhost";
     $username = "Group4PS_Admin";
     $password = "group_4_PS!!!1111";
     $dbname = "users";
 
-    // Create connection with the database name specified in the constructor
     $conn = new mysqli($host, $username, $password, $dbname);
 
-    // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Check if array keys exist before accessing them
+    // Check if array keys exist before accessing
     $firstName = isset($formData['firstname']) ? $conn->real_escape_string($formData['firstname']) : '';
     $lastName = isset($formData['lastname']) ? $conn->real_escape_string($formData['lastname']) : '';
     $username = isset($formData['username']) ? $conn->real_escape_string($formData['username']) : '';
@@ -50,7 +48,7 @@ function saveFormDataToDatabase($formData)
     $paymentMethod = isset($formData['paymentMethod']) ? $conn->real_escape_string($formData['paymentMethod']) : '';
     $refNumber = isset($formData['pm_referenceNumber']) ? $conn->real_escape_string($formData['pm_referenceNumber']) : '';
 
-    // Modify this query based on your table structure
+    // Modify this query based on table structure
     $sql = "INSERT INTO order_details (username, firstname, lastname, email, twitter, option_colored, option_blacknwhite, paymentMethod, pm_referenceNumber)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -70,8 +68,6 @@ function saveFormDataToDatabase($formData)
     }
 
     $stmt->close();
-    
-    // Close the database connection
     $conn->close();
 }
 ?>

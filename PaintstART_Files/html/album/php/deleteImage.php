@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sql = "DELETE FROM portfolio_images WHERE card_identifier = '$cardIdentifier'";
     mysqli_query($db, $sql);
 
-    // You can also delete the corresponding image file if needed
+    // Can also delete the corresponding image file if needed
     // $filename = get the filename from the database based on $cardIdentifier
     // unlink("./images/$filename");
 
