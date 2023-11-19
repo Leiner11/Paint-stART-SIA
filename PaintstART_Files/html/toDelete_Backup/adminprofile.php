@@ -1,4 +1,6 @@
-<?php include './php/display_userDetails.php'; ?>
+<?php
+include './php/display_userDetails.php';
+?>
 
 <script>
    function populateUserAccount() {

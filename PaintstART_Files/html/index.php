@@ -52,7 +52,7 @@ https://templatemo.com/tm-586-scholar
     //$userId = $_SESSION['userID']; Uncomment if we want to show the UserID
     //$listItemName = ($userLoggedIn) ? 'My Account (ID: ' . $userId . ')' : 'Login'; Uncomment if we want to show the UserID
     $listItemName = ($userLoggedIn) ? 'My Account' : 'Login';
-    $listItemHref = ($userLoggedIn) ? 'userprofile.php' : 'login.php';
+    $listItemHref = ($userLoggedIn) ? './userprofile/userprofile.php' : 'login.php';
   } else {
     $userLoggedIn = false;
     $listItemName = 'Login';
@@ -282,7 +282,7 @@ https://templatemo.com/tm-586-scholar
         <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 design">
           <div class="events_item">
             <div class="thumb">
-              <a href="/PaintstART_Files/html/RQ1.html"><img src="assets/images/Firefly1.png" alt=""></a>
+              <a href="/PaintstART_Files/html/requestPages/RQ1.html"><img src="assets/images/Firefly1.png" alt=""></a>
               <span class="category">Dracotaur</span>
               <span class="price">
                 <h6><em>$</em>80</h6>
@@ -297,7 +297,7 @@ https://templatemo.com/tm-586-scholar
         <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6  development">
           <div class="events_item">
             <div class="thumb">
-              <a href="/PaintstART_Files/html/RQ2.html"><img src="assets/images/2d1.png" alt=""></a>
+              <a href="/PaintstART_Files/html/requestPages/RQ2.html"><img src="assets/images/2d1.png" alt=""></a>
               <span class="category">Assassin</span>
               <span class="price">
                 <h6><em>$</em>90</h6>
@@ -312,7 +312,7 @@ https://templatemo.com/tm-586-scholar
         <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 design wordpress">
           <div class="events_item">
             <div class="thumb">
-              <a href="/PaintstART_Files/html/RQ3.html"><img src="assets/images/Hurt1.png" alt=""></a>
+              <a href="/PaintstART_Files/html/requestPages/RQ3.html"><img src="assets/images/Hurt1.png" alt=""></a>
               <span class="category">Emotional</span>
               <span class="price">
                 <h6><em>$</em>55</h6>
@@ -327,7 +327,7 @@ https://templatemo.com/tm-586-scholar
         <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 development">
           <div class="events_item">
             <div class="thumb">
-              <a href="/PaintstART_Files/html/RQ4.html"><img src="assets/images/Flower.png" alt=""></a>
+              <a href="/PaintstART_Files/html/requestPages/RQ4.html"><img src="assets/images/Flower.png" alt=""></a>
               <span class="category">Enchanter</span>
               <span class="price">
                 <h6><em>$</em>65</h6>
@@ -342,7 +342,7 @@ https://templatemo.com/tm-586-scholar
         <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 wordpress development">
           <div class="events_item">
             <div class="thumb">
-              <a href="/PaintstART_Files/html/RQ5.html"><img src="assets/images/Zakito.png" alt=""></a>
+              <a href="/PaintstART_Files/html/requestPages/RQ5.html"><img src="assets/images/Zakito.png" alt=""></a>
               <span class="category">Ganster</span>
               <span class="price">
                 <h6><em>$</em>120</h6>
@@ -357,7 +357,7 @@ https://templatemo.com/tm-586-scholar
         <div class="col-lg-4 col-md-6 align-self-center mb-30 event_outer col-md-6 wordpress design">
           <div class="events_item">
             <div class="thumb">
-              <a href="/PaintstART_Files/html/RQ6.html"><img src="assets/images/three.png" alt=""></a>
+              <a href="/PaintstART_Files/html/requestPages/RQ6.html"><img src="assets/images/three.png" alt=""></a>
               <span class="category">IRL Digital Art</span>
               <span class="price">
                 <h6><em>$</em>100</h6>

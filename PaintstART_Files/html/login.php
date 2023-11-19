@@ -33,7 +33,8 @@ if (isset($_SESSION['password_error'])) {
     <h2 class="logo"></h2>
     <nav class="navigation">
       <a href="/PaintstART_Files/html/index.php">Home</a>
-      <a href="/PaintstART_Files/html/album/HoriClientPortfolio.html">Digital Art Works</a>
+      <a href="/PaintstART_Files/html/album/HoriClientPortfolio.php">Digital Art Works</a>
+      <a href="/PaintstART_Files/html/checkout/checkout.php">Request Commission Now</a>
       <button class="btnLogin-popup">Login</button>
     </nav>
   </header>

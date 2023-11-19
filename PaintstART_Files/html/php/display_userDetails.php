@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once './Config.php';
+require_once '../Config.php';
 
 if ($conn->connect_error) {
    die("Connection failed: " . $conn->connect_error);
@@ -9,7 +9,7 @@ if ($conn->connect_error) {
 // Check if userID is set in the session
 if (isset($_SESSION['userID'])) {
    $userID = $_SESSION['userID'];
-   echo "User ID: $userID";
+   //echo "User ID: $userID";
 } else {
    echo "User ID not set in the session.";
 }
@@ -49,3 +49,4 @@ if ($result->num_rows > 0) {
 // Close the statement
 $stmt->close();
 $conn->close();
+?>

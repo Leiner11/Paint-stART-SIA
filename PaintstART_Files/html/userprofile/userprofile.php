@@ -1,3 +1,32 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+include '../php/checkIf_userOrAdmin.php';
+include '../php/display_userDetails.php';
+?>
+
+<script>
+   function populateUserAccount() {
+      var usernameField = document.getElementById('username');
+      usernameField.value = '<?php echo $user['username']; ?>';
+
+      var firstnameField = document.getElementById('firstname');
+      firstnameField.value = '<?php echo $user['firstname']; ?>';
+
+      var lastnameField = document.getElementById('lastname');
+      lastnameField.value = '<?php echo $user['lastname']; ?>';
+
+      var emailField = document.getElementById('email');
+      emailField.value = '<?php echo $user['email']; ?>';
+
+      var twitterField = document.getElementById('twitter');
+      twitterField.value = '<?php echo $user['twitter']; ?>';
+
+   }
+   window.onload = populateUserAccount;
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -626,6 +655,7 @@
 </head>
 
 <body>
+
    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
    <div class="container">
       <div class="view-account">
@@ -633,23 +663,21 @@
             <div class="module-inner">
                <div class="side-bar">
                   <div class="user-info">
-                     <img class="img-profile img-circle img-responsive center-block" src="" alt>
+                     <img class="img-profile img-circle img-responsive center-block" src="Images/ASTARION-EXAMPLEPROFILE.jpg" alt>
                      <ul class="meta list list-unstyled">
                         <li class="name">Astarion Ascunin
                            <label class="label label-info">User</label>
                         </li>
                      </ul>
                   </div>
-
                   <nav class="side-menu">
-
                      <ul class="nav">
                         <li class="active"><a href="#"><span class="fa fa-user"></span> Edit Profile</a></li>
-                        <li><a href="#"><span class="fa fa-cog"></span> Update Details</a></li>
+                        <li><a href="/PaintstART_Files/html/userprofile/userprofile_updatedetails.php"><span class="fa fa-cog"></span> Update Details</a></li>
                      </ul>
                      <ul class="nav">
                         <li class="active"><a href="#"><span class="fa fa-user"></span> My Profile</a></li>
-                        <li><a href="/PaintstART_Files/html/userprofile.php"><span class="fa fa-cog"></span> My Information</a></li>
+                        <li><a href="#"><span class="fa fa-cog"></span> My Information</a></li>
                         <li><a href="#"><span class="fa fa"></span> Order History</a></li>
                         <li><a href="/PaintstART_Files/php/logout.php"><span class="fa fa"></span> Logout</a></li>
                         <br<br><br><br>
@@ -658,76 +686,53 @@
                   </nav>
                </div>
 
+
                <div class="content-panel">
-                  <fieldset class="fieldset">
-                     <h3 class="fieldset-title">Edit Profile</h3>
-
-                     <div id="content">
-                        <form method="POST" action="" enctype="multipart/form-data">
-                           <div class="form-group avatar">
-                              <figure class="figure col-md-2 col-sm-3 col-xs-12">
-                                 <img class="img-rounded img-responsive" src="<?php echo $imageSource ?>" alt>
-                           </div>
-                           </figure>
-                           <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-                              <input type="file" class="file-uploader pull-left" name="uploadfile" value="" />
-                              <button type="submit" class="btn btn-sm btn-default-alt pull-left" name="upload">Update Image</button><br><br>
-                           </div>
-                        </form>
-                     </div>
-
-
-                     <form action="/PaintstART_Files/php/update.php" class="form-horizontal" method="POST">
+                  <form action="/PaintstART_Files/html/userprofile/userprofile_deleteaccount.php" class="form-horizontal" method="POST">
+                     <fieldset class="fieldset">
+                        <h3 class="fieldset-title">Edit Profile</h3>
                         <div class="form-group">
                            <label for="new_username" label class="col-md-2 col-sm-3 col-xs-12 control-label">Username</label>
                            <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="text" class="form-control" id="username" name="new_username" value="" required>
+                              <input type="text" class="form-control" id="username" value="" readonly>
                            </div>
                         </div>
                         <div class="form-group">
-                           <label for="new_firstname" label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
+                           <label for="firstname" label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
                            <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="text" class="form-control" id="firstname" name="new_firstname" value="">
+                              <input type="text" class="form-control" id="firstname" value="" readonly>
                            </div>
                         </div>
                         <div class="form-group">
-                           <label for="new_lastname" label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
+                           <label for="lastname" label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
                            <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="text" class="form-control" id="lastname" name="new_lastname" value="">
+                              <input type="text" class="form-control" id="lastname" value="" readonly>
+                           </div>
+                        </div>
+                     </fieldset>
+                     <fieldset class="fieldset">
+                        <h3 class="fieldset-title">Contact Info</h3>
+                        <div class="form-group">
+                           <label for="email" label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
+                           <div class="col-md-10 col-sm-9 col-xs-12">
+                              <input type="email" class="form-control" id="email" value="" readonly>
+                              <p class="help-block">This is your email </p>
                            </div>
                         </div>
                         <div class="form-group">
-                           <label for="current_password" label class="col-md-2 col-sm-3 col-xs-12 control-label">Re-enter Old Password</label>
+                           <label for="twitter" label class="col-md-2  col-sm-3 col-xs-12 control-label">Twitter</label>
                            <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="text" class="form-control" id="password" name="current_password" value="" required>
+                              <input type="text" class="form-control" id="twitter" value="" readonly>
+                              <p class="help-block">Your twitter username</p>
                            </div>
                         </div>
-                        <div class="form-group">
-                           <label for="new_password" label class="col-md-2 col-sm-3 col-xs-12 control-label">Enter New Password</label>
-                           <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="text" class="form-control" id="new_password" name="new_password" value="" required>
-                           </div>
+                     </fieldset>
+                     <hr>
+                     <div class="form-group">
+                        <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
+                           <input class="btn btn-primary" name="update" type="submit" value="Delete Profile">
                         </div>
-                        <div class="form-group">
-                           <label for="new_email" label class="col-md-2 col-sm-3 col-xs-12 control-label">Update Email Address</label>
-                           <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="email" class="form-control" id="email" name="new_email" value="" required>
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label for="twiitter" label class="col-md-2 col-sm-3 col-xs-12 control-label">Enter Twitter Username</label>
-                           <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="text" class="form-control" id="twitter" name="twitter" value="">
-                           </div>
-                        </div>
-
-                  </fieldset>
-                  <hr>
-                  <div class="form-group">
-                     <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                        <input class="btn btn-primary" name="update" type="submit" value="Update Profile">
                      </div>
-                  </div>
                   </form>
                </div>
             </div>
@@ -738,47 +743,6 @@
    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <script type="text/javascript"></script>
-
-
-
-   <?php
-   //NOT COMPLETE YET, DELETE IF THIS IF NOT NEEDED
-   error_reporting(0);
-
-   $msg = "";
-
-   // If upload button is clicked ...
-   if (isset($_POST['upload'])) {
-
-      $filename = $_FILES["uploadfile"]["name"];
-      $tempname = $_FILES["uploadfile"]["tmp_name"];
-      $folder = "./user_images/" . $filename;
-
-      $db = mysqli_connect("localhost", "Group4PS_Admin", "group_4_PS!!!1111", "users");
-
-      // Get all the submitted data from the form
-      $sql = "INSERT INTO portfolio_images (filename) VALUES ('$filename')";
-
-      // Execute query
-      mysqli_query($db, $sql);
-
-      // Move the uploaded image into the folder: image
-      if (move_uploaded_file($tempname, $folder)) {
-         $imageSource = "./user_images/" . $filename;
-         echo "<h3> Image uploaded successfully!</h3>";
-      } else {
-         echo "<h3> Failed to upload image!</h3>";
-      }
-   }
-   ?>
-   <?php
-   $query = "SELECT * FROM portfolio_images";
-   $result = mysqli_query($db, $query);
-
-   while ($data = mysqli_fetch_assoc($result)) {
-      $imageSource = "./user_images/" . $data['filename'];
-   }
-   ?>
 </body>
 
 </html>

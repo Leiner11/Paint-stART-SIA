@@ -1,5 +1,5 @@
 <?php
-require_once 'Config.php';
+require_once '../Config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cardIdentifier = mysqli_real_escape_string($db, $_POST['cardIdentifier']);

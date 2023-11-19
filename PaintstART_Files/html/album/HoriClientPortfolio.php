@@ -215,7 +215,7 @@
             towards unto one person.
           </p>
           <p>
-            <a href="/PaintstART_Files/html/checkout/checkout.html" class="btn btn-primary my-2">Request a Commission</a>
+            <a href="/PaintstART_Files/html/checkout/checkout.php" class="btn btn-primary my-2">Request a Commission</a>
             <a href="/PaintstART_Files/html/index.php" class="btn btn-secondary my-2">Back to Homepage</a>
           </p>
         </div>
