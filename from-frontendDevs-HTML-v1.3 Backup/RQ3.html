@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RQ3</title>
+</head>
+<body>
+
+    <div class="main-container">
+      <header>
+        <nav class="navigation">
+            <a href="#">Home</a>
+            <a href="#">Digital Art Works</a>
+            <a href="#">About Me</a>
+            <button class="btnLogin-popup">Login</button>
+        </nav>
+    </header>
+        <main class="main">
+          <div class="image-wrapper">
+            <img src="assets/images/Hurt1.png" alt="Three" style="width: 100%;">
+            <div class="description">
+              A personal artwork by Curse, it is similar to other original characters he created and posted throughout his other social media accounts, such as Twitter.
+            </div>
+            <a style="--clr: #7808d0" class="button" href="#">
+              <span class="button__icon-wrapper">
+                  <svg width="10" class="button__icon-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 15">
+                      <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+                  </svg>
+                  
+                  <svg class="button__icon-svg  button__icon-svg--copy" xmlns="http://www.w3.org/2000/svg" width="10" fill="none" viewBox="0 0 14 15">
+                      <path fill="currentColor" d="M13.376 11.552l-.264-10.44-10.44-.24.024 2.28 6.96-.048L.2 12.56l1.488 1.488 9.432-9.432-.048 6.912 2.304.024z"></path>
+                  </svg>
+              </span>
+              Request Art
+          </a>
+          </div>
+        </main>
+      </div>
+      
+      <style>
+
+        *{
+        font-family: 'Poppins', sans-serif;
+      }
+
+body
+      {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('Images/RQgif.gif') no-repeat;
+    background-size: cover;
+    background-position:center;
+}
+
+body::before {
+  position: absolute;
+}
+
+        .main-container {
+          display: flex;
+          flex-direction: column;
+          height: 100vh;
+        }
+      
+        header
+{
+    position: fixed;
+    top: 0;
+    left: 60%;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.navigation a
+{
+    position: relative;
+    font-size: 1.1em;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation a::after
+{
+    content:'';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after
+{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup
+{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navigation .btnLogin-popup:hover
+{
+    background: #fff;
+    color: #162938;
+}
+      
+        .main {
+          align-items: center;
+          display: flex;
+          flex-basis: 0%;
+          flex-grow: 1;
+          justify-content: center;
+        }
+      
+        .image-wrapper {
+          align-items: center;
+          background-color: rgb(255, 255, 255);
+          border: 1px solid rgb(204, 204, 204);
+          border-radius: 20px;
+          display: flex;
+          flex-direction: column;
+          max-width: 400px;
+          padding: 20px;
+          box-shadow: 1px 1px 50px lightblue, 5px 5px 100px purple;
+        }
+      
+        .image {
+          aspect-ratio: 4 / 3;
+          object-fit: cover;
+          object-position: center;
+          width: 100%;
+          background-image: url(https://cdn.builder.io/api/v1/image/assets%2F71a45bdd81214852a1d67bec17998778%2Fc60d31f99ec746899a634c59578403e8);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          background-color: rgba(0, 0, 0, 1);
+        }
+      
+        .description {
+          line-height: 1.5;
+          margin-top: 20px;
+        }
+      
+        .button {
+          all: unset;
+          background-color: rgb(0, 0, 0);
+          border: none;
+          border-radius: 4px;
+          color: rgb(255, 255, 255);
+          cursor: pointer;
+          margin-top: 20px;
+          padding: 10px 20px;
+        }
+
+        .button {
+  line-height: 1;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .75rem;
+  background-color: var(--clr);
+  color: #fff;
+  border-radius: 10rem;
+  font-weight: 600;
+  padding: .75rem 1.5rem;
+  padding-left: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background-color .3s;
+}
+
+.button__icon-wrapper {
+  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  color: var(--clr);
+  background-color: #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.button:hover {
+  background-color: #000;
+}
+
+.button:hover .button__icon-wrapper {
+  color: #000;
+}
+
+.button__icon-svg--copy {
+  position: absolute;
+  transform: translate(-150%, 150%);
+}
+
+.button:hover .button__icon-svg:first-child {
+  transition: transform .3s ease-in-out;
+  transform: translate(150%, -150%);
+}
+
+.button:hover .button__icon-svg--copy {
+  transition: transform .3s ease-in-out .1s;
+  transform: translate(0);
+}
+      </style>
+    
+</body>
+</html>
