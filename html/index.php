@@ -52,7 +52,7 @@ https://templatemo.com/tm-586-scholar
     //$userId = $_SESSION['userID']; Uncomment if we want to show the UserID
     //$listItemName = ($userLoggedIn) ? 'My Account (ID: ' . $userId . ')' : 'Login'; Uncomment if we want to show the UserID
     $listItemName = ($userLoggedIn) ? 'My Account' : 'Login';
-    $listItemHref = ($userLoggedIn) ? './userprofile/userprofile.php' : 'login.php';
+    $listItemHref = ($userLoggedIn) ? '/PaintstART_Files/html/userprofile/userprofile.php' : 'login.php';
   } else {
     $userLoggedIn = false;
     $listItemName = 'Login';
@@ -84,7 +84,7 @@ https://templatemo.com/tm-586-scholar
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
               <li class="scroll-to-section"><a href="#services">Information</a></li>
-              <li class="scroll-to-section"><a href="/PaintstART_Files/html/album/HoriClientPortfolio.php">Digital Arts</a></li>
+              <li class="scroll-to-section"><a href="/PaintstART_Files/html/album-client/HoriClientPortfolio.php">Digital Arts</a></li>
               <li class="scroll-to-section"><a href="#events">Offered Pricing</a></li>
               <li class="scroll-to-section" id="user_status"><a href="/PaintstART_Files/html/login.php"></a></li>
             </ul>
@@ -778,7 +778,7 @@ https://templatemo.com/tm-586-scholar
   <footer>
     <div class="container">
       <div class="col-lg-12">
-        <p>Copyright © 2023 Paint stART. All rights reserved. &nbsp;&nbsp;&nbsp; <br>J3S: Group-3 </p>
+        <p>Copyright © 2023 Paint stART. All rights reserved. &nbsp;&nbsp;&nbsp;Website made by Group 4 | J3S |</p>
       </div>
     </div>
   </footer>
