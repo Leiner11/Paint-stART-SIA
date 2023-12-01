@@ -28,9 +28,6 @@ if (isset($_SESSION['userID'])) {
             // Fetch the result as an associative array
             $row = $result->fetch_assoc();
 
-            // Debugging line
-            var_dump($row['username']);
-
             // Check if the username contains the word "paint_admin"
             if (strpos($row['username'], 'admin') !== false) {
                 header('Location: ../adminprofile/adminprofile.php');
