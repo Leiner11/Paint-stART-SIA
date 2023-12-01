@@ -39,7 +39,7 @@ if (isset($_POST['upload'])) {
   // Modify the filename to make it unique
   $uniqueFilename = $uniqueIdentifier . '_' . $cardIdentifier . '.' . $fileExtension;
 
-  $folder = "./images/" . $uniqueFilename;
+  $folder = "../album-image/" . $uniqueFilename;
 
   // Get all the submitted data from the form
   $sql = "INSERT INTO portfolio_images (filename, card_identifier) VALUES ('$uniqueFilename', '$cardIdentifier')";
@@ -76,7 +76,7 @@ if (isset($_POST['delete'])) {
     $filenameToDelete = $row['filename'];
 
     // Delete the image file
-    $fileToDelete = "./images/" . $filenameToDelete;
+    $fileToDelete = "../album-image/" . $filenameToDelete;
     if (file_exists($fileToDelete)) {
       unlink($fileToDelete);
     }

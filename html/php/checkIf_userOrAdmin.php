@@ -14,7 +14,7 @@ if (isset($_SESSION['userID'])) {
     $user_ID = $_SESSION['userID'];
 
     // Use prepared statement to prevent SQL injection
-    $sql = "SELECT username FROM user_profile WHERE userID = ?";
+    $sql = "SELECT username FROM admin_profile WHERE userID = ?";
     $stmt = $conn->prepare($sql);
 
     if ($stmt) {
@@ -29,7 +29,7 @@ if (isset($_SESSION['userID'])) {
             $row = $result->fetch_assoc();
 
             // Check if the username contains the word "paint_admin"
-            if (strpos($row['username'], 'admin') !== false) {
+            if (strpos($row['username'], 'paintAdmin') !== false) {
                 header('Location: ../adminprofile/adminprofile.php');
                 exit;
             } else {

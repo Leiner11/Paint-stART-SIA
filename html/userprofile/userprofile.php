@@ -1,7 +1,6 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-//include '../php/checkIf_userOrAdmin.php';
 include '../php/display_userDetails.php';
 ?>
 

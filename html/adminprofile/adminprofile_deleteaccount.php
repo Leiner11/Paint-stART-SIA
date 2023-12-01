@@ -650,9 +650,10 @@
                         <li><a href="/PaintstART_Files/html/userprofile_updatedetails.php"><span class="fa fa-cog"></span> Update Details</a></li>
                      </ul>
                      <ul class="nav">
-                        <li class="active"><a href="#"><span class="fa fa-user"></span> My Profile</a></li>
-                        <li><a href="/PaintstART_Files/html/userprofile.php"><span class="fa fa-cog"></span> My Information</a></li>
-                        <li><a href="#"><span class="fa fa"></span> Order History</a></li>
+                     <li class="active"><a href="#"><span class="fa fa-user"></span> My Profile</a></li>
+                        <li><a href="/PaintstART_Files/html/adminprofile/adminprofile.php"><span class="fa fa-cog"></span> My Information</a></li>
+                        <li><a href="../album-admin/AdminPortfolio.php"><span class="fa fa"></span> Edit Portfolio Page</a></li>
+                        <li><a href="../orderHistory(Admin)/CheckHistory.php"><span class="fa fa"></span> Check Orders</a></li>
                         <li><a href="/PaintstART_Files/php/logout.php"><span class="fa fa"></span> Logout</a></li>
                         <br<br><br><br>
                            <li><a href="/PaintstART_Files/html/index.php"><span class="fa fa"></span> Go Back</a></li>

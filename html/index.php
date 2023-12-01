@@ -84,7 +84,7 @@ https://templatemo.com/tm-586-scholar
             <ul class="nav">
               <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
               <li class="scroll-to-section"><a href="#services">Information</a></li>
-              <li class="scroll-to-section"><a href="/PaintstART_Files/html/album-client/HoriClientPortfolio.php">Digital Arts</a></li>
+              <li class="scroll-to-section"><a href="/PaintstART_Files/html/album-client/ClientPortfolio.php">Digital Arts</a></li>
               <li class="scroll-to-section"><a href="#events">Offered Pricing</a></li>
               <li class="scroll-to-section" id="user_status"><a href="/PaintstART_Files/html/login.php"></a></li>
             </ul>

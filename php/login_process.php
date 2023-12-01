@@ -11,19 +11,42 @@ if ($conn->connect_error) {
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// Query the database for the user's details
-$sql = "SELECT * FROM user_profile WHERE email=? AND password=?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $email, $password);
-$stmt->execute();
-$result = $stmt->get_result();
+// Query the user_profile table for the user's details
+$sqlUser = "SELECT * FROM user_profile WHERE email=?";
+$stmtUser = $conn->prepare($sqlUser);
+$stmtUser->bind_param("s", $email);
+$stmtUser->execute();
+$resultUser = $stmtUser->get_result();
 
-// Check if the user exists
-if ($result->num_rows > 0) {
-    // User exists, set session variable and redirect to home page
-    $user = $result->fetch_assoc();
+// Query the admin_profile table for the user's details
+$sqlAdmin = "SELECT * FROM admin_profile WHERE email=?";
+$stmtAdmin = $conn->prepare($sqlAdmin);
+$stmtAdmin->bind_param("s", $email);
+$stmtAdmin->execute();
+$resultAdmin = $stmtAdmin->get_result();
+
+// Check if the user exists in user_profile
+if ($resultUser->num_rows > 0) {
+    $user = $resultUser->fetch_assoc();
+    $hashedPassword = $user['password'];
+} elseif ($resultAdmin->num_rows > 0) {
+    // Check if the user exists in admin_profile
+    $user = $resultAdmin->fetch_assoc();
+    $hashedPassword = $user['password'];
+} else {
+    // User does not exist, display error message
+    echo "<p>Invalid username or password.</p>";
+    $stmtUser->close();
+    $stmtAdmin->close();
+    $conn->close();
+    exit();
+}
+
+// Verify the entered password against the stored hashed password
+if (password_verify($password, $hashedPassword)) {
+    // Password is correct, set session variables and redirect to home page
     $userID = $user['userID'];
-    
+
     $_SESSION['username'] = $user['username'];
     $_SESSION['userID'] = $userID;
     $_SESSION['loggedInUser'] = $user['username'];
@@ -31,11 +54,11 @@ if ($result->num_rows > 0) {
     header("Location: check_login.php");
     exit();
 } else {
-    // User does not exist, display error message
+    // Password is incorrect, display error message
     echo "<p>Invalid username or password.</p>";
 }
 
-// Close the statement
-$stmt->close();
-// Close the connection
+$stmtUser->close();
+$stmtAdmin->close();
 $conn->close();
+?>
