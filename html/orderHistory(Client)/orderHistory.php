@@ -10,8 +10,8 @@
   <header>
     <nav class="navbar">
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Account</a></li>
+        <li><a href="../index.php">Home</a></li>
+        <li><a href="../userprofile/userprofile.php">My Account</a></li>
       </ul>
     </nav>
   </header>

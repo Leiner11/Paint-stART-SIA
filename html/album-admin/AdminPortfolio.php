@@ -36,6 +36,7 @@
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.118.2">
   <title>Digital Art Portfolio</title>
+  <script src="../jquery/jquery-3.7.1.min.js.js"></script>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
 
@@ -249,8 +250,11 @@
               <img id="portfolioImage1" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
                 <!-- Display the text -->
-                <p class="card-text" id="cardText1">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
-
+                <p class="card-text" id="cardText1">
+                  <span id="cardTextContent1"></span>
+                </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton1" onclick="toggleEditText(1)">Edit Text</button>
+                <br><br>
                 <!-- Input field for editing (initially hidden) -->
                 <input type="text" class="form-control" id="editCardText1" style="display: none;">
 
@@ -258,8 +262,6 @@
                   <input type="hidden" name="cardIdentifier" value="1">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <!-- Toggle visibility of text and input field on button click -->
-                      <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton1" onclick="toggleEditText(1)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput1').click();">
                           <span id="fileLabel1">Select Image...</span>
@@ -280,7 +282,9 @@
             <div class="card shadow-sm">
               <img id="portfolioImage2" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
+                <p class="card-text" id="cardText2">
+                  <span id="cardTextContent2"></span>
+                </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form2">
                   <input type="hidden" name="cardIdentifier" value="2">
                   <div class="d-flex justify-content-between align-items-center">
@@ -305,7 +309,9 @@
             <div class="card shadow-sm">
               <img id="portfolioImage3" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
+                <p class="card-text" id="cardText3">
+                  <span id="cardTextContent3"></span>
+                </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form3">
                   <input type="hidden" name="cardIdentifier" value="3">
                   <div class="d-flex justify-content-between align-items-center">
@@ -330,7 +336,9 @@
             <div class="card shadow-sm">
               <img id="portfolioImage4" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
+                <p class="card-text" id="cardText4">
+                  <span id="cardTextContent4"></span>
+                </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form4">
                   <input type="hidden" name="cardIdentifier" value="4">
                   <div class="d-flex justify-content-between align-items-center">
@@ -355,7 +363,9 @@
             <div class="card shadow-sm">
               <img id="portfolioImage5" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
+                <p class="card-text" id="cardText5">
+                  <span id="cardTextContent5"></span>
+                </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form5">
                   <input type="hidden" name="cardIdentifier" value="5">
                   <div class="d-flex justify-content-between align-items-center">
@@ -380,7 +390,9 @@
             <div class="card shadow-sm">
               <img id="portfolioImage6" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
+                <p class="card-text" id="cardText6">
+                  <span id="cardTextContent6"></span>
+                </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form6">
                   <input type="hidden" name="cardIdentifier" value="6">
                   <div class="d-flex justify-content-between align-items-center">
@@ -405,7 +417,9 @@
             <div class="card shadow-sm">
               <img id="portfolioImage7" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
+                <p class="card-text" id="cardText7">
+                  <span id="cardTextContent7"></span>
+                </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form7">
                   <input type="hidden" name="cardIdentifier" value="7">
                   <div class="d-flex justify-content-between align-items-center">
@@ -430,7 +444,9 @@
             <div class="card shadow-sm">
               <img id="portfolioImage8" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
+                <p class="card-text" id="cardText8">
+                  <span id="cardTextContent8"></span>
+                </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form8">
                   <input type="hidden" name="cardIdentifier" value="8">
                   <div class="d-flex justify-content-between align-items-center">
@@ -455,7 +471,9 @@
             <div class="card shadow-sm">
               <img id="portfolioImage9" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
+                <p class="card-text" id="cardText9">
+                  <span id="cardTextContent9"></span>
+                </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form3">
                   <input type="hidden" name="cardIdentifier" value="9">
                   <div class="d-flex justify-content-between align-items-center">
@@ -505,8 +523,6 @@
         </div>
       </div>
     </div>
-
-
   </main>
 
   <footer class="text-body-secondary py-5">
@@ -544,7 +560,6 @@
 
       document.body.appendChild(form);
 
-      // Submit the form
       form.submit();
     }
 
@@ -627,9 +642,11 @@
         xhr.onreadystatechange = function() {
 
           if (xhr.readyState === 4 && xhr.status === 200) {
-            // Handle the response, you can update the UI accordingly
+
+            // Handle the response, update the UI accordingly
             console.log(xhr.responseText);
-            // Optionally, you can refresh the page or update the UI after deletion
+
+            // Optionally, refresh the page or update the UI after deletion
             updateImageSrc(cardIdentifier);
           }
         };
@@ -637,6 +654,97 @@
       }
     };
   </script>
+
+  <script>
+    function toggleEditText(cardNumber) {
+      var cardText = $('#cardText' + cardNumber);
+      var editTextArea = $('#editCardText' + cardNumber);
+      var saveButton = $('#saveButton' + cardNumber);
+
+      if (cardText.is(':visible')) {
+        cardText.hide();
+        editTextArea.val(cardText.text()).show().focus();
+
+        // Create and append the Save button
+        saveButton = $('<button type="button" class="btn btn-sm btn-outline-secondary" id="saveButton' + cardNumber + '">Save</button>');
+        saveButton.appendTo('#form' + cardNumber + ' .btn-group');
+
+        // Attach the click event handler for the Save button
+        saveButton.click(function() {
+          saveEditText(cardNumber);
+        });
+      } else {
+        cardText.text(editTextArea.val()).show();
+        editTextArea.hide();
+        // Remove the Save button
+        saveButton.remove();
+      }
+    }
+
+    function saveEditText(cardNumber) {
+      var cardText = $('#cardText' + cardNumber);
+      var editTextArea = $('#editCardText' + cardNumber);
+
+      // Get the new text from the textarea
+      var newText = editTextArea.val();
+
+      // Send an AJAX request to update the text in the database
+      $.ajax({
+        type: "POST",
+        url: "./php/updateCardText.php",
+        data: {
+          cardIdentifier: cardNumber,
+          newText: newText
+        },
+        success: function(response) {
+          console.log(response);
+        },
+        error: function(xhr, status, error) {
+          console.error(error);
+          alert("Error updating text. Please try again."); // Display an alert to the user
+        }
+      });
+
+      // Update the card text
+      cardText.text(newText).show();
+      editTextArea.hide();
+
+      // Remove the Save button after saving
+      $('#saveButton' + cardNumber).remove();
+    }
+  </script>
+
+  <?php
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+
+  for ($cardNumber = 1; $cardNumber <= 9; $cardNumber++) {
+    $sql = "SELECT card_text FROM portfolio_images WHERE card_identifier = $cardNumber";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+      $row = mysqli_fetch_assoc($result);
+
+      // Check if $row is not null and the 'card_text' key is set
+      if ($row && array_key_exists('card_text', $row)) {
+        $cardText = $row['card_text'];
+
+        // Check if card_text is NULL
+        if ($cardText === NULL) {
+          //echo "Warning: 'card_text' is NULL for card $cardNumber<br>";
+        } else {
+          // Inject the card_text into the corresponding span element
+          echo "<script>document.getElementById('cardTextContent$cardNumber').innerText = '$cardText';</script>";
+        }
+      } else {
+        //echo "Warning: 'card_text' not found for card $cardNumber<br>";
+      }
+    } else {
+      echo "Error fetching card_text: " . mysqli_error($conn) . "<br>";
+    }
+  }
+  mysqli_close($conn);
+  ?>
 </body>
 
 </html>

@@ -94,3 +94,4 @@ if (isset($_POST['delete'])) {
 $recentlyUploadedImage = getRecentlyUploadedImages($db);
 
 mysqli_close($db);
+?>
