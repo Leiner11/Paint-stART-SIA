@@ -9,27 +9,28 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if userID is set in the session
 if (isset($_SESSION['userID'])) {
     $user_ID = $_SESSION['userID'];
 
-    // Use prepared statement to prevent SQL injection
-    $sql = "SELECT username FROM admin_profile WHERE userID = ?";
-    $stmt = $conn->prepare($sql);
+    $adminsql = "SELECT username FROM admin_profile WHERE userID = ?";
+    $userSql = "SELECT username FROM user_profile WHERE userID = ?";
 
-    if ($stmt) {
-        $stmt->bind_param("s", $user_ID);
+    $stmtAdmin = $conn->prepare($adminsql);
+    $stmtUser = $conn->prepare($userSql);
 
-        $stmt->execute();
+    if ($stmtAdmin && $stmtUser) {
+        $stmtAdmin->bind_param("i", $user_ID);
+        $stmtUser->bind_param("i", $user_ID);
 
-        $result = $stmt->get_result();
+        $stmtAdmin->execute();
+        $resultAdmin = $stmtAdmin->get_result();
+        
+        $stmtUser->execute();
+        $resultUser = $stmtUser->get_result();
 
-        if ($result->num_rows > 0) {
-            // Fetch the result as an associative array
-            $row = $result->fetch_assoc();
-
-            // Check if the username contains the word "paint_admin"
-            if (strpos($row['username'], 'paintAdmin') !== false) {
+        if ($resultAdmin->num_rows > 0 || $resultUser->num_rows > 0) {
+            // Check if the username contains the word "paintAdmin"
+            if ($resultAdmin->num_rows > 0) {
                 header('Location: ../adminprofile/adminprofile.php');
                 exit;
             } else {
@@ -39,7 +40,8 @@ if (isset($_SESSION['userID'])) {
         } else {
             echo "No user found in the database";
         }
-        $stmt->close();
+        $stmtAdmin->close();
+        $stmtUser->close();
     } else {
         echo "Error preparing the database query: " . $conn->error;
     }

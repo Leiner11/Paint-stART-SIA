@@ -2,50 +2,88 @@
 session_start();
 require_once './Config.php';
 
-// Check the connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-// Check if the form has been submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = $_POST['username'] ?? '';
   $password = $_POST['password'] ?? '';
   $confirm_password = $_POST['confirm_password'] ?? '';
   $email = $_POST['email'] ?? '';
+  $action = $_POST['action'] ?? '';
 
-  // Rest of your code...
-  $sql = "SELECT * FROM user_profile WHERE username = ? AND password = ? AND email = ?";
-  $stmt = $conn->prepare($sql);
-  $stmt->bind_param("sss", $username, $password, $email);
-  $stmt->execute();
-  $result = $stmt->get_result();
+  // Verify that the action is to delete the account
+  if ($action == "PERMANENTLY DELETE ACCOUNT") {
+    // Validate and hash the password
+    // ... (Check password conditions and hash the password)
 
-  if ($result->num_rows == 1) {
-    // Get the form data
-    $username = $_POST["username"] ?? ' ';
-    $password = $_POST["password"] ?? ' ';
-    $confirm_password = $_POST["confirm_password"] ?? ' ';
-    $email = $_POST["email"] ?? ' ';
-    $action = $_POST["action"] ?? ' ';
+    // Use prepared statements to prevent SQL injection
+    $sqlUser = "SELECT * FROM user_profile WHERE username = ? AND email = ?";
+    $stmtUser = $conn->prepare($sqlUser);
+    $stmtUser->bind_param("ss", $username, $email);
+    $stmtUser->execute();
+    $resultUser = $stmtUser->get_result();
 
-    // Check if the action is to delete the account
-    if ($action == "PERMANENTLY DELETE ACCOUNT") {
-      $sql = "DELETE FROM user_profile WHERE username = '$username' AND password = '$password'";
-      if ($conn->query($sql) === TRUE) {
-        if (session_status() == PHP_SESSION_ACTIVE) {
-          // Unset specific session variables
-          unset($_SESSION['userLoggedIn']);
-          session_destroy();
+    $sqlAdmin = "SELECT * FROM admin_profile WHERE username = ? AND email = ?";
+    $stmtAdmin = $conn->prepare($sqlAdmin);
+    $stmtAdmin->bind_param("ss", $username, $email);
+    $stmtAdmin->execute();
+    $resultAdmin = $stmtAdmin->get_result();
 
-          header("Location: delete_success_message.php");
-          exit();
+    $userFound = false;
+
+    if ($resultUser->num_rows == 1) {
+      $user = $resultUser->fetch_assoc();
+      $userFound = true;
+    } elseif ($resultAdmin->num_rows == 1) {
+      $user = $resultAdmin->fetch_assoc();
+      $userFound = true;
+    }
+
+    if ($userFound) {
+      $hashedPassword = $user['password'];
+
+      // Verify the entered password against the stored hashed password
+      if (password_verify($password, $hashedPassword)) {
+        
+        // Perform the account deletion
+        $sqlDeleteUser = "DELETE FROM user_profile WHERE username = ? AND email = ?";
+        $stmtDeleteUser = $conn->prepare($sqlDeleteUser);
+        $stmtDeleteUser->bind_param("ss", $username, $email);
+
+        $sqlDeleteAdmin = "DELETE FROM admin_profile WHERE username = ? AND email = ?";
+        $stmtDeleteAdmin = $conn->prepare($sqlDeleteAdmin);
+        $stmtDeleteAdmin->bind_param("ss", $username, $email);
+
+        if ($stmtDeleteUser->execute() || $stmtDeleteAdmin->execute()) {
+          // Logout the user and redirect to delete success page
+          if (session_status() == PHP_SESSION_ACTIVE) {
+            // Unset specific session variables
+            unset($_SESSION['userLoggedIn']);
+            session_destroy();
+
+            header("Location: /PaintstART_Files/html/AccDelete/deleteSuccess.html");
+            exit();
+          }
+        } else {
+          echo "Error deleting account.";
         }
+
+        $stmtDeleteUser->close();
+        $stmtDeleteAdmin->close();
+      } else {
+        echo "Incorrect password.";
       }
     } else {
-      echo "Error deleting account.";
+      echo "User not found.";
     }
+
+    $stmtUser->close();
+    $stmtAdmin->close();
   }
 }
+
 // Close the database connection
 $conn->close();
+?>

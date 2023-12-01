@@ -89,7 +89,7 @@ if (isset($_SESSION['password_error'])) {
         </div>
         <div class="remember-forgot">
           <label>
-            <input type="checkbox">
+            <input type="checkbox" required>
             I agree to the <a href="./termsofService.html" target="_blank">terms of service</a>
           </label>
         </div>

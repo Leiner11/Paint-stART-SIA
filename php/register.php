@@ -33,7 +33,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("sss", $username, $email, $hashedPassword);
 
 if ($stmt->execute()) {
-    header("Location: /PaintstART_Files/html/index.php");
+    header("Location: /PaintstART_Files/html/AccCreate/registeredSuccess.html");
     exit;
 } else {
     echo "Error: " . $stmt->error;
