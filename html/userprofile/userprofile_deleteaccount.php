@@ -660,7 +660,7 @@
                   </nav>
                </div>
                <div class="content-panel">
-                  <form action="/PaintstART_Files/php/delete.php" class="form-horizontal" method="POST">
+                  <form action="/PaintstART_Files/php/delete.php" class="form-horizontal" method="POST" id="deleteForm">
                      <fieldset class="fieldset">
                         <h3 class="fieldset-title">Edit Profile</h3>
                         <div class="form-group avatar">
@@ -680,11 +680,10 @@
                               <input type="password" class="form-control" id="password" name="password" value="" required>
                            </div>
                         </div>
-
                         <div class="form-group">
-                           <label for="current_password" label class="col-md-2 col-sm-3 col-xs-12 control-label">Re-enter Password</label>
+                           <label for="confirm_password" class="col-md-2 col-sm-3 col-xs-12 control-label">Re-enter Password</label>
                            <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="password" class="form-control" id="password" name="confirm_password" value="" required>
+                              <input type="password" class="form-control" id="confirm_password" name="confirm_password" value="" required>
                            </div>
                         </div>
                         <div class="form-group">
@@ -695,9 +694,10 @@
                         </div>
                      </fieldset>
                      <hr>
+                     <input type="hidden" name="action" value="PERMANENTLY DELETE ACCOUNT">
                      <div class="form-group">
                         <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                           <input class="btn btn-primary" name="action" type="submit" value="PERMANENTLY DELETE ACCOUNT">
+                           <button class="btn btn-primary" type="button" onclick="validateForm()">PERMANENTLY DELETE ACCOUNT</button>
                         </div>
                      </div>
                   </form>
@@ -710,6 +710,42 @@
    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <script type="text/javascript"></script>
+
+   <script type="text/javascript">
+      function validateForm() {
+         const username = document.getElementById('username').value;
+         const password = document.getElementById('password').value;
+         const confirmPassword = document.getElementById('confirm_password').value;
+         const email = document.getElementById('email').value;
+
+         // Add your validation logic here
+         if (username.trim() === '' || password.trim() === '' || confirmPassword.trim() === '' || email.trim() === '') {
+            window.alert('Please fill in all fields.');
+         } else {
+            // Check if the details are correct using AJAX
+            fetch('../php/check_userDetails.php', {
+                  method: 'POST',
+                  headers: {
+                     'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                  body: `username=${username}&password=${password}&email=${email}`,
+               })
+               .then(response => response.json())
+               .then(data => {
+                  if (data.detailsAreCorrect) {
+                     // If details are correct, submit the form
+                     document.getElementById('deleteForm').submit();
+                  } else {
+                     window.alert('Incorrect details. Please check your information.');
+                  }
+               })
+               .catch(error => {
+                  console.error('Error:', error);
+                  window.alert('An error occurred while checking details. Try again.');
+               });
+         }
+      }
+   </script>
 </body>
 
 </html>
