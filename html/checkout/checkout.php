@@ -175,7 +175,6 @@
         <div class="col-md-5 col-lg-4 order-md-last">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
             <span class="text-primary">Your cart</span>
-            <span class="badge bg-primary rounded-pill">3</span>
           </h4>
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-sm">
@@ -183,7 +182,7 @@
                 <h6 class="my-0">Selected Art Type</h6>
                 <small class="text-body-secondary" id="selectedType">Selected Type</small>
               </div>
-              <span class="text-body-secondary">$PRICE</span>
+              <span class="text-body-secondary">$</span>
             </li>
             <!-- Update the corresponding elements in "Your Cart" section -->
             <li class="list-group-item d-flex justify-content-between lh-sm">
@@ -191,7 +190,7 @@
                 <h6 class="my-0">Selected Style Option</h6>
                 <small class="text-body-secondary" id="selectedStyle">Selected Style</small>
               </div>
-              <span class="text-body-secondary">$PRICE</span>
+              <span class="text-body-secondary">$</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
@@ -205,7 +204,7 @@
                 <h6 class="my-0">TOTAL</h6>
                 <small>Accepted currency (USD)</small>
               </div>
-              <span class="text-success">$5</span>
+              <span class="text-success"></span>
             </li>
           </ul>
         </div>
@@ -264,7 +263,7 @@
               <h4 class="mb-3">Art Type</h4>
               <?php
               // Array of color options
-              $typeOptions = ['Full Portrait', 'Half-Body', 'Full Landscape', 'Live2D Model'];
+              $typeOptions = ['Portrait', 'HalfBody', 'Landscape', 'Live2D_Model'];
 
               // Loop through style
               foreach ($typeOptions as $typeOption) {
@@ -281,7 +280,7 @@
               <h4 class="mb-3">Art Style</h4>
               <?php
               // Array of color options
-              $artOptions = ['Colored', 'Black n White', 'Sketch Only'];
+              $artOptions = ['Colored', 'BlackNWhite', 'Sketch'];
 
               // Loop through style
               foreach ($artOptions as $Artoption) {
@@ -294,7 +293,6 @@
               }
               ?>
 
-
               <hr class="my-4">
               <h4 class="mb-3">Payment Method</h4>
 
@@ -302,14 +300,33 @@
               // Array of payment options
               $paymentOptions = ['GCash', 'Paypal', 'GoTyme Bank'];
 
-              // Loop through payment options and create radio buttons
+              // Loop through payment options and create radio buttons with clickable links
               foreach ($paymentOptions as $option) {
               ?>
                 <div class="form-check">
-                  <input id="<?php echo $option; ?>" name="paymentMethod" type="radio" class="form-check-input" value="<?php echo $option; ?>" <?php echo ($option === 'gcash') ? 'checked' : ''; ?> required>
-                  <label class="form-check-label" for="<?php echo $option; ?>"><?php echo ucfirst($option); ?></label>
+                  <input id="<?php echo $option; ?>" name="paymentMethod" type="radio" class="form-check-input" value="<?php echo $option; ?>" <?php echo ($option === 'GCash') ? 'checked' : ''; ?> required>
+                  <label class="form-check-label" for="<?php echo $option; ?>">
+                    <a href="<?php echo getPaymentLink($option); ?>" target="_blank">
+                      <?php echo ucfirst($option); ?>
+                    </a>
+                  </label>
                 </div>
               <?php
+              }
+
+              // Function to get the payment link based on the payment method
+              function getPaymentLink($paymentMethod)
+              {
+                switch ($paymentMethod) {
+                  case 'GCash':
+                    return './paymentMethod/gcashCurseQR.html';
+                  case 'Paypal':
+                    return 'https://paypal.me/Curse360?country.x=PH&locale.x=en_US';
+                  case 'GoTyme Bank':
+                    return './paymentMethod/gotymeDetails.html';
+                  default:
+                    return '#';
+                }
               }
               ?>
             </div>
@@ -317,17 +334,27 @@
             <hr class="my-4">
             <div class="row gy-3">
               <div class="col-md-10">
-                <label for="pm_referenceNumber" class="form-label">Payment Method Reference Number</label>
-                <input type="text" class="form-control" id="pm_referenceNumber" name="pm_referenceNumber" placeholder="" required>
-                <small class="text-body-secondary">Input Reference Number</small><br>
-                <small class="text-body-secondary">Reference number from any payment method you chose.</small><br>
-                <small class="text-body-secondary">This helps me verify if your payment is successful!</small><br>
+                <label for="commissionDetails" class="form-label">Enter your commission details</label>
+                <input type="text" class="form-control" id="commissionDetails" name="commissionDetails" placeholder="" required style="height: 80%;">
                 <div class="invalid-feedback">
-                  Reference number is required
+                  Commission details is required!
                 </div>
               </div>
-              <hr class="my-4">
-              <button class="btn btn-primary" type="submit">Submit</button>
+
+              <hr class="my-5">
+              <div class="row gy-6">
+                <div class="col-md-10">
+                  <label for="pm_referenceNumber" class="form-label">Payment Method Reference Number</label>
+                  <input type="text" class="form-control" id="pm_referenceNumber" name="pm_referenceNumber" placeholder="" required>
+                  <small class="text-body-secondary">Input Reference Number</small><br>
+                  <small class="text-body-secondary">Reference number from any payment method you chose.</small><br>
+                  <small class="text-body-secondary">This helps me verify if your payment is successful!</small><br>
+                  <div class="invalid-feedback">
+                    Reference number is required
+                  </div>
+                </div>
+                <hr class="my-4">
+                <button class="btn btn-primary" type="submit">Submit</button>
           </form>
         </div>
       </div>
@@ -353,7 +380,6 @@
         var selectedStyle = document.querySelector('input[name="style"]:checked').value;
         var selectedPaymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
 
-
         var typeOption = document.querySelector('.list-group-item:nth-child(1) small');
         typeOption.textContent = '(' + selectedType + ')';
 
@@ -361,16 +387,14 @@
         styleOption.textContent = '(' + selectedStyle + ')';
 
         var paymentOption = document.querySelector('.list-group-item:nth-child(3) small');
-        paymentOption.textContent = '(' + selectedPaymentMethod + ')';
+        paymentOption.textContent = '' + selectedPaymentMethod + '';
 
-        // You may need to fetch prices from the server or calculate them based on logic
-
-        // Finally, update the total price
+        // Update the total price
         var totalPrice = document.querySelector('.list-group-item:last-child span.text-success');
-        totalPrice.textContent = '$5';
+        totalPrice.textContent = '';
       }
-      // Event listeners to radio buttons
 
+      // Event listeners to radio buttons
       var typeRadioButtons = document.querySelectorAll('input[name="artType"]');
       typeRadioButtons.forEach(function(radioButton) {
         radioButton.addEventListener('change', updateCartContent);
@@ -385,6 +409,99 @@
       paymentMethodRadioButtons.forEach(function(radioButton) {
         radioButton.addEventListener('change', updateCartContent);
       });
+    });
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize total price variable
+      var totalPrice = 0;
+
+      // Function to update prices
+      function updatePrices() {
+        var selectedType = document.querySelector('input[name="artType"]:checked');
+        var selectedStyle = document.querySelector('input[name="style"]:checked');
+
+        if (selectedType && selectedStyle) {
+          selectedType = selectedType.value;
+          selectedStyle = selectedStyle.value;
+
+          // Make AJAX request to get prices
+          fetch('./php/retrievePrice.php', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                selectedType: selectedType,
+              }),
+            })
+            .then(response => response.json())
+            .then(data => {
+              // Update prices on the page for the selected type and style
+              var typeOption = document.getElementById('selectedType');
+              typeOption.textContent = selectedType;
+
+              var styleOption = document.getElementById('selectedStyle');
+              styleOption.textContent = selectedStyle;
+
+              // Update the corresponding elements in "Your Cart" section
+              var typePriceElement = document.querySelector('.list-group-item:nth-child(1) span.text-body-secondary');
+              typePriceElement.textContent = '$' + data[selectedType.toLowerCase()];
+
+              var stylePriceElement = document.querySelector('.list-group-item:nth-child(2) span.text-body-secondary');
+              stylePriceElement.textContent = '$' + data[selectedStyle.toLowerCase()];
+
+              // Update the total price variable
+              totalPrice = data[selectedType.toLowerCase()] + data[selectedStyle.toLowerCase()];
+
+              // To calculate and update the total price (only includes type and style)
+              var totalPriceElement = document.querySelector('.list-group-item:last-child span.text-success');
+              totalPriceElement.textContent = '$' + totalPrice.toFixed(2);
+            })
+            .catch(error => {
+              console.error('Error fetching prices:', error);
+              // Handle the error
+            });
+        }
+      }
+
+      // Event listeners to radio buttons
+      var typeRadioButtons = document.querySelectorAll('input[name="artType"]');
+      typeRadioButtons.forEach(function(radioButton) {
+        radioButton.addEventListener('change', updatePrices);
+      });
+
+      var styleRadioButtons = document.querySelectorAll('input[name="style"]');
+      styleRadioButtons.forEach(function(radioButton) {
+        radioButton.addEventListener('change', updatePrices);
+      });
+
+      // Function to handle form submission
+      function submitDetails() {
+        // Access the total price variable here
+        console.log('Total Price:', totalPrice);
+
+        // Prepare the data to be sent
+        var formData = {
+          totalPrice: totalPrice,
+          // Add other form fields as needed
+        };
+        // Function to handle form submission
+        function submitDetails() {
+          // Access the total price variable here
+          console.log('Total Price:', totalPrice);
+
+          // Prepare the data to be sent
+          var formData = {
+            totalPrice: totalPrice.toFixed(2), // Convert to string with 2 decimal places
+            // Add other form fields as needed
+          };
+        }
+      }
+
     });
   </script>
 

@@ -15,7 +15,7 @@ if (isset($_SESSION['userID'])) {
 }
 
 // Get the price information
-$sql = "SELECT full_portrait, half_body, full_landscape, live2d_model, colored, blacknwhite, revision FROM art_price WHERE ID = 1";
+$sql = "SELECT portrait, halfbody, landscape, live2d_model, colored, blacknwhite, revision, sketch FROM art_price WHERE ID = 1";
 
 $stmt = $conn->prepare($sql);
 

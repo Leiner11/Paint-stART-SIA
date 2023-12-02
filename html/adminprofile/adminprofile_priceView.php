@@ -7,13 +7,13 @@ include '../php/display_priceDetails.php';
 <script>
    function populatePrice() {
       var portraitField = document.getElementById('fullportrait');
-      portraitField.value = '<?php echo $price['full_portrait']; ?>';
+      portraitField.value = '<?php echo $price['portrait']; ?>';
 
       var hBodyField = document.getElementById('halfbody');
-      hBodyField.value = '<?php echo $price['half_body']; ?>';
+      hBodyField.value = '<?php echo $price['halfbody']; ?>';
 
       var fLandscapeField = document.getElementById('fullLandscape');
-      fLandscapeField.value = '<?php echo $price['full_landscape']; ?>';
+      fLandscapeField.value = '<?php echo $price['landscape']; ?>';
 
       var live2DField = document.getElementById('live2d');
       live2DField.value = '<?php echo $price['live2d_model']; ?>';
@@ -26,6 +26,9 @@ include '../php/display_priceDetails.php';
 
       var revisionField = document.getElementById('revision');
       revisionField.value = '<?php echo $price['revision']; ?>';
+
+      var sketchField = document.getElementById('sketch');
+      sketchField.value = '<?php echo $price['sketch']; ?>';
 
    }
    window.onload = populatePrice;
@@ -684,7 +687,7 @@ include '../php/display_priceDetails.php';
                         <li><a href="/PaintstART_Files/html/adminprofile/adminprofile_updateaccount.php"><span class="fa fa-cog"></span> Update Details</a></li>
                      </ul>
                      <ul class="nav">
-                     <li class="active"><a href="#"><span class="fa fa-user"></span> My Profile</a></li>
+                        <li class="active"><a href="#"><span class="fa fa-user"></span> My Profile</a></li>
                         <li><a href="#"><span class="fa fa-cog"></span> My Information</a></li>
                         <li><a href="../album-admin/AdminPortfolio.php"><span class="fa fa"></span> Edit Portfolio Page</a></li>
                         <li><a href="../adminprofile/adminprofile_priceView.php"><span class="fa fa"></span> View Pricing</a></li>
@@ -741,6 +744,13 @@ include '../php/display_priceDetails.php';
                            <label for="revision" label class="col-md-2 col-sm-3 col-xs-12 control-label">Per Revision $:</label>
                            <div class="col-md-10 col-sm-9 col-xs-12">
                               <input type="number" class="form-control" id="revision" value="" readonly>
+                           </div>
+                        </div>
+
+                        <div class="form-group">
+                           <label for="sketch" label class="col-md-2 col-sm-3 col-xs-12 control-label">Sketch $:</label>
+                           <div class="col-md-10 col-sm-9 col-xs-12">
+                              <input type="number" class="form-control" id="sketch" value="" readonly>
                            </div>
                         </div>
                      </fieldset>

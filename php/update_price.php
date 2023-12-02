@@ -17,9 +17,10 @@ if (isset($_POST['update'])) {
 	$coloredStyle = $_POST['new_coloredStyle'];
 	$BNWstyle = $_POST['new_BNWStyle'];
 	$revision = $_POST['new_perRevision'];
+	$sketch = $_POST['new_sketch'];
 
 	// Update the price details in the art_price table
-	$stmtPriceUpdate = $conn->prepare("UPDATE art_price SET full_portrait=?, half_body=?, full_landscape=?, live2d_model=?, colored=?, blacknwhite=?, revision=? WHERE 1");
+	$stmtPriceUpdate = $conn->prepare("UPDATE art_price SET portrait=?, halfbody=?, landscape=?, live2d_model=?, colored=?, blacknwhite=?, revision=?, sketch=? WHERE ID=1");
 
 	// Check if the prepare operation succeeded
 	if (!$stmtPriceUpdate) {
@@ -27,7 +28,7 @@ if (isset($_POST['update'])) {
 	}
 
 	// Bind parameters with appropriate data types
-	$bindResult = $stmtPriceUpdate->bind_param("iiiiiii", $fullPortrait, $halfBody, $fullLandscape, $live2D, $coloredStyle, $BNWstyle, $revision);
+	$bindResult = $stmtPriceUpdate->bind_param("iiiiiiii", $fullPortrait, $halfBody, $fullLandscape, $live2D, $coloredStyle, $BNWstyle, $revision, $sketch);
 
 	// Check if the bind_param operation succeeded
 	if (!$bindResult) {

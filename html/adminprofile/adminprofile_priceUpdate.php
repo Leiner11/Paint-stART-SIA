@@ -652,7 +652,7 @@
                         <li><a href="#"><span class="fa fa-cog"></span> Update Details</a></li>
                      </ul>
                      <ul class="nav">
-                     <li class="active"><a href="#"><span class="fa fa-user"></span> My Profile</a></li>
+                        <li class="active"><a href="#"><span class="fa fa-user"></span> My Profile</a></li>
                         <li><a href="#"><span class="fa fa-cog"></span> My Information</a></li>
                         <li><a href="../album-admin/AdminPortfolio.php"><span class="fa fa"></span> Edit Portfolio Page</a></li>
                         <li><a href="../adminprofile/adminprofile_priceView.php"><span class="fa fa"></span> View Pricing</a></li>
@@ -708,6 +708,13 @@
                            <label for="new_perRevision" label class="col-md-2 col-sm-3 col-xs-12 control-label">Per Revision $:</label>
                            <div class="col-md-10 col-sm-9 col-xs-12">
                               <input type="number" class="form-control" id="new_perRevision" name="new_perRevision" value="" required>
+                           </div>
+                        </div>
+
+                        <div class="form-group">
+                           <label for="new_sketch" label class="col-md-2 col-sm-3 col-xs-12 control-label">Sketch $:</label>
+                           <div class="col-md-10 col-sm-9 col-xs-12">
+                              <input type="number" class="form-control" id="new_sketch" name="new_sketch" value="" required>
                            </div>
                         </div>
 
