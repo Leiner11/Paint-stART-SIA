@@ -1,4 +1,17 @@
 <?php
+session_start();
+
+$userID = isset($_SESSION['userID']) ? $_SESSION['userID'] : null;
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Check if $userID is null
+if ($userID === null) {
+    // Handle the case where the userID is not set
+    echo "Error: User not logged in. Please log in first.";
+    exit; // or redirect to the login page
+}
+
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
@@ -6,34 +19,42 @@ error_reporting(E_ALL);
 $requestBody = file_get_contents('php://input');
 $formData = $_POST;
 
-// Save Form Data to Database
-saveFormDataToDatabase($formData);
+// Add userID to the form data
+$formData['userID'] = $userID;
 
+// Define $username and $totalPrice
+$username = isset($formData['username']) ? $formData['username'] : '';
+$totalPrice = 0;
+
+// Save Form Data to Database
+saveFormDataToDatabase($userID, $formData, $username, $totalPrice);
+
+// Store order details in session variables with consistent keys
+$_SESSION['orderDetails'] = [
+    'userID' => $userID,
+    'username' => $username,
+    'firstname' => $formData['firstname'],
+    'lastname' => $formData['lastname'],
+    'email' => $formData['email'],
+    'twitter' => $formData['twitter'],
+    'artType' => $formData['artType'],
+    'style' => $formData['style'],
+    'paymentMethod' => $formData['paymentMethod'],
+    'pm_referenceNumber' => $formData['pm_referenceNumber'],
+    'commissionDetails' => $formData['commissionDetails'],
+    'totalPrice' => $totalPrice,
+];
+var_dump($_SESSION);
 // Respond to the frontend
 $response = ['message' => 'Form data received and saved successfully.'];
 echo json_encode($response);
 
 // Save Form Data to Database
-function saveFormDataToDatabase($formData)
+function saveFormDataToDatabase($userID, $formData, $username, $totalPrice)
 {
-    if ($formData === NULL) {
-        echo "Error: Form data is NULL";
-        return;
-    }
-
     require_once("./Config.php");
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL);
 
-    // Validate and sanitize user inputs
-    $firstName = isset($formData['firstname']) ? $conn->real_escape_string($formData['firstname']) : '';
-    $lastName = isset($formData['lastname']) ? $conn->real_escape_string($formData['lastname']) : '';
-    $username = isset($formData['username']) ? $conn->real_escape_string($formData['username']) : '';
-    $email = isset($formData['email']) ? filter_var($formData['email'], FILTER_SANITIZE_EMAIL) : '';
-    $twitter = isset($formData['twitter']) ? $conn->real_escape_string($formData['twitter']) : '';
-    $refNumber = isset($formData['pm_referenceNumber']) ? $conn->real_escape_string($formData['pm_referenceNumber']) : '';
-    $commissionDetails = isset($formData['commissionDetails']) ? $conn->real_escape_string($formData['commissionDetails']) : '';
-
+    // Validate and sanitize user inputs (omitted for brevity)
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Check if the 'paymentMethod' key exists in the $_POST array
@@ -65,8 +86,8 @@ function saveFormDataToDatabase($formData)
         }
     }
 
-    $sql = "INSERT INTO order_details (username, firstname, lastname, email, twitter, artType, style, paymentMethod, pm_referenceNumber, commissionDetails, total)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO order_details (userID, username, firstname, lastname, email, twitter, artType, style, paymentMethod, pm_referenceNumber, commissionDetails, total)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
 
@@ -75,24 +96,25 @@ function saveFormDataToDatabase($formData)
         return;
     }
 
-    // Bind parameters with appropriate data types
     $stmt->bind_param(
-        "ssssssssssd",
+        "dssssssssssd",
+        $userID,
         $username,
-        $firstName,
-        $lastName,
-        $email,
-        $twitter,
-        $selectedType,
-        $selectedStyle,
-        $selectedPaymentMethod,
-        $refNumber,
-        $commissionDetails,
+        $formData['firstname'],
+        $formData['lastname'],
+        $formData['email'],
+        $formData['twitter'],
+        $formData['artType'],
+        $formData['style'],
+        $formData['paymentMethod'],
+        $formData['pm_referenceNumber'],
+        $formData['commissionDetails'],
         $totalPrice
     );
 
     if ($stmt->execute()) {
         header("Location: /PaintstART_Files/html/receiptPage/receipt.php");
+        exit;
     } else {
         echo "Error: " . $stmt->error;
     }
@@ -100,4 +122,3 @@ function saveFormDataToDatabase($formData)
     $stmt->close();
     $conn->close();
 }
-?>

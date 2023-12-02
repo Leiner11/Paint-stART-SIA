@@ -49,8 +49,8 @@ https://templatemo.com/tm-586-scholar
   if (isset($_SESSION["username"])) {
     $userID = $_SESSION['userID'];
     $userLoggedIn = $_SESSION['username'];
-    //$userId = $_SESSION['userID']; Uncomment if we want to show the UserID
-    //$listItemName = ($userLoggedIn) ? 'My Account (ID: ' . $userId . ')' : 'Login'; Uncomment if we want to show the UserID
+    //$userId = $_SESSION['userID']; //Uncomment if we want to show the UserID
+    //$listItemName = ($userLoggedIn) ? 'My Account (ID: ' . $userId . ')' : 'Login'; //Uncomment if we want to show the UserID
     $listItemName = ($userLoggedIn) ? 'My Account' : 'Login';
     $listItemHref = ($userLoggedIn) ? './php/checkIf_userOrAdmin.php' : 'login.php';
   } else {
