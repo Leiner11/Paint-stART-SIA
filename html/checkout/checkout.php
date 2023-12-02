@@ -180,25 +180,26 @@
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
-                <h6 class="my-0">Art Type </h6>
-                <small class="text-body-secondary">(Portrait, Fanart, Live2D)</small>
+                <h6 class="my-0">Selected Art Type</h6>
+                <small class="text-body-secondary" id="selectedType">Selected Type</small>
               </div>
               <span class="text-body-secondary">$PRICE</span>
             </li>
+            <!-- Update the corresponding elements in "Your Cart" section -->
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
                 <h6 class="my-0">Selected Style Option</h6>
-                <small class="text-body-secondary">(Selected Style)</small>
+                <small class="text-body-secondary" id="selectedStyle">Selected Style</small>
               </div>
               <span class="text-body-secondary">$PRICE</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
                 <h6 class="my-0">Chosen Payment Method</h6>
-                <small class="text-body-secondary">(Payment Method)</small>
+                <small class="text-body-secondary" id="chosenPaymentMethod">Payment Method</small>
               </div>
-              <span class="text-body-secondary">$PRICE</span>
             </li>
+
             <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
               <div class="text-success">
                 <h6 class="my-0">TOTAL</h6>
@@ -260,21 +261,40 @@
 
               <hr class="my-4">
 
-              <h4 class="mb-3">Style Options</h4>
+              <h4 class="mb-3">Art Type</h4>
               <?php
               // Array of color options
-              $paymentOptions = ['Colored Art', 'Black N White', 'Sketch Only'];
+              $typeOptions = ['Full Portrait', 'Half-Body', 'Full Landscape', 'Live2D Model'];
 
               // Loop through style
-              foreach ($paymentOptions as $option) {
+              foreach ($typeOptions as $typeOption) {
               ?>
                 <div class="form-check">
-                  <input id="<?php echo $option; ?>" name="style" type="radio" class="form-check-input" value="<?php echo $option; ?>" <?php echo ($option === 'gcash') ? 'checked' : ''; ?> required>
-                  <label class="form-check-label" for="<?php echo $option; ?>"><?php echo ucfirst($option); ?></label>
+                  <input id="<?php echo $typeOption; ?>" name="artType" type="radio" class="form-check-input" value="<?php echo $typeOption; ?>" <?php echo ($option === 'Full Portrait') ? 'checked' : ''; ?> required>
+                  <label class="form-check-label" for="<?php echo $typeOption; ?>"><?php echo ucfirst($typeOption); ?></label>
                 </div>
               <?php
               }
               ?>
+
+              <hr class="my-4">
+              <h4 class="mb-3">Art Style</h4>
+              <?php
+              // Array of color options
+              $artOptions = ['Colored', 'Black n White', 'Sketch Only'];
+
+              // Loop through style
+              foreach ($artOptions as $Artoption) {
+              ?>
+                <div class="form-check">
+                  <input id="<?php echo $Artoption; ?>" name="style" type="radio" class="form-check-input" value="<?php echo $Artoption; ?>" <?php echo ($option === 'colored') ? 'checked' : ''; ?> required>
+                  <label class="form-check-label" for="<?php echo $Artoption; ?>"><?php echo ucfirst($Artoption); ?></label>
+                </div>
+              <?php
+              }
+              ?>
+
+
               <hr class="my-4">
               <h4 class="mb-3">Payment Method</h4>
 
@@ -324,6 +344,49 @@
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
   <script src="checkout.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Function to update cart content
+      function updateCartContent() {
+        var selectedType = document.querySelector('input[name="artType"]:checked').value;
+        var selectedStyle = document.querySelector('input[name="style"]:checked').value;
+        var selectedPaymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+
+
+        var typeOption = document.querySelector('.list-group-item:nth-child(1) small');
+        typeOption.textContent = '(' + selectedType + ')';
+
+        var styleOption = document.querySelector('.list-group-item:nth-child(2) small');
+        styleOption.textContent = '(' + selectedStyle + ')';
+
+        var paymentOption = document.querySelector('.list-group-item:nth-child(3) small');
+        paymentOption.textContent = '(' + selectedPaymentMethod + ')';
+
+        // You may need to fetch prices from the server or calculate them based on logic
+
+        // Finally, update the total price
+        var totalPrice = document.querySelector('.list-group-item:last-child span.text-success');
+        totalPrice.textContent = '$5';
+      }
+      // Event listeners to radio buttons
+
+      var typeRadioButtons = document.querySelectorAll('input[name="artType"]');
+      typeRadioButtons.forEach(function(radioButton) {
+        radioButton.addEventListener('change', updateCartContent);
+      });
+
+      var styleRadioButtons = document.querySelectorAll('input[name="style"]');
+      styleRadioButtons.forEach(function(radioButton) {
+        radioButton.addEventListener('change', updateCartContent);
+      });
+
+      var paymentMethodRadioButtons = document.querySelectorAll('input[name="paymentMethod"]');
+      paymentMethodRadioButtons.forEach(function(radioButton) {
+        radioButton.addEventListener('change', updateCartContent);
+      });
+    });
+  </script>
 
 </body>
 
