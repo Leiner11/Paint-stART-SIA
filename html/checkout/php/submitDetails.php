@@ -9,7 +9,7 @@ $dbname = 'users';
 $requestBody = file_get_contents('php://input');
 $formData = $_POST;
 
-// Validate and sanitize the data (customize this based on your requirements)
+// Validate and sanitize the data (customize this based on requirements)
 
 // Save Form Data to Database
 saveFormDataToDatabase($formData);
@@ -18,12 +18,30 @@ saveFormDataToDatabase($formData);
 $response = ['message' => 'Form data received and saved successfully.'];
 echo json_encode($response);
 
-// Save Form Data to Database (Modify this function based on your database setup)
+
+
+
+// Save Form Data to Database (Modify this function based on database setup)
 function saveFormDataToDatabase($formData)
 {
     if ($formData === NULL) {
         echo "Error: Form data is NULL";
         return;
+    }
+
+    // Check if the form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Check if the 'paymentMethod' key exists in the $_POST array
+        if (isset($_POST['paymentMethod'])) {
+            // Get the selected payment method
+            $selectedPaymentMethod = $_POST['paymentMethod'];
+            $selectedStyle = $_POST['style'];
+            // Now $selectedPaymentMethod contains the value of the selected radio button
+            echo "Selected Payment Method: " . $selectedPaymentMethod;
+            echo "Selected Style: " . $selectedStyle;
+        } else {
+            echo "Payment method or style not selected.";
+        }
     }
 
     $host = "localhost";
@@ -43,14 +61,11 @@ function saveFormDataToDatabase($formData)
     $username = isset($formData['username']) ? $conn->real_escape_string($formData['username']) : '';
     $email = isset($formData['email']) ? $conn->real_escape_string($formData['email']) : '';
     $twitter = isset($formData['twitter']) ? $conn->real_escape_string($formData['twitter']) : '';
-    $coloredArt = isset($formData['option_colored']) ? $conn->real_escape_string($formData['option_colored']) : '';
-    $blacknwhiteArt = isset($formData['option_blacknwhite']) ? $conn->real_escape_string($formData['option_blacknwhite']) : '';
-    $paymentMethod = isset($formData['paymentMethod']) ? $conn->real_escape_string($formData['paymentMethod']) : '';
     $refNumber = isset($formData['pm_referenceNumber']) ? $conn->real_escape_string($formData['pm_referenceNumber']) : '';
 
     // Modify this query based on table structure
-    $sql = "INSERT INTO order_details (username, firstname, lastname, email, twitter, option_colored, option_blacknwhite, paymentMethod, pm_referenceNumber)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO order_details (username, firstname, lastname, email, twitter, style, paymentMethod, pm_referenceNumber)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = $conn->prepare($sql);
 
@@ -59,7 +74,7 @@ function saveFormDataToDatabase($formData)
         return;
     }
 
-    $stmt->bind_param("sssssssss", $username, $firstName, $lastName, $email, $twitter, $coloredArt, $blacknwhiteArt, $paymentMethod, $refNumber);
+    $stmt->bind_param("ssssssss", $username, $firstName, $lastName, $email, $twitter, $selectedStyle, $selectedPaymentMethod, $refNumber);
 
     if ($stmt->execute()) {
         echo "New record created successfully";
@@ -70,4 +85,3 @@ function saveFormDataToDatabase($formData)
     $stmt->close();
     $conn->close();
 }
-?>

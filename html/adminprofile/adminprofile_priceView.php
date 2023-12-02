@@ -1,9 +1,42 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+include '../php/display_priceDetails.php';
+?>
+
+<script>
+   function populatePrice() {
+      var portraitField = document.getElementById('fullportrait');
+      portraitField.value = '<?php echo $price['full_portrait']; ?>';
+
+      var hBodyField = document.getElementById('halfbody');
+      hBodyField.value = '<?php echo $price['half_body']; ?>';
+
+      var fLandscapeField = document.getElementById('fullLandscape');
+      fLandscapeField.value = '<?php echo $price['full_landscape']; ?>';
+
+      var live2DField = document.getElementById('live2d');
+      live2DField.value = '<?php echo $price['live2d_model']; ?>';
+
+      var coloredField = document.getElementById('colored');
+      coloredField.value = '<?php echo $price['colored']; ?>';
+
+      var BNWField = document.getElementById('bnwStyle');
+      BNWField.value = '<?php echo $price['blacknwhite']; ?>';
+
+      var revisionField = document.getElementById('revision');
+      revisionField.value = '<?php echo $price['revision']; ?>';
+
+   }
+   window.onload = populatePrice;
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
    <meta charset="utf-8">
-   <title>Edit profile</title>
+   <title>View Pricing</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
    <style type="text/css">
@@ -630,6 +663,7 @@
 </head>
 
 <body>
+
    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
    <div class="container">
       <div class="view-account">
@@ -637,19 +671,17 @@
             <div class="module-inner">
                <div class="side-bar">
                   <div class="user-info">
-                     <img class="img-profile img-circle img-responsive center-block" src="" alt>
+                     <img class="img-profile img-circle img-responsive center-block" src="Images/ASTARION-EXAMPLEPROFILE.jpg" alt>
                      <ul class="meta list list-unstyled">
                         <li class="name">Astarion Ascunin
                            <label class="label label-info">User</label>
                         </li>
                      </ul>
                   </div>
-
                   <nav class="side-menu">
-
                      <ul class="nav">
                         <li class="active"><a href="#"><span class="fa fa-user"></span> Edit Profile</a></li>
-                        <li><a href="#"><span class="fa fa-cog"></span> Update Details</a></li>
+                        <li><a href="/PaintstART_Files/html/adminprofile/adminprofile_updateaccount.php"><span class="fa fa-cog"></span> Update Details</a></li>
                      </ul>
                      <ul class="nav">
                      <li class="active"><a href="#"><span class="fa fa-user"></span> My Profile</a></li>
@@ -664,76 +696,60 @@
                   </nav>
                </div>
 
+
                <div class="content-panel">
-                  <fieldset class="fieldset">
-                     <h3 class="fieldset-title">Edit Profile</h3>
-
-                     <div id="content">
-                        <form method="POST" action="" enctype="multipart/form-data">
-                           <div class="form-group avatar">
-                              <figure class="figure col-md-2 col-sm-3 col-xs-12">
-                                 <img class="img-rounded img-responsive" src="<?php echo $imageSource ?>" alt>
+                  <form action="/PaintstART_Files/html/adminprofile/adminprofile_priceUpdate.php" class="form-horizontal" method="POST">
+                     <fieldset class="fieldset">
+                        <h3 class="fieldset-title">View Pricing</h3>
+                        <div class="form-group">
+                           <label for="fullportrait" label class="col-md-2 col-sm-3 col-xs-12 control-label">Full Portrait $:</label>
+                           <div class="col-md-10 col-sm-9 col-xs-12">
+                              <input type="number" class="form-control" id="fullportrait" value="" readonly>
                            </div>
-                           </figure>
-                           <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-                              <input type="file" class="file-uploader pull-left" name="uploadfile" value="" />
-                              <button type="submit" class="btn btn-sm btn-default-alt pull-left" name="upload">Update Image</button><br><br>
+                        </div>
+                        <div class="form-group">
+                           <label for="halfbody" label class="col-md-2 col-sm-3 col-xs-12 control-label">Half-Body $:</label>
+                           <div class="col-md-10 col-sm-9 col-xs-12">
+                              <input type="number" class="form-control" id="halfbody" value="" readonly>
                            </div>
-                        </form>
+                        </div>
+                        <div class="form-group">
+                           <label for="fullLandscape" label class="col-md-2 col-sm-3 col-xs-12 control-label">Full Landscape $:</label>
+                           <div class="col-md-10 col-sm-9 col-xs-12">
+                              <input type="number" class="form-control" id="fullLandscape" value="" readonly>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="live2d" label class="col-md-2 col-sm-3 col-xs-12 control-label">Live2D Model $:</label>
+                           <div class="col-md-10 col-sm-9 col-xs-12">
+                              <input type="number" class="form-control" id="live2d" value="" readonly>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="colored" label class="col-md-2 col-sm-3 col-xs-12 control-label">Colored Style $:</label>
+                           <div class="col-md-10 col-sm-9 col-xs-12">
+                              <input type="number" class="form-control" id="colored" value="" readonly>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="bnwStyle" label class="col-md-2 col-sm-3 col-xs-12 control-label">BNW Style $:</label>
+                           <div class="col-md-10 col-sm-9 col-xs-12">
+                              <input type="number" class="form-control" id="bnwStyle" value="" readonly>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="revision" label class="col-md-2 col-sm-3 col-xs-12 control-label">Per Revision $:</label>
+                           <div class="col-md-10 col-sm-9 col-xs-12">
+                              <input type="number" class="form-control" id="revision" value="" readonly>
+                           </div>
+                        </div>
+                     </fieldset>
+                     <hr>
+                     <div class="form-group">
+                        <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
+                           <input class="btn btn-primary" name="update" type="submit" value="Update Pricing">
+                        </div>
                      </div>
-
-
-                     <form action="/PaintstART_Files/php/update.php" class="form-horizontal" method="POST">
-                        <div class="form-group">
-                           <label for="new_username" label class="col-md-2 col-sm-3 col-xs-12 control-label">Username</label>
-                           <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="text" class="form-control" id="username" name="new_username" value="" required>
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label for="new_firstname" label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
-                           <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="text" class="form-control" id="firstname" name="new_firstname" value="">
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label for="new_lastname" label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
-                           <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="text" class="form-control" id="lastname" name="new_lastname" value="">
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label for="current_password" label class="col-md-2 col-sm-3 col-xs-12 control-label">Re-enter Old Password</label>
-                           <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="text" class="form-control" id="password" name="current_password" value="" required>
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label for="new_password" label class="col-md-2 col-sm-3 col-xs-12 control-label">Enter New Password</label>
-                           <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="text" class="form-control" id="new_password" name="new_password" value="" required>
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label for="new_email" label class="col-md-2 col-sm-3 col-xs-12 control-label">Update Email Address</label>
-                           <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="email" class="form-control" id="email" name="new_email" value="" required>
-                           </div>
-                        </div>
-                        <div class="form-group">
-                           <label for="twiitter" label class="col-md-2 col-sm-3 col-xs-12 control-label">Enter Twitter Username</label>
-                           <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="text" class="form-control" id="twitter" name="twitter" value="">
-                           </div>
-                        </div>
-
-                  </fieldset>
-                  <hr>
-                  <div class="form-group">
-                     <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                        <input class="btn btn-primary" name="update" type="submit" value="Update Profile">
-                     </div>
-                  </div>
                   </form>
                </div>
             </div>
@@ -744,47 +760,6 @@
    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <script type="text/javascript"></script>
-
-
-
-   <?php
-   //NOT COMPLETE YET, DELETE IF THIS IF NOT NEEDED
-   error_reporting(0);
-
-   $msg = "";
-
-   // If upload button is clicked ...
-   if (isset($_POST['upload'])) {
-
-      $filename = $_FILES["uploadfile"]["name"];
-      $tempname = $_FILES["uploadfile"]["tmp_name"];
-      $folder = "./user_images/" . $filename;
-
-      $db = mysqli_connect("localhost", "Group4PS_Admin", "group_4_PS!!!1111", "users");
-
-      // Get all the submitted data from the form
-      $sql = "INSERT INTO portfolio_images (filename) VALUES ('$filename')";
-
-      // Execute query
-      mysqli_query($db, $sql);
-
-      // Move the uploaded image into the folder: image
-      if (move_uploaded_file($tempname, $folder)) {
-         $imageSource = "./user_images/" . $filename;
-         echo "<h3> Image uploaded successfully!</h3>";
-      } else {
-         echo "<h3> Failed to upload image!</h3>";
-      }
-   }
-   ?>
-   <?php
-   $query = "SELECT * FROM portfolio_images";
-   $result = mysqli_query($db, $query);
-
-   while ($data = mysqli_fetch_assoc($result)) {
-      $imageSource = "./user_images/" . $data['filename'];
-   }
-   ?>
 </body>
 
 </html>

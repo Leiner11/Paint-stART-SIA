@@ -13,8 +13,6 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/checkout/">
 
-
-
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -98,7 +96,6 @@
     }
   </style>
 
-
   <!-- Custom styles for this template -->
   <link href="checkout.css" rel="stylesheet">
 </head>
@@ -164,14 +161,13 @@
     </ul>
   </div>
 
-
   <div class="container">
     <main>
       <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="../Images/Icon.png" alt="" width="72" height="72">
         <h2>Paint stART Commission Form</h2>
-        <p class="lead">Kindly fill up the form below so I can process your requested art and it will be submitted to your email address!
-          <br><br>Important Note: Kindly don't forget to fill the reference number so that we can redirect your account number to ours!
+        <p class="lead">Fill up the form below so I can process your requested art and it will be submitted to your email address!
+          <br><br>Important Note: Don't forget to fill the reference number so that we can redirect your account number to ours!
         </p>
       </div>
 
@@ -184,44 +180,33 @@
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
-                <h6 class="my-0">Product name</h6>
-                <small class="text-body-secondary">Brief description</small>
+                <h6 class="my-0">Art Type </h6>
+                <small class="text-body-secondary">(Portrait, Fanart, Live2D)</small>
               </div>
-              <span class="text-body-secondary">$12</span>
+              <span class="text-body-secondary">$PRICE</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
-                <h6 class="my-0">Second product</h6>
-                <small class="text-body-secondary">Brief description</small>
+                <h6 class="my-0">Selected Style Option</h6>
+                <small class="text-body-secondary">(Selected Style)</small>
               </div>
-              <span class="text-body-secondary">$8</span>
+              <span class="text-body-secondary">$PRICE</span>
             </li>
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
-                <h6 class="my-0">Third item</h6>
-                <small class="text-body-secondary">Brief description</small>
+                <h6 class="my-0">Chosen Payment Method</h6>
+                <small class="text-body-secondary">(Payment Method)</small>
               </div>
-              <span class="text-body-secondary">$5</span>
+              <span class="text-body-secondary">$PRICE</span>
             </li>
             <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
               <div class="text-success">
-                <h6 class="my-0">Promo code</h6>
-                <small>EXAMPLECODE</small>
+                <h6 class="my-0">TOTAL</h6>
+                <small>Accepted currency (USD)</small>
               </div>
-              <span class="text-success">−$5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Total (USD)</span>
-              <strong>$20</strong>
+              <span class="text-success">$5</span>
             </li>
           </ul>
-
-          <form class="card p-2">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Promo code">
-              <button type="submit" class="btn btn-secondary">Redeem</button>
-            </div>
-          </form>
         </div>
         <div class="col-md-7 col-lg-8">
           <h4 class="mb-3">Billing Details</h4>
@@ -275,30 +260,33 @@
 
               <hr class="my-4">
 
-              <div class="form-check">
-                <h4>Select options</h4><br>
-                <input type="checkbox" class="form-check-input" id="option_colored" name="option_colored">
-                <label class="form-check-label" for="colored-art">Colored Digital Art</label>
-              </div>
+              <h4 class="mb-3">Style Options</h4>
+              <?php
+              // Array of color options
+              $paymentOptions = ['Colored Art', 'Black N White', 'Sketch Only'];
 
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="option_blacknwhite" name="option_blacknwhite">
-                <label class="form-check-label" for="blacknwhite-art">Plain Black and White Digital Art</label>
-              </div>
-
+              // Loop through style
+              foreach ($paymentOptions as $option) {
+              ?>
+                <div class="form-check">
+                  <input id="<?php echo $option; ?>" name="style" type="radio" class="form-check-input" value="<?php echo $option; ?>" <?php echo ($option === 'gcash') ? 'checked' : ''; ?> required>
+                  <label class="form-check-label" for="<?php echo $option; ?>"><?php echo ucfirst($option); ?></label>
+                </div>
+              <?php
+              }
+              ?>
               <hr class="my-4">
-
               <h4 class="mb-3">Payment Method</h4>
 
               <?php
               // Array of payment options
-              $paymentOptions = ['gcash', 'paypal', 'gotyme_bank'];
+              $paymentOptions = ['GCash', 'Paypal', 'GoTyme Bank'];
 
               // Loop through payment options and create radio buttons
               foreach ($paymentOptions as $option) {
               ?>
                 <div class="form-check">
-                  <input id="<?php echo $option; ?>" name="paymentMethod" type="radio" class="form-check-input" <?php echo ($option === 'gcash') ? 'checked' : ''; ?> required>
+                  <input id="<?php echo $option; ?>" name="paymentMethod" type="radio" class="form-check-input" value="<?php echo $option; ?>" <?php echo ($option === 'gcash') ? 'checked' : ''; ?> required>
                   <label class="form-check-label" for="<?php echo $option; ?>"><?php echo ucfirst($option); ?></label>
                 </div>
               <?php
@@ -306,7 +294,7 @@
               ?>
             </div>
 
-
+            <hr class="my-4">
             <div class="row gy-3">
               <div class="col-md-10">
                 <label for="pm_referenceNumber" class="form-label">Payment Method Reference Number</label>
@@ -318,9 +306,7 @@
                   Reference number is required
                 </div>
               </div>
-
               <hr class="my-4">
-
               <button class="btn btn-primary" type="submit">Submit</button>
           </form>
         </div>
@@ -330,9 +316,8 @@
     <footer class="my-5 pt-5 text-body-secondary text-center text-small">
       <p class="mb-1">Copyright &copy; 2023 Paint stART. All rights reserved.</p>
       <ul class="list-inline">
-        <li class="list-inline-item"><a href="../index.html">Back to Homepage</a></li>
-        <li class="list-inline-item"><a href="../album/VerticalClientPortfolio.html">Vertical Digital Arts</a></li>
-        <li class="list-inline-item"><a href="../album/HoriClientPortfolio.html">Horizontal Digital Arts</a></li>
+        <li class="list-inline-item"><a href="../index.php">Back to Homepage</a></li>
+        <li class="list-inline-item"><a href="../album-client/ClientPortfolio.php">Curse360 Arts</a></li>
       </ul>
     </footer>
   </div>
