@@ -2,8 +2,6 @@
 session_start();
 
 $userID = isset($_SESSION['userID']) ? $_SESSION['userID'] : null;
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
 // Check if $userID is null
 if ($userID === null) {
@@ -12,11 +10,7 @@ if ($userID === null) {
     exit; // or redirect to the login page
 }
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 // Retrieve data from the POST request
-$requestBody = file_get_contents('php://input');
 $formData = $_POST;
 
 // Add userID to the form data
@@ -42,26 +36,32 @@ $_SESSION['orderDetails'] = [
     'paymentMethod' => $formData['paymentMethod'],
     'pm_referenceNumber' => $formData['pm_referenceNumber'],
     'commissionDetails' => $formData['commissionDetails'],
+    'typePrice' => $typePrice,  // Add these lines to include typePrice and stylePrice
+    'stylePrice' => $stylePrice, // Add these lines to include typePrice and stylePrice
     'totalPrice' => $totalPrice,
 ];
-var_dump($_SESSION);
+
+
 // Respond to the frontend
 $response = ['message' => 'Form data received and saved successfully.'];
 echo json_encode($response);
+
+// Exit after sending the response
+exit;
 
 // Save Form Data to Database
 function saveFormDataToDatabase($userID, $formData, $username, $totalPrice)
 {
     require_once("./Config.php");
 
-    // Validate and sanitize user inputs (omitted for brevity)
+    // Validate and sanitize user inputs (add your validation/sanitization code)
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Check if the 'paymentMethod' key exists in the $_POST array
         if (isset($_POST['paymentMethod'])) {
-            $selectedPaymentMethod = $_POST['paymentMethod'];
-            $selectedStyle = $_POST['style'];
-            $selectedType = $_POST['artType'];
+            $selectedPaymentMethod = $conn->real_escape_string($_POST['paymentMethod']);
+            $selectedStyle = $conn->real_escape_string($_POST['style']);
+            $selectedType = $conn->real_escape_string($_POST['artType']);
 
             // Fetch prices from the database based on selected type and style
             $stmt = $conn->prepare("SELECT $selectedType, $selectedStyle FROM art_price WHERE 1");
@@ -111,14 +111,14 @@ function saveFormDataToDatabase($userID, $formData, $username, $totalPrice)
         $formData['commissionDetails'],
         $totalPrice
     );
-
+    var_dump($_SESSION);
     if ($stmt->execute()) {
+        // Redirect after successful execution
         header("Location: /PaintstART_Files/html/receiptPage/receipt.php");
         exit;
     } else {
         echo "Error: " . $stmt->error;
     }
-
     $stmt->close();
     $conn->close();
 }
