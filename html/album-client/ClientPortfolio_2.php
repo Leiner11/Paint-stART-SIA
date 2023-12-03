@@ -190,7 +190,7 @@
     </div>
     <div class="navbar navbar-dark bg-dark shadow-sm">
       <div class="container">
-        <a href="#" class="navbar-brand d-flex align-items-center">
+        <a href="../index.php" class="navbar-brand d-flex align-items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24">
             <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
             <circle cx="12" cy="13" r="4" />
@@ -208,7 +208,7 @@
     <section class="py-5 text-center container">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light">Curse360 Portfolio - Illustration</h1>
+          <h1 class="fw-light">Curse360 Portfolio - Illustration - Portrait Style</h1>
           <p class="lead text-body-secondary">
             A wide variety of limitless imagination pour into one art where it
             expresses freely and have different kind of effect and impact
@@ -226,18 +226,20 @@
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
-          <!-- CARD 1 -->
+          <!-- CARD 10 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage1" src="" alt="Image">
+              <img id="portfolioImage10" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <form method="POST" action="" enctype="multipart/form-data" id="form1">
-                  <input type="hidden" name="cardIdentifier" value="1">
+                <p class="card-text" id="cardText10">
+                  <span id="cardTextContent10"></span>
+                </p>
+                <form method="POST" action="" enctype="multipart/form-data" id="form10">
+                  <input type="hidden" name="cardIdentifier" value="10">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput1" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(1)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput10" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(10)">
                       </div>
                     </div>
                   </div>
@@ -246,18 +248,20 @@
             </div>
           </div>
 
-          <!-- CARD 2 -->
+          <!-- CARD 11 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage2" src="" alt="Image">
+              <img id="portfolioImage11" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <form method="POST" action="" enctype="multipart/form-data" id="form2">
-                  <input type="hidden" name="cardIdentifier" value="2">
+                <p class="card-text" id="cardText11">
+                  <span id="cardTextContent11"></span>
+                </p>
+                <form method="POST" action="" enctype="multipart/form-data" id="form11">
+                  <input type="hidden" name="cardIdentifier" value="11">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput2" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(2)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput11" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(11)">
                       </div>
                     </div>
                   </div>
@@ -266,18 +270,20 @@
             </div>
           </div>
 
-          <!-- CARD 3 -->
+          <!-- CARD 12 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage3" src="" alt="Image">
+              <img id="portfolioImage12" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <form method="POST" action="" enctype="multipart/form-data" id="form3">
-                  <input type="hidden" name="cardIdentifier" value="3">
+                <p class="card-text" id="cardText12">
+                  <span id="cardTextContent12"></span>
+                </p>
+                <form method="POST" action="" enctype="multipart/form-data" id="form12">
+                  <input type="hidden" name="cardIdentifier" value="12">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput3" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(3)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput12" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(12)">
                       </div>
                     </div>
                   </div>
@@ -286,18 +292,20 @@
             </div>
           </div>
 
-          <!-- CARD 4 -->
+          <!-- CARD 13 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage4" src="" alt="Image">
+              <img id="portfolioImage13" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <form method="POST" action="" enctype="multipart/form-data" id="form4">
-                  <input type="hidden" name="cardIdentifier" value="4">
+                <p class="card-text" id="cardText13">
+                  <span id="cardTextContent13"></span>
+                </p>
+                <form method="POST" action="" enctype="multipart/form-data" id="form13">
+                  <input type="hidden" name="cardIdentifier" value="13">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput4" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(4)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput13" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(13)">
                       </div>
                     </div>
                   </div>
@@ -306,18 +314,20 @@
             </div>
           </div>
 
-          <!-- CARD 5 -->
+          <!-- CARD 14 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage5" src="" alt="Image">
+              <img id="portfolioImage14" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <form method="POST" action="" enctype="multipart/form-data" id="form5">
-                  <input type="hidden" name="cardIdentifier" value="5">
+                <p class="card-text" id="cardText14">
+                  <span id="cardTextContent14"></span>
+                </p>
+                <form method="POST" action="" enctype="multipart/form-data" id="form14">
+                  <input type="hidden" name="cardIdentifier" value="14">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput5" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(5)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput14" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(14)">
                       </div>
                     </div>
                   </div>
@@ -326,18 +336,20 @@
             </div>
           </div>
 
-          <!-- CARD 6 -->
+          <!-- CARD 15 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage6" src="" alt="Image">
+              <img id="portfolioImage15" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <form method="POST" action="" enctype="multipart/form-data" id="form6">
-                  <input type="hidden" name="cardIdentifier" value="6">
+                <p class="card-text" id="cardText15">
+                  <span id="cardTextContent15"></span>
+                </p>
+                <form method="POST" action="" enctype="multipart/form-data" id="form15">
+                  <input type="hidden" name="cardIdentifier" value="15">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput6" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(6)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput15" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(15)">
                       </div>
                     </div>
                   </div>
@@ -346,18 +358,20 @@
             </div>
           </div>
 
-          <!-- CARD 7 -->
+          <!-- CARD 16 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage7" src="" alt="Image">
+              <img id="portfolioImage16" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <form method="POST" action="" enctype="multipart/form-data" id="form7">
-                  <input type="hidden" name="cardIdentifier" value="7">
+                <p class="card-text" id="cardText16">
+                  <span id="cardTextContent16"></span>
+                </p>
+                <form method="POST" action="" enctype="multipart/form-data" id="form16">
+                  <input type="hidden" name="cardIdentifier" value="16">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput7" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(7)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput16" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(16)">
                       </div>
                     </div>
                   </div>
@@ -366,18 +380,20 @@
             </div>
           </div>
 
-          <!-- CARD 8 -->
+          <!-- CARD 17 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage8" src="" alt="Image">
+              <img id="portfolioImage17" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <form method="POST" action="" enctype="multipart/form-data" id="form8">
-                  <input type="hidden" name="cardIdentifier" value="8">
+                <p class="card-text" id="cardText17">
+                  <span id="cardTextContent17"></span>
+                </p>
+                <form method="POST" action="" enctype="multipart/form-data" id="form17">
+                  <input type="hidden" name="cardIdentifier" value="17">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput8" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(8)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput17" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(17)">
                       </div>
                     </div>
                   </div>
@@ -386,18 +402,20 @@
             </div>
           </div>
 
-          <!-- CARD 9 -->
+          <!-- CARD 18 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage9" src="" alt="Image">
+              <img id="portfolioImage18" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <form method="POST" action="" enctype="multipart/form-data" id="form3">
-                  <input type="hidden" name="cardIdentifier" value="9">
+                <p class="card-text" id="cardText18">
+                  <span id="cardTextContent18"></span>
+                </p>
+                <form method="POST" action="" enctype="multipart/form-data" id="form18">
+                  <input type="hidden" name="cardIdentifier" value="18">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput9" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(9)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput18" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(18)">
                       </div>
                     </div>
                   </div>
@@ -451,52 +469,17 @@
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    function deleteImage(cardIdentifier) {
-
-      // Create a form and submit it to trigger the delete action
-      var form = document.createElement('form');
-      form.method = 'POST';
-      form.action = ''; // Set the appropriate action
-
-      var input = document.createElement('input');
-      input.type = 'hidden';
-      input.name = 'cardIdentifier';
-      input.value = cardIdentifier;
-
-      form.appendChild(input);
-
-      // Add a hidden input to specify the delete action
-      var deleteInput = document.createElement('input');
-      deleteInput.type = 'hidden';
-      deleteInput.name = 'delete';
-      deleteInput.value = 'delete';
-      form.appendChild(deleteInput);
-
-      document.body.appendChild(form);
-
-      // Submit the form
-      form.submit();
-    }
-
     var recentlyUploadedImage = {
-      '1': '<?php echo isset($recentlyUploadedImage['1']) ? $recentlyUploadedImage['1'] : ''; ?>',
-      '2': '<?php echo isset($recentlyUploadedImage['2']) ? $recentlyUploadedImage['2'] : ''; ?>',
-      '3': '<?php echo isset($recentlyUploadedImage['3']) ? $recentlyUploadedImage['3'] : ''; ?>',
-      '4': '<?php echo isset($recentlyUploadedImage['4']) ? $recentlyUploadedImage['4'] : ''; ?>',
-      '5': '<?php echo isset($recentlyUploadedImage['5']) ? $recentlyUploadedImage['5'] : ''; ?>',
-      '6': '<?php echo isset($recentlyUploadedImage['6']) ? $recentlyUploadedImage['6'] : ''; ?>',
-      '7': '<?php echo isset($recentlyUploadedImage['7']) ? $recentlyUploadedImage['7'] : ''; ?>',
-      '8': '<?php echo isset($recentlyUploadedImage['8']) ? $recentlyUploadedImage['8'] : ''; ?>',
-      '9': '<?php echo isset($recentlyUploadedImage['9']) ? $recentlyUploadedImage['9'] : ''; ?>'
+      '10': '<?php echo isset($recentlyUploadedImage['10']) ? $recentlyUploadedImage['10'] : ''; ?>',
+      '11': '<?php echo isset($recentlyUploadedImage['11']) ? $recentlyUploadedImage['11'] : ''; ?>',
+      '12': '<?php echo isset($recentlyUploadedImage['12']) ? $recentlyUploadedImage['12'] : ''; ?>',
+      '13': '<?php echo isset($recentlyUploadedImage['13']) ? $recentlyUploadedImage['13'] : ''; ?>',
+      '14': '<?php echo isset($recentlyUploadedImage['14']) ? $recentlyUploadedImage['14'] : ''; ?>',
+      '15': '<?php echo isset($recentlyUploadedImage['15']) ? $recentlyUploadedImage['15'] : ''; ?>',
+      '16': '<?php echo isset($recentlyUploadedImage['16']) ? $recentlyUploadedImage['16'] : ''; ?>',
+      '17': '<?php echo isset($recentlyUploadedImage['17']) ? $recentlyUploadedImage['17'] : ''; ?>',
+      '18': '<?php echo isset($recentlyUploadedImage['18']) ? $recentlyUploadedImage['18'] : ''; ?>'
     };
-
-    function truncateFilename(filename, maxLength) {
-      console.log('Original Filename:', filename);
-      if (filename.length > maxLength) {
-        return filename.substring(0, maxLength - 3) + '...';
-      }
-      return filename;
-    }
 
     function updateImageSrc(cardIdentifier) {
       var imageElement = document.getElementById('portfolioImage' + cardIdentifier);
@@ -510,58 +493,55 @@
         var imagePath = "../album-image/" + recentlyUploadedImage[cardIdentifier];
         imageElement.src = imagePath;
 
-        // Truncate the filename and set it as alt text
-        var truncatedFilename = truncateFilename(recentlyUploadedImage[cardIdentifier], 10); // Replace 20 with your desired max length
-        imageElement.alt = truncatedFilename;
-
-        // Check if a new file is selected and update the label
-        if (fileInput.value) {
-          fileInputLabel.innerText = truncatedFilename;
-        }
       } else {
         console.log('No image path available');
       }
-      console.log('Truncated filename:', truncatedFilename);
-    }
-
-    function updateImageSrcAfterUpload(cardIdentifier, imagePath) {
-      recentlyUploadedImage[cardIdentifier] = imagePath;
-      updateImageSrc(cardIdentifier);
     }
 
     window.onload = function() {
       // Update images on page load
-      for (let i = 1; i <= 9; i++) {
+      for (let i = 10; i <= 18; i++) {
         updateImageSrc(i.toString());
         console.log(recentlyUploadedImage);
       }
-      // Add an event listener to the Delete button for each card
-      for (let i = 1; i <= 9; i++) {
-        const deleteButton = document.getElementById('deleteButton' + i);
-        if (deleteButton) {
-          deleteButton.addEventListener('click', function() {
-            const cardIdentifier = i.toString();
-            deleteImage(cardIdentifier);
-          });
-        }
-      }
 
-      function deleteImage(cardIdentifier) {
-        // Make an AJAX request to the server to delete the image
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', './php/deleteImage.php', true);
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.onreadystatechange = function() {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            // Handle the response, you can update the UI accordingly
-            console.log(xhr.responseText);
-            // Optionally, you can refresh the page or update the UI after deletion
-            updateImageSrc(cardIdentifier);
-          }
-        };
-        xhr.send('cardIdentifier=' + cardIdentifier);
-      }
     };
   </script>
+
+  <?php
+  // Code for displaying the card_text from the portfolio_images DB
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+  require_once("../Config.php");
+
+  for ($cardNumber = 10; $cardNumber <= 18; $cardNumber++) {
+    $sql = "SELECT card_text FROM portfolio_images WHERE card_identifier = $cardNumber";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+      $row = mysqli_fetch_assoc($result);
+
+      // Check if $row is not null and the 'card_text' key is set
+      if ($row && array_key_exists('card_text', $row)) {
+        $cardText = $row['card_text'];
+
+        // Check if card_text is NULL
+        if ($cardText === NULL) {
+          //echo "Warning: 'card_text' is NULL for card $cardNumber<br>";
+        } else {
+          // Inject the card_text into the corresponding span element
+          echo "<script>document.getElementById('cardTextContent$cardNumber').innerText = '$cardText';</script>";
+        }
+      } else {
+        //echo "Warning: 'card_text' not found for card $cardNumber<br>";
+      }
+    } else {
+      echo "Error fetching card_text: " . mysqli_error($conn) . "<br>";
+    }
+  }
+  mysqli_close($conn);
+  ?>
+
 </body>
+
 </html>

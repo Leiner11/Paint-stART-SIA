@@ -285,18 +285,23 @@
                 <p class="card-text" id="cardText2">
                   <span id="cardTextContent2"></span>
                 </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton2" onclick="toggleEditText(2)">Edit Text</button>
+                <br><br>
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText2" style="display: none;">
+
                 <form method="POST" action="" enctype="multipart/form-data" id="form2">
                   <input type="hidden" name="cardIdentifier" value="2">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleEditText(2)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput2').click();">
                           <span id="fileLabel2">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput2" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(2)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput2" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(2); toggleUploadButton(2);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton2" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('2')" id="deleteButton2">Delete</button>
                     </div>
                   </div>
@@ -304,6 +309,7 @@
               </div>
             </div>
           </div>
+
           <!-- CARD 3 -->
           <div class="col">
             <div class="card shadow-sm">
@@ -312,18 +318,23 @@
                 <p class="card-text" id="cardText3">
                   <span id="cardTextContent3"></span>
                 </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton3" onclick="toggleEditText(3)">Edit Text</button>
+                <br><br>
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText3" style="display: none;">
+
                 <form method="POST" action="" enctype="multipart/form-data" id="form3">
                   <input type="hidden" name="cardIdentifier" value="3">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleEditText(3)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput3').click();">
                           <span id="fileLabel3">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput3" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(3)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput3" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(3); toggleUploadButton(3);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton3" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('3')" id="deleteButton3">Delete</button>
                     </div>
                   </div>
@@ -331,6 +342,7 @@
               </div>
             </div>
           </div>
+
           <!-- CARD 4 -->
           <div class="col">
             <div class="card shadow-sm">
@@ -339,18 +351,23 @@
                 <p class="card-text" id="cardText4">
                   <span id="cardTextContent4"></span>
                 </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton4" onclick="toggleEditText(4)">Edit Text</button>
+                <br><br>
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText4" style="display: none;">
+
                 <form method="POST" action="" enctype="multipart/form-data" id="form4">
                   <input type="hidden" name="cardIdentifier" value="4">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleEditText(4)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput4').click();">
                           <span id="fileLabel4">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput4" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(4)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput4" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(4); toggleUploadButton(4);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton4" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('4')" id="deleteButton4">Delete</button>
                     </div>
                   </div>
@@ -366,18 +383,23 @@
                 <p class="card-text" id="cardText5">
                   <span id="cardTextContent5"></span>
                 </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton5" onclick="toggleEditText(5)">Edit Text</button>
+                <br><br>
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText5" style="display: none;">
+
                 <form method="POST" action="" enctype="multipart/form-data" id="form5">
                   <input type="hidden" name="cardIdentifier" value="5">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleEditText(5)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput5').click();">
                           <span id="fileLabel5">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput5" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(5)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput5" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(5); toggleUploadButton(5);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton5" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('5')" id="deleteButton5">Delete</button>
                     </div>
                   </div>
@@ -385,6 +407,7 @@
               </div>
             </div>
           </div>
+
           <!-- CARD 6 -->
           <div class="col">
             <div class="card shadow-sm">
@@ -393,18 +416,23 @@
                 <p class="card-text" id="cardText6">
                   <span id="cardTextContent6"></span>
                 </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton6" onclick="toggleEditText(6)">Edit Text</button>
+                <br><br>
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText6" style="display: none;">
+
                 <form method="POST" action="" enctype="multipart/form-data" id="form6">
                   <input type="hidden" name="cardIdentifier" value="6">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleEditText(6)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput6').click();">
                           <span id="fileLabel6">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput6" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(6)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput6" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(6); toggleUploadButton(6);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton6" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('6')" id="deleteButton6">Delete</button>
                     </div>
                   </div>
@@ -420,18 +448,23 @@
                 <p class="card-text" id="cardText7">
                   <span id="cardTextContent7"></span>
                 </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton7" onclick="toggleEditText(7)">Edit Text</button>
+                <br><br>
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText7" style="display: none;">
+
                 <form method="POST" action="" enctype="multipart/form-data" id="form7">
                   <input type="hidden" name="cardIdentifier" value="7">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleEditText(7)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput7').click();">
                           <span id="fileLabel7">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput7" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(7)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput7" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(7); toggleUploadButton(7);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton7" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('7')" id="deleteButton7">Delete</button>
                     </div>
                   </div>
@@ -439,6 +472,7 @@
               </div>
             </div>
           </div>
+
           <!-- CARD 8 -->
           <div class="col">
             <div class="card shadow-sm">
@@ -447,18 +481,23 @@
                 <p class="card-text" id="cardText8">
                   <span id="cardTextContent8"></span>
                 </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton8" onclick="toggleEditText(8)">Edit Text</button>
+                <br><br>
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText8" style="display: none;">
+
                 <form method="POST" action="" enctype="multipart/form-data" id="form8">
                   <input type="hidden" name="cardIdentifier" value="8">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleEditText(8)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput8').click();">
                           <span id="fileLabel8">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput8" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(8)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput8" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(8); toggleUploadButton(8);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton8" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('8')" id="deleteButton8">Delete</button>
                     </div>
                   </div>
@@ -466,6 +505,7 @@
               </div>
             </div>
           </div>
+
           <!-- CARD 9 -->
           <div class="col">
             <div class="card shadow-sm">
@@ -474,18 +514,23 @@
                 <p class="card-text" id="cardText9">
                   <span id="cardTextContent9"></span>
                 </p>
-                <form method="POST" action="" enctype="multipart/form-data" id="form3">
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton9" onclick="toggleEditText(9)">Edit Text</button>
+                <br><br>
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText9" style="display: none;">
+
+                <form method="POST" action="" enctype="multipart/form-data" id="form9">
                   <input type="hidden" name="cardIdentifier" value="9">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleEditText(9)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput9').click();">
                           <span id="fileLabel9">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput9" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(9)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput9" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(9); toggleUploadButton(9);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton9" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('9')" id="deleteButton9">Delete</button>
                     </div>
                   </div>
@@ -493,8 +538,6 @@
               </div>
             </div>
           </div>
-
-
 
           <nav aria-label="Page navigation example">
             <ul class="pagination">
@@ -762,4 +805,5 @@
   ?>
 
 </body>
+
 </html>

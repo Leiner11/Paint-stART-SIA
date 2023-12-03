@@ -254,7 +254,10 @@
             <div class="card shadow-sm">
               <img id="portfolioImage2" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <!-- Display the text -->
+                <p class="card-text" id="cardText2">
+                  <span id="cardTextContent2"></span>
+                </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form2">
                   <input type="hidden" name="cardIdentifier" value="2">
                   <div class="d-flex justify-content-between align-items-center">
@@ -274,7 +277,10 @@
             <div class="card shadow-sm">
               <img id="portfolioImage3" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <!-- Display the text -->
+                <p class="card-text" id="cardText3">
+                  <span id="cardTextContent3"></span>
+                </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form3">
                   <input type="hidden" name="cardIdentifier" value="3">
                   <div class="d-flex justify-content-between align-items-center">
@@ -294,7 +300,9 @@
             <div class="card shadow-sm">
               <img id="portfolioImage4" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text" id="cardText4">
+                  <span id="cardTextContent4"></span>
+                </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form4">
                   <input type="hidden" name="cardIdentifier" value="4">
                   <div class="d-flex justify-content-between align-items-center">
@@ -314,13 +322,15 @@
             <div class="card shadow-sm">
               <img id="portfolioImage5" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text" id="cardText5">
+                  <span id="cardTextContent5"></span>
+                </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form5">
                   <input type="hidden" name="cardIdentifier" value="5">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput5" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(5)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput5" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(5)">
                       </div>
                     </div>
                   </div>
@@ -334,13 +344,15 @@
             <div class="card shadow-sm">
               <img id="portfolioImage6" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text" id="cardText6">
+                  <span id="cardTextContent6"></span>
+                </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form6">
                   <input type="hidden" name="cardIdentifier" value="6">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput6" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(6)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput6" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(6)">
                       </div>
                     </div>
                   </div>
@@ -354,7 +366,9 @@
             <div class="card shadow-sm">
               <img id="portfolioImage7" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text" id="cardText7">
+                  <span id="cardTextContent7"></span>
+                </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form7">
                   <input type="hidden" name="cardIdentifier" value="7">
                   <div class="d-flex justify-content-between align-items-center">
@@ -374,13 +388,15 @@
             <div class="card shadow-sm">
               <img id="portfolioImage8" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text" id="cardText8">
+                  <span id="cardTextContent8"></span>
+                </p>
                 <form method="POST" action="" enctype="multipart/form-data" id="form8">
                   <input type="hidden" name="cardIdentifier" value="8">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput8" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(8)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput8" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(8)">
                       </div>
                     </div>
                   </div>
@@ -394,13 +410,15 @@
             <div class="card shadow-sm">
               <img id="portfolioImage9" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <form method="POST" action="" enctype="multipart/form-data" id="form3">
+                <p class="card-text" id="cardText9">
+                  <span id="cardTextContent9"></span>
+                </p>
+                <form method="POST" action="" enctype="multipart/form-data" id="form9">
                   <input type="hidden" name="cardIdentifier" value="9">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput9" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(9)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput9" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(9)">
                       </div>
                     </div>
                   </div>
@@ -408,7 +426,6 @@
               </div>
             </div>
           </div>
-
 
           <nav aria-label="Page navigation example">
             <ul class="pagination">
@@ -478,18 +495,9 @@
         var imagePath = "../album-image/" + recentlyUploadedImage[cardIdentifier];
         imageElement.src = imagePath;
 
-        // Truncate the filename and set it as alt text
-        var truncatedFilename = truncateFilename(recentlyUploadedImage[cardIdentifier], 10); // Replace 20 with your desired max length
-        imageElement.alt = truncatedFilename;
-
-        // Check if a new file is selected and update the label
-        if (fileInput.value) {
-          fileInputLabel.innerText = truncatedFilename;
-        }
       } else {
         console.log('No image path available');
       }
-      console.log('Truncated filename:', truncatedFilename);
     }
 
     window.onload = function() {
@@ -537,4 +545,5 @@
   ?>
 
 </body>
+
 </html>

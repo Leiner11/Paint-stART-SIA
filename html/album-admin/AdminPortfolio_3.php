@@ -36,6 +36,7 @@
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.118.2">
   <title>Digital Art Portfolio</title>
+  <script src="../jquery/jquery-3.7.1.min.js.js"></script>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
 
@@ -210,7 +211,7 @@
     </div>
     <div class="navbar navbar-dark bg-dark shadow-sm">
       <div class="container">
-        <a href="#" class="navbar-brand d-flex align-items-center">
+        <a href="../index.php" class="navbar-brand d-flex align-items-center">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24">
             <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
             <circle cx="12" cy="13" r="4" />
@@ -229,7 +230,7 @@
     <section class="py-5 text-center container">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 class="fw-light">Curse360 Portfolio - Illustration</h1>
+          <h1 class="fw-light">Curse360 Portfolio - Illustration - Portrait Style</h1>
           <p class="lead text-body-secondary">A wide variety of limitless imagination pour into one art where it expresses freely and have different kind of effect and impact towards unto one person.</p>
           <p>
             <a href="/PaintstART_Files/html/index.php" class="btn btn-secondary my-2">Back to Homepage</a>
@@ -246,11 +247,14 @@
           <!-- CARD 1 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage1" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 70%; height: 70%;">
+              <img id="portfolioImage1" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
                 <!-- Display the text -->
-                <p class="card-text" id="cardText1">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
-
+                <p class="card-text" id="cardText1">
+                  <span id="cardTextContent1"></span>
+                </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton1" onclick="toggleEditText(1)">Edit Text</button>
+                <br><br>
                 <!-- Input field for editing (initially hidden) -->
                 <input type="text" class="form-control" id="editCardText1" style="display: none;">
 
@@ -258,15 +262,13 @@
                   <input type="hidden" name="cardIdentifier" value="1">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <!-- Toggle visibility of text and input field on button click -->
-                      <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton1" onclick="toggleEditText(1)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput1').click();">
                           <span id="fileLabel1">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput1" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(1)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput1" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(1); toggleUploadButton(1);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton1" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('1')" id="deleteButton1">Delete</button>
                     </div>
                   </div>
@@ -278,21 +280,28 @@
           <!-- CARD 2 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage2" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 70%; height: 70%;">
+              <img id="portfolioImage2" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
+                <p class="card-text" id="cardText2">
+                  <span id="cardTextContent2"></span>
+                </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton2" onclick="toggleEditText(2)">Edit Text</button>
+                <br><br>
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText2" style="display: none;">
+
                 <form method="POST" action="" enctype="multipart/form-data" id="form2">
                   <input type="hidden" name="cardIdentifier" value="2">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleEditText(2)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput2').click();">
                           <span id="fileLabel2">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput2" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(2)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput2" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(2); toggleUploadButton(2);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton2" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('2')" id="deleteButton2">Delete</button>
                     </div>
                   </div>
@@ -300,24 +309,32 @@
               </div>
             </div>
           </div>
+
           <!-- CARD 3 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage3" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 70%; height: 70%;">
+              <img id="portfolioImage3" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
+                <p class="card-text" id="cardText3">
+                  <span id="cardTextContent3"></span>
+                </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton3" onclick="toggleEditText(3)">Edit Text</button>
+                <br><br>
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText3" style="display: none;">
+
                 <form method="POST" action="" enctype="multipart/form-data" id="form3">
                   <input type="hidden" name="cardIdentifier" value="3">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleEditText(3)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput3').click();">
                           <span id="fileLabel3">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput3" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(3)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput3" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(3); toggleUploadButton(3);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton3" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('3')" id="deleteButton3">Delete</button>
                     </div>
                   </div>
@@ -325,24 +342,32 @@
               </div>
             </div>
           </div>
+
           <!-- CARD 4 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage4" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 70%; height: 70%;">
+              <img id="portfolioImage4" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
+                <p class="card-text" id="cardText4">
+                  <span id="cardTextContent4"></span>
+                </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton4" onclick="toggleEditText(4)">Edit Text</button>
+                <br><br>
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText4" style="display: none;">
+
                 <form method="POST" action="" enctype="multipart/form-data" id="form4">
                   <input type="hidden" name="cardIdentifier" value="4">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleEditText(4)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput4').click();">
                           <span id="fileLabel4">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput4" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(4)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput4" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(4); toggleUploadButton(4);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton4" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('4')" id="deleteButton4">Delete</button>
                     </div>
                   </div>
@@ -353,21 +378,28 @@
           <!-- CARD 5 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage5" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 70%; height: 70%;">
+              <img id="portfolioImage5" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
+                <p class="card-text" id="cardText5">
+                  <span id="cardTextContent5"></span>
+                </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton5" onclick="toggleEditText(5)">Edit Text</button>
+                <br><br>
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText5" style="display: none;">
+
                 <form method="POST" action="" enctype="multipart/form-data" id="form5">
                   <input type="hidden" name="cardIdentifier" value="5">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleEditText(5)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput5').click();">
                           <span id="fileLabel5">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput5" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(5)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput5" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(5); toggleUploadButton(5);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton5" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('5')" id="deleteButton5">Delete</button>
                     </div>
                   </div>
@@ -375,24 +407,32 @@
               </div>
             </div>
           </div>
+
           <!-- CARD 6 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage6" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 70%; height: 70%;">
+              <img id="portfolioImage6" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
+                <p class="card-text" id="cardText6">
+                  <span id="cardTextContent6"></span>
+                </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton6" onclick="toggleEditText(6)">Edit Text</button>
+                <br><br>
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText6" style="display: none;">
+
                 <form method="POST" action="" enctype="multipart/form-data" id="form6">
                   <input type="hidden" name="cardIdentifier" value="6">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleEditText(6)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput6').click();">
                           <span id="fileLabel6">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput6" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(6)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput6" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(6); toggleUploadButton(6);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton6" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('6')" id="deleteButton6">Delete</button>
                     </div>
                   </div>
@@ -403,21 +443,28 @@
           <!-- CARD 7 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage7" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 70%; height: 70%;">
+              <img id="portfolioImage7" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
+                <p class="card-text" id="cardText7">
+                  <span id="cardTextContent7"></span>
+                </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton7" onclick="toggleEditText(7)">Edit Text</button>
+                <br><br>
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText7" style="display: none;">
+
                 <form method="POST" action="" enctype="multipart/form-data" id="form7">
                   <input type="hidden" name="cardIdentifier" value="7">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleEditText(7)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput7').click();">
                           <span id="fileLabel7">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput7" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; " onchange="updateImageSrc(7)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput7" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(7); toggleUploadButton(7);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton7" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('7')" id="deleteButton7">Delete</button>
                     </div>
                   </div>
@@ -425,24 +472,32 @@
               </div>
             </div>
           </div>
+
           <!-- CARD 8 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage8" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 70%; height: 70%;">
+              <img id="portfolioImage8" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
+                <p class="card-text" id="cardText8">
+                  <span id="cardTextContent8"></span>
+                </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton8" onclick="toggleEditText(8)">Edit Text</button>
+                <br><br>
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText8" style="display: none;">
+
                 <form method="POST" action="" enctype="multipart/form-data" id="form8">
                   <input type="hidden" name="cardIdentifier" value="8">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleEditText(8)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput8').click();">
                           <span id="fileLabel8">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput8" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(8)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput8" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(8); toggleUploadButton(8);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton8" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('8')" id="deleteButton8">Delete</button>
                     </div>
                   </div>
@@ -450,24 +505,32 @@
               </div>
             </div>
           </div>
+
           <!-- CARD 9 -->
           <div class="col">
             <div class="card shadow-sm">
-              <img id="portfolioImage9" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 70%; height: 70%;">
+              <img id="portfolioImage9" src="../Images/noImage.png" alt="Image" class="mx-auto" style="width: 100%; height: 100%;">
               <div class="card-body">
-                <p class="card-text">Test: Astarion, your vampiric companion, hides a lot behind an effortless, if not cruel, charm. Despite his status as your rogue, he’s not exactly a subtle person - he can pile on the drama like no one else. </p>
-                <form method="POST" action="" enctype="multipart/form-data" id="form3">
+                <p class="card-text" id="cardText9">
+                  <span id="cardTextContent9"></span>
+                </p>
+                <button type="button" class="btn btn-sm btn-outline-secondary" id="editButton9" onclick="toggleEditText(9)">Edit Text</button>
+                <br><br>
+                <!-- Input field for editing (initially hidden) -->
+                <input type="text" class="form-control" id="editCardText9" style="display: none;">
+
+                <form method="POST" action="" enctype="multipart/form-data" id="form9">
                   <input type="hidden" name="cardIdentifier" value="9">
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit Text</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleEditText(9)">Edit Text</button>
                       <div class="image-file" style="position: relative; overflow: hidden; display: inline-block;">
                         <button type="button" name="uploadfile" class="btn btn-sm btn-outline-secondary" onclick="document.getElementById('imageInput9').click();">
                           <span id="fileLabel9">Select Image...</span>
                         </button>
-                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput9" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(9)">
+                        <input type="file" class="image-file-input" name="uploadfile" id="imageInput9" accept="image/*" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;" onchange="updateImageSrc(9); toggleUploadButton(9);">
                       </div>
-                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload">Upload</button>
+                      <button type="submit" class="btn btn-sm btn-outline-secondary" name="upload" id="uploadButton9" disabled>Upload</button>
                       <button type="button" class="btn btn-sm btn-outline-secondary" onclick="deleteImage('9')" id="deleteButton9">Delete</button>
                     </div>
                   </div>
@@ -475,7 +538,6 @@
               </div>
             </div>
           </div>
-
 
           <nav aria-label="Page navigation example">
             <ul class="pagination">
@@ -504,8 +566,6 @@
         </div>
       </div>
     </div>
-
-
   </main>
 
   <footer class="text-body-secondary py-5">
@@ -521,7 +581,7 @@
 
   <script>
     function deleteImage(cardIdentifier) {
-      
+
       // Create a form and submit it to trigger the delete action
       var form = document.createElement('form');
       form.method = 'POST';
@@ -543,7 +603,6 @@
 
       document.body.appendChild(form);
 
-      // Submit the form
       form.submit();
     }
 
@@ -577,7 +636,7 @@
       if (recentlyUploadedImage[cardIdentifier] !== '') {
 
         // Construct the full path
-        var imagePath = "./images/" + recentlyUploadedImage[cardIdentifier];
+        var imagePath = "../album-image/" + recentlyUploadedImage[cardIdentifier];
         imageElement.src = imagePath;
 
         // Truncate the filename and set it as alt text
@@ -626,9 +685,11 @@
         xhr.onreadystatechange = function() {
 
           if (xhr.readyState === 4 && xhr.status === 200) {
-            // Handle the response, you can update the UI accordingly
+
+            // Handle the response, update the UI accordingly
             console.log(xhr.responseText);
-            // Optionally, you can refresh the page or update the UI after deletion
+
+            // Optionally, refresh the page or update the UI after deletion
             updateImageSrc(cardIdentifier);
           }
         };
@@ -636,6 +697,113 @@
       }
     };
   </script>
+
+  <script>
+    function toggleEditText(cardNumber) {
+      var cardText = $('#cardText' + cardNumber);
+      var editTextArea = $('#editCardText' + cardNumber);
+      var saveButton = $('#saveButton' + cardNumber);
+
+      if (cardText.is(':visible')) {
+        cardText.hide();
+        editTextArea.val(cardText.text()).show().focus();
+
+        // Create and append the Save button
+        saveButton = $('<button type="button" class="btn btn-sm btn-outline-secondary" id="saveButton' + cardNumber + '">Save</button>');
+        saveButton.appendTo('#form' + cardNumber + ' .btn-group');
+
+        // Attach the click event handler for the Save button
+        saveButton.click(function() {
+          saveEditText(cardNumber);
+        });
+      } else {
+        cardText.text(editTextArea.val()).show();
+        editTextArea.hide();
+        // Remove the Save button
+        saveButton.remove();
+      }
+    }
+
+    function saveEditText(cardNumber) {
+      var cardText = $('#cardText' + cardNumber);
+      var editTextArea = $('#editCardText' + cardNumber);
+
+      // Get the new text from the textarea
+      var newText = editTextArea.val();
+
+      // Send an AJAX request to update the text in the database
+      $.ajax({
+        type: "POST",
+        url: "./php/updateCardText.php",
+        data: {
+          cardIdentifier: cardNumber,
+          newText: newText
+        },
+        success: function(response) {
+          console.log(response);
+        },
+        error: function(xhr, status, error) {
+          console.error(error);
+          alert("Error updating text. Please try again."); // Display an alert to the user
+        }
+      });
+
+      // Update the card text
+      cardText.text(newText).show();
+      editTextArea.hide();
+
+      // Remove the Save button after saving
+      $('#saveButton' + cardNumber).remove();
+    }
+  </script>
+
+  <script>
+    // For toggling the Upload button on and off if there is a selected image
+    function toggleUploadButton(cardNumber) {
+      var uploadButton = document.getElementById('uploadButton' + cardNumber);
+      var fileInput = document.getElementById('imageInput' + cardNumber);
+
+      if (fileInput && fileInput.files.length > 0) {
+        uploadButton.disabled = false;
+      } else {
+        uploadButton.disabled = true;
+      }
+    }
+  </script>
+
+  <?php
+  // Code for displaying the card_text from the portfolio_images DB
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+
+  for ($cardNumber = 1; $cardNumber <= 9; $cardNumber++) {
+    $sql = "SELECT card_text FROM portfolio_images WHERE card_identifier = $cardNumber";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result) {
+      $row = mysqli_fetch_assoc($result);
+
+      // Check if $row is not null and the 'card_text' key is set
+      if ($row && array_key_exists('card_text', $row)) {
+        $cardText = $row['card_text'];
+
+        // Check if card_text is NULL
+        if ($cardText === NULL) {
+          //echo "Warning: 'card_text' is NULL for card $cardNumber<br>";
+        } else {
+          // Inject the card_text into the corresponding span element
+          echo "<script>document.getElementById('cardTextContent$cardNumber').innerText = '$cardText';</script>";
+        }
+      } else {
+        //echo "Warning: 'card_text' not found for card $cardNumber<br>";
+      }
+    } else {
+      echo "Error fetching card_text: " . mysqli_error($conn) . "<br>";
+    }
+  }
+  mysqli_close($conn);
+  ?>
+
 </body>
 
 </html>
