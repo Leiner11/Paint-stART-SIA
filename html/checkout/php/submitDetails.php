@@ -41,7 +41,6 @@ $_SESSION['orderDetails'] = [
     'totalPrice' => $totalPrice,
 ];
 
-
 // Respond to the frontend
 $response = ['message' => 'Form data received and saved successfully.'];
 echo json_encode($response);
@@ -113,6 +112,11 @@ function saveFormDataToDatabase($userID, $formData, $username, $totalPrice)
     );
     var_dump($_SESSION);
     if ($stmt->execute()) {
+        echo '<script>';
+        echo 'console.log(' . json_encode($_SESSION) . ');';
+        echo '</script>';
+        var_dump($_SESSION);
+
         // Redirect after successful execution
         header("Location: /PaintstART_Files/html/receiptPage/receipt.php");
         exit;

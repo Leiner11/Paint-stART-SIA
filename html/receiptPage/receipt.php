@@ -1,7 +1,9 @@
 <?php
 session_start();
-var_dump($_SESSION);
 
+echo '<script>';
+echo 'console.log(' . json_encode($_SESSION) . ');';
+echo '</script>';
 // Retrieve order details from session with consistent keys
 if (isset($_SESSION['orderDetails'])) {
   $orderDetails = $_SESSION['orderDetails'];
@@ -161,7 +163,7 @@ if (isset($_SESSION['orderDetails'])) {
                     </div>
                     <p class="u-align-center u-custom-font u-font-lato u-text u-text-body-alt-color u-text-12">Transaction ID:</p>
 
-                    <a href="#" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-6 u-hover-palette-3-light-3 u-radius-50 u-text-grey-90 u-btn-1">Print Receipt</a>
+                    <a href="../orderHistory(Client)/orderHistory.php" class="u-border-none u-btn u-btn-round u-button-style u-custom-color-6 u-hover-palette-3-light-3 u-radius-50 u-text-grey-90 u-btn-1">My Orders</a>
                     <a href="../album-client/ClientPortfolio.php" class="u-btn u-btn-round u-button-style u-hover-palette-3-light-3 u-palette-2-light-2 u-radius-50 u-text-grey-90 u-btn-2">More Arts</a>
                   </div>
                 </div>

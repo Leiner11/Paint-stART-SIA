@@ -679,7 +679,7 @@ include '../php/display_userDetails.php';
                      </ul>
                      <ul class="nav">
                         <li class="active"><a href="#"><span class="fa fa-user"></span> My Profile</a></li>
-                        <li><a href="#"><span class="fa fa-cog"></span> My Information</a></li>
+                        <li><a href="./adminprofile.php"><span class="fa fa-cog"></span> My Information</a></li>
                         <li><a href="../album-admin/AdminPortfolio.php"><span class="fa fa"></span> Edit Portfolio Page</a></li>
                         <li><a href="../adminprofile/adminprofile_priceView.php"><span class="fa fa"></span> View Pricing</a></li>
                         <li><a href="../orderHistory(Admin)/CheckHistory.php"><span class="fa fa"></span> Check Orders</a></li>
