@@ -246,7 +246,7 @@ https://templatemo.com/tm-586-scholar
             <h2>Come try us now and we'll give you the best art we can provide!</h2>
             <p>If you're still not sure about what art you want then why not try looking around my art works by clicking this button below! What are you waiting for let's dive into the world of ART!</p>
             <div class="main-button">
-              <a href="#">Commission Now!</a>
+              <a href="./checkout/checkout.php">Commission Now!</a>
             </div>
           </div>
         </div>
@@ -528,7 +528,7 @@ https://templatemo.com/tm-586-scholar
             <div class="row">
               <div class="col-lg-3">
                 <div class="image">
-                  <img src="assets/images/Cy Quin.png" alt="">
+                  <img src="assets/images/Live2dCyQuin.png" alt="">
                 </div>
               </div>
               <div class="col-lg-9">
@@ -652,7 +652,7 @@ https://templatemo.com/tm-586-scholar
             <div class="row">
               <div class="col-lg-3">
                 <div class="image">
-                  <img src="assets/images/Rainyryn3.png" alt="">
+                  <img src="assets/images/Rainryn1 Fullbody.png" alt="">
                 </div>
               </div>
               <div class="col-lg-9">

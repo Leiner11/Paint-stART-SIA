@@ -3,27 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Featured 3</title>
+    <title>RQ3</title>
   </head>
   <body>
     <div class="main-container">
       <header>
         <nav class="navigation">
-          <a href="#">Home</a>
-          <a href="#">Digital Art Works</a>
-          <a href="#">About Me</a>
-          <button class="btnLogin-popup">Login</button>
-        </nav>
-      </header>
+            <a href="../index.php">Home</a>
+            <a href="../album-client/ClientPortfolio.php">Curse's Portfolio</a>
+            <a href="/PaintstART_Files/php/rq_redirect_user.php">My Account</a>
+    </header>
       <main class="main">
         <div class="image-wrapper">
-          <img src="/PaintstART_Files/html/assets/images/Hurt1.png" alt="Three" style="width: 100%" />
+          <img
+            src="../assets/images/Hurt1.png"
+            alt="Three"
+            style="width: 100%"
+          />
           <div class="description">
             A personal artwork by Curse, it is similar to other original
             characters he created and posted throughout his other social media
             accounts, such as Twitter.
           </div>
-          <a style="--clr: #7808d0" class="button" href="/html/checkout/checkout.php">
+          <a style="--clr: #7808d0" class="button" href="../checkout/checkout.php">
             <span class="button__icon-wrapper">
               <svg
                 width="10"
@@ -61,14 +63,19 @@
       * {
         font-family: "Poppins", sans-serif;
       }
+
       body {
         display: flex;
         justify-content: center;
         align-items: center;
         min-height: 100vh;
-        background: url("/PaintstART_Files/html/Images/Background1.jpg") no-repeat;
+        background: url("../Images/RQgif.gif") no-repeat;
         background-size: cover;
         background-position: center;
+      }
+
+      body::before {
+        position: absolute;
       }
 
       .main-container {
@@ -149,11 +156,12 @@
         align-items: center;
         background-color: rgb(255, 255, 255);
         border: 1px solid rgb(204, 204, 204);
-        border-radius: 4px;
+        border-radius: 20px;
         display: flex;
         flex-direction: column;
         max-width: 400px;
         padding: 20px;
+        box-shadow: 1px 1px 50px lightblue, 5px 5px 100px purple;
       }
 
       .image {
