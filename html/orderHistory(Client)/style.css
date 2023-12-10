@@ -1,0 +1,167 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins;
+}
+
+body::before {
+  background-image: url(images/OrderGIF.gif);
+  filter: blur(2px);
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  content: '';
+  z-index: -1;
+}
+
+header {
+  border-radius: 5px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  z-index: 999;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+.navbar ul {
+  list-style: none;
+}
+
+.navbar ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+main {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  backdrop-filter: blur(7px);
+  box-shadow: 1px 1px 50px lightblue, 5px 5px 100px purple;
+}
+
+.search {
+  margin-bottom: 20px;
+}
+
+.order-history {
+  text-align: center;
+}
+
+.submit {
+  width: fit-content;
+  min-width: 100px;
+  height: 45px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 2.5px solid #E0E1E4;
+  box-shadow: 0px 0px 20px -20px;
+  cursor: pointer;
+  background-color: white;
+  transition: all 0.2s ease-in-out 0ms;
+  user-select: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+button:hover {
+  background-color: #F2F2F2;
+  box-shadow: 0px 0px 20px -18px;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.input {
+  max-width: 190px;
+  background-color: #f5f5f5;
+  color: #242424;
+  padding: .15rem .5rem;
+  min-height: 40px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  line-height: 1.15;
+  box-shadow: 0px 10px 20px -18px;
+}
+
+input:focus {
+  border-bottom: 2px solid #5b5fc7;
+  border-radius: 4px 4px 2px 2px;
+}
+
+input:hover {
+  outline: 1px solid lightgrey;
+}
+
+.icon {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  width: 90vw;
+  background-color: #fff5;
+  backdrop-filter: blur(7px);
+  box-shadow: 0 .4rem .8rem #0005;
+  border-radius: .8rem;
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+table th,
+table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.accepted {
+  background-color: green;
+  color: white;
+}
+
+.denied {
+  background-color: red;
+  color: white;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .search input[type="text"] {
+    width: 100%;
+  }
+}
