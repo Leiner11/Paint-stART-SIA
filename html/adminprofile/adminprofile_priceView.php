@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+require_once '../Config.php';
 include '../php/display_priceDetails.php';
 ?>
 
@@ -674,9 +675,9 @@ include '../php/display_priceDetails.php';
             <div class="module-inner">
                <div class="side-bar">
                   <div class="user-info">
-                     <img class="img-profile img-circle img-responsive center-block" src="Images/ASTARION-EXAMPLEPROFILE.jpg" alt>
+                  <img class="img-profile img-circle img-responsive center-block" src="../Images/pfp_icon.png" alt>
                      <ul class="meta list list-unstyled">
-                        <li class="name">Astarion Ascunin
+                        <li class="name" id="username_display">
                            <label class="label label-info">User</label>
                         </li>
                      </ul>

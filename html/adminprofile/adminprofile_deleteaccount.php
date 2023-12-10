@@ -1,3 +1,19 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+include '../php/display_userDetails.php';
+?>
+
+<script>
+   function populateUserAccount() {
+
+      var usernameDisplayField = document.getElementById('username_display');
+      usernameDisplayField.textContent = '<?php echo $user['username']; ?>';
+
+   }
+   window.onload = populateUserAccount;
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -637,9 +653,9 @@
             <div class="module-inner">
                <div class="side-bar">
                   <div class="user-info">
-                     <img class="img-profile img-circle img-responsive center-block" src="Images/ASTARION-EXAMPLEPROFILE.jpg" alt>
+                  <img class="img-profile img-circle img-responsive center-block" src="../Images/pfp_icon.png" alt>
                      <ul class="meta list list-unstyled">
-                        <li class="name">Astarion Ascunin
+                        <li class="name" id="username_display">Astarion Ascunin
                            <label class="label label-info">User</label>
                         </li>
                      </ul>
@@ -647,7 +663,7 @@
                   <nav class="side-menu">
                      <ul class="nav">
                         <li class="active"><a href="#"><span class="fa fa-user"></span> Edit Profile</a></li>
-                        <li><a href="/PaintstART_Files/html/userprofile_updatedetails.php"><span class="fa fa-cog"></span> Update Details</a></li>
+                        <li><a href="/PaintstART_Files/html/adminprofile/adminprofile_updateaccount.php"><span class="fa fa-cog"></span> Update Details</a></li>
                      </ul>
                      <ul class="nav">
                         <li class="active"><a href="#"><span class="fa fa-user"></span> My Profile</a></li>

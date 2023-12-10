@@ -1,3 +1,19 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+include '../php/display_userDetails.php';
+?>
+
+<script>
+   function populateUserAccount() {
+
+      var usernameDisplayField = document.getElementById('username_display');
+      usernameDisplayField.textContent = '<?php echo $user['username']; ?>';
+
+   }
+   window.onload = populateUserAccount;
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -637,9 +653,9 @@
             <div class="module-inner">
                <div class="side-bar">
                   <div class="user-info">
-                     <img class="img-profile img-circle img-responsive center-block" src="" alt>
+                  <img class="img-profile img-circle img-responsive center-block" src="../Images/pfp_icon.png" alt>
                      <ul class="meta list list-unstyled">
-                        <li class="name">Astarion Ascunin
+                        <li class="name" id="username_display">Astarion Ascunin
                            <label class="label label-info">User</label>
                         </li>
                      </ul>
@@ -667,7 +683,7 @@
                <div class="content-panel">
                   <fieldset class="fieldset">
                      <h3 class="fieldset-title">Edit Profile</h3>
-
+                  <!--
                      <div id="content">
                         <form method="POST" action="" enctype="multipart/form-data">
                            <div class="form-group avatar">
@@ -681,9 +697,9 @@
                            </div>
                         </form>
                      </div>
+                  !-->
 
-
-                     <form action="/PaintstART_Files/php/update.php" class="form-horizontal" method="POST">
+                     <form action="/PaintstART_Files/php/update_admin.php" class="form-horizontal" method="POST">
                         <div class="form-group">
                            <label for="new_username" label class="col-md-2 col-sm-3 col-xs-12 control-label">Username</label>
                            <div class="col-md-10 col-sm-9 col-xs-12">
@@ -705,13 +721,13 @@
                         <div class="form-group">
                            <label for="current_password" label class="col-md-2 col-sm-3 col-xs-12 control-label">Re-enter Old Password</label>
                            <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="text" class="form-control" id="password" name="current_password" value="" required>
+                              <input type="password" class="form-control" id="password" name="current_password" value="" required>
                            </div>
                         </div>
                         <div class="form-group">
                            <label for="new_password" label class="col-md-2 col-sm-3 col-xs-12 control-label">Enter New Password</label>
                            <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="text" class="form-control" id="new_password" name="new_password" value="" required>
+                              <input type="password" class="form-control" id="new_password" name="new_password" value="" required>
                            </div>
                         </div>
                         <div class="form-group">

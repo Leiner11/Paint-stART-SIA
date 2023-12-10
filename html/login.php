@@ -53,13 +53,22 @@ if (isset($_SESSION['password_error'])) {
           <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
           <input type="password" name="password" id="password" required />
           <label>Password</label>
+          <?php
+          // Display error message if it exists
+          if (isset($_SESSION['loginError'])) {
+            echo '<p class="error-message">' . $_SESSION['loginError'] . '</p>';
+            unset($_SESSION['loginError']); // Clear the error message after displaying it
+          }
+          ?>
         </div>
+        <!-- 
         <div class="remember-forgot">
           <label><input type="checkbox" id="rememberMe-checkbox" /> Remember
             me</label>
           <a href="#">Forgot Password?</a>
         </div>
-        <button type="submit" class="btn">Login</button>
+      !-->
+        <button type="submit" class="btn" name="login">Login</button>
         <div class="login-register">
           <p>
             Don't have an account yet?

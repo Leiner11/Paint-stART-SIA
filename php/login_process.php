@@ -2,12 +2,10 @@
 session_start();
 require_once './Config.php';
 
-// Check the connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Get the user's entered email and password
 $email = $_POST['email'];
 $password = $_POST['password'];
 
@@ -34,11 +32,9 @@ if ($resultUser->num_rows > 0) {
     $user = $resultAdmin->fetch_assoc();
     $hashedPassword = $user['password'];
 } else {
-    // User does not exist, display error message
-    echo "<p>Invalid username or password.</p>";
-    $stmtUser->close();
-    $stmtAdmin->close();
-    $conn->close();
+    // User does not exist, set error message and redirect to login page
+    $_SESSION['loginError'] = "Invalid username or password.";
+    header("Location: /PaintstART_Files/html/login.php");
     exit();
 }
 
@@ -54,8 +50,10 @@ if (password_verify($password, $hashedPassword)) {
     header("Location: check_login.php");
     exit();
 } else {
-    // Password is incorrect, display error message
-    echo "<p>Invalid username or password.</p>";
+    // Password is incorrect, set error message and redirect to login page
+    $_SESSION['loginError'] = "Invalid username or password.";
+    header("Location: /PaintstART_Files/html/login.php");
+    exit();
 }
 
 $stmtUser->close();

@@ -22,7 +22,7 @@ if (isset($_POST['update'])) {
 	$new_lastName = $_POST['new_lastname'];
 	$twitter = $_POST['twitter'];
 
-	//User_profile for non-admins
+	// User_profile for non-admins
 	$stmtUser = $conn->prepare("SELECT password FROM user_profile WHERE username = ?");
 	$stmtUser->bind_param("s", $current_username);
 	$stmtUser->execute();
@@ -30,44 +30,26 @@ if (isset($_POST['update'])) {
 	$stmtUser->fetch();
 	$stmtUser->close();
 
-	//Admin_profile for admins
-	$stmtAdmin = $conn->prepare("SELECT password FROM admin_profile WHERE username = ?");
-	$stmtAdmin->bind_param("s", $current_username);
-	$stmtAdmin->execute();
-	$stmtAdmin->bind_result($hashed_password_admin);
-	$stmtAdmin->fetch();
-	$stmtAdmin->close();
+	if (password_verify($current_password, $hashed_password_user)) {
+		// Hash the new password
+		$hashed_new_password = password_hash($new_raw_password, PASSWORD_DEFAULT);
 
-	if (password_verify($current_password, $hashed_password_user) || password_verify($current_password, $hashed_password_admin)) {
-		
 		// Update the user details in the user_profile table
 		$stmtUserUpdate = $conn->prepare("UPDATE user_profile SET username=?, password=?, firstname=?, lastname=?, email=?, twitter=? WHERE username=?");
-		$stmtUserUpdate->bind_param("sssssss", $new_username, $hashed_password_user, $new_firstName, $new_lastName, $new_email, $twitter, $current_username);
+		$stmtUserUpdate->bind_param("sssssss", $new_username, $hashed_new_password, $new_firstName, $new_lastName, $new_email, $twitter, $current_username);
 
 		if ($stmtUserUpdate->execute()) {
-			header ("Location: /PaintstART_Files/html/userprofile/userprofile.php");
+			header("Location: /PaintstART_Files/html/userprofile/userprofile.php");
 			exit;
 		} else {
 			echo "Error updating username and password in user_profile table: " . $stmtUserUpdate->error;
 		}
 
 		$stmtUserUpdate->close();
-
-		// Update the user details in the admin_profile table
-		$stmtAdminUpdate = $conn->prepare("UPDATE admin_profile SET username=?, password=?, firstname=?, lastname=?, email=?, twitter=? WHERE username=?");
-		$stmtAdminUpdate->bind_param("sssssss", $new_username, $hashed_password_admin, $new_firstName, $new_lastName, $new_email, $twitter, $current_username);
-
-		if ($stmtAdminUpdate->execute()) {
-			header ("Location: /PaintstART_Files/html/adminprofile/adminprofile.php");
-			exit;
-		} else {
-			echo "Error updating username and password in admin_profile table: " . $stmtAdminUpdate->error;
-		}
-
-		$stmtAdminUpdate->close();
 	} else {
 		echo "Incorrect current password.";
 	}
 }
+
 $conn->close();
 ?>

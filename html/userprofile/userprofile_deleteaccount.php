@@ -637,7 +637,7 @@
             <div class="module-inner">
                <div class="side-bar">
                   <div class="user-info">
-                     <img class="img-profile img-circle img-responsive center-block" src="Images/ASTARION-EXAMPLEPROFILE.jpg" alt>
+                  <img class="img-profile img-circle img-responsive center-block" src="../Images/pfp_icon.png" alt>
                      <ul class="meta list list-unstyled">
                         <li class="name">Astarion Ascunin
                            <label class="label label-info">User</label>
