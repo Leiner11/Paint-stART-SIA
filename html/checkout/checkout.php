@@ -372,9 +372,12 @@
 
   <script src="checkout.js"></script>
 
+  
   <script>
+    //SCRIPT 1//
+
     document.addEventListener('DOMContentLoaded', function() {
-      // Function to update cart content
+      // Function to update "USER'S Your Cart" content
       function updateCartContent() {
         var selectedType = document.querySelector('input[name="artType"]:checked').value;
         var selectedStyle = document.querySelector('input[name="style"]:checked').value;
@@ -393,7 +396,7 @@
         var totalPrice = document.querySelector('.list-group-item:last-child span.text-success');
         totalPrice.textContent = '';
       }
-
+      
       // Event listeners to radio buttons
       var typeRadioButtons = document.querySelectorAll('input[name="artType"]');
       typeRadioButtons.forEach(function(radioButton) {
@@ -410,11 +413,16 @@
         radioButton.addEventListener('change', updateCartContent);
       });
     });
+
+    //END OF SCRIPT 1//
   </script>
+
 
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
   <script>
+    //SCRIPT 2//
+
     document.addEventListener('DOMContentLoaded', function() {
       // Initialize total price variable
       var totalPrice = 0;
@@ -502,9 +510,9 @@
         }
       }
 
+    //END OF SCRIPT 2//
     });
   </script>
 
 </body>
-
 </html>

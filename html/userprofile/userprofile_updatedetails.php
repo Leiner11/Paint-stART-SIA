@@ -666,6 +666,7 @@
                   <fieldset class="fieldset">
                      <h3 class="fieldset-title">Edit Profile</h3>
 
+               <!--
                      <div id="content">
                         <form method="POST" action="" enctype="multipart/form-data">
                            <div class="form-group avatar">
@@ -679,8 +680,8 @@
                            </div>
                         </form>
                      </div>
-
-
+               !-->
+               
                      <form action="/PaintstART_Files/php/update.php" class="form-horizontal" method="POST">
                         <div class="form-group">
                            <label for="new_username" label class="col-md-2 col-sm-3 col-xs-12 control-label">Username</label>
@@ -703,13 +704,13 @@
                         <div class="form-group">
                            <label for="current_password" label class="col-md-2 col-sm-3 col-xs-12 control-label">Re-enter Old Password</label>
                            <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="text" class="form-control" id="password" name="current_password" value="" required>
+                              <input type="password" class="form-control" id="password" name="current_password" value="" required>
                            </div>
                         </div>
                         <div class="form-group">
                            <label for="new_password" label class="col-md-2 col-sm-3 col-xs-12 control-label">Enter New Password</label>
                            <div class="col-md-10 col-sm-9 col-xs-12">
-                              <input type="text" class="form-control" id="new_password" name="new_password" value="" required>
+                              <input type="password" class="form-control" id="new_password" name="new_password" value="" required>
                            </div>
                         </div>
                         <div class="form-group">

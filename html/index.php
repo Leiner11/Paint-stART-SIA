@@ -76,7 +76,7 @@ https://templatemo.com/tm-586-scholar
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="index.html" class="logo">
+            <a href="./index.php" class="logo">
               <h1>PaintstART</h1>
             </a>
             <!-- ***** Serach Start ***** -->
@@ -111,7 +111,7 @@ https://templatemo.com/tm-586-scholar
                 <p>If you're interested, Just press the discord button down bellow and it will redirect you to a place where you can request a digital art from the artist.</p>
                 <div class="buttons">
                   <div class="main-button">
-                    <a href="#">Paint stART DISCORD</a>
+                    <a href="https://discord.gg/mB7y2Y6mAY">Paint stART DISCORD</a>
                   </div>
                 </div>
               </div>
@@ -123,7 +123,7 @@ https://templatemo.com/tm-586-scholar
                 <p>To get the best expected results of your requested digital art from the artist then leave a brief and precise explanation of it!</p>
                 <div class="buttons">
                   <div class="main-button">
-                    <a href="#">Paint stART DISCORD</a>
+                    <a href="https://discord.gg/mB7y2Y6mAY">Paint stART DISCORD</a>
                   </div>
                 </div>
               </div>
@@ -135,7 +135,7 @@ https://templatemo.com/tm-586-scholar
                 <p>All of the ideas and imagination comming from your mind can be put in real life by designing and laying out in an digital art!</p>
                 <div class="buttons">
                   <div class="main-button">
-                    <a href="#">Paint stART DISCORD</a>
+                    <a href="https://discord.gg/mB7y2Y6mAY">Paint stART DISCORD</a>
                   </div>
                 </div>
               </div>
@@ -445,7 +445,7 @@ https://templatemo.com/tm-586-scholar
           <div class="section-heading">
             <h6>TESTIMONIALS</h6>
             <h2>Comments and feedbacks about us</h2>
-            <p>So what are you waiting for? Try commission an art to us now and we'll provide you a top quality of outcome you could possibly see! And if you're already received an art in the past you can share it to your friends, we'll be appreciated <3< /p>
+            <p>So what are you waiting for? Try commission an art to us now and we'll provide you a top quality of outcome you could possibly see! And if you're already received an art in the past you can share it to your friends, we'll be appreciated <3</p>
           </div>
         </div>
       </div>
@@ -484,8 +484,8 @@ https://templatemo.com/tm-586-scholar
                     <h6>$130 ~ $190</h6>
                   </li>
                   <li>
-                    <span>ETAT:</span>
-                    <h6>15 - 30</h6>
+                    <span>Estimated Time of Completion:</span>
+                    <h6>15 - 30 days</h6>
                   </li>
                 </ul>
               </div>
@@ -515,8 +515,8 @@ https://templatemo.com/tm-586-scholar
                     <h6>$100 ~ $120</h6>
                   </li>
                   <li>
-                    <span>ETAT:</span>
-                    <h6>7 - 12</h6>
+                    <span>Estimated Time of Completion:</span>
+                    <h6>7 - 12 days</h6>
                   </li>
                 </ul>
               </div>
@@ -546,8 +546,8 @@ https://templatemo.com/tm-586-scholar
                     <h6>$80 ~ $110</h6>
                   </li>
                   <li>
-                    <span>ETAT:</span>
-                    <h6>5 - 10</h6>
+                    <span>Estimated Time of Completion:</span>
+                    <h6>5 - 10 days</h6>
                   </li>
                 </ul>
               </div>
@@ -577,8 +577,8 @@ https://templatemo.com/tm-586-scholar
                     <h6>$30</h6>
                   </li>
                   <li>
-                    <span>ETAT:</span>
-                    <h6>3 - 5</h6>
+                    <span>Estimated Time of Completion:</span>
+                    <h6>3 - 5 days</h6>
                   </li>
                 </ul>
               </div>
@@ -608,8 +608,8 @@ https://templatemo.com/tm-586-scholar
                     <h6>$90</h6>
                   </li>
                   <li>
-                    <span>ETAT:</span>
-                    <h6>+?</h6>
+                    <span>Estimated Time of Completion:</span>
+                    <h6>+1 day/s</h6>
                   </li>
                 </ul>
               </div>
@@ -639,8 +639,8 @@ https://templatemo.com/tm-586-scholar
                     <h6>$35 - $50</h6>
                   </li>
                   <li>
-                    <span>ETAT:</span>
-                    <h6>5 - 11</h6>
+                    <span>Estimated Time of Completion:</span>
+                    <h6>5 - 11 days</h6>
                   </li>
                 </ul>
               </div>
@@ -670,8 +670,8 @@ https://templatemo.com/tm-586-scholar
                     <h6>$15</h6>
                   </li>
                   <li>
-                    <span>ETAT:</span>
-                    <h6>1</h6>
+                    <span>Estimated Time of Completion:</span>
+                    <h6>1 day</h6>
                   </li>
                 </ul>
               </div>
@@ -701,8 +701,8 @@ https://templatemo.com/tm-586-scholar
                     <h6>$25</h6>
                   </li>
                   <li>
-                    <span>ETAT:</span>
-                    <h6>1 - 2</h6>
+                    <span>Estimated Time of Completion:</span>
+                    <h6>1 - 2 days</h6>
                   </li>
                 </ul>
               </div>
@@ -732,8 +732,8 @@ https://templatemo.com/tm-586-scholar
                     <h6>$30</h6>
                   </li>
                   <li>
-                    <span>ETAT:</span>
-                    <h6>1 - 4</h6>
+                    <span>Estimated Time of Completion:</span>
+                    <h6>1 - 4 days</h6>
                   </li>
                 </ul>
               </div>
@@ -763,8 +763,8 @@ https://templatemo.com/tm-586-scholar
                     <h6>$5 - $10</h6>
                   </li>
                   <li>
-                    <span>ETAT:</span>
-                    <h6>+1</h6>
+                    <span>Estimated Time of Completion:</span>
+                    <h6>+1 day/s</h6>
                   </li>
                 </ul>
               </div>
