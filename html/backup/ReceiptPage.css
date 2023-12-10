@@ -1,0 +1,466 @@
+body,
+html {
+  display: flex;
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  justify-content: center;
+  align-items: center;
+  min-height: 95vh;
+}
+
+header {
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 90%;
+  padding: 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 99;
+}
+
+.logo {
+  padding: 5px 15px;
+  position: flex;
+  font-size: 3em;
+  left: -10px;
+  user-select: none;
+}
+
+.navigation a {
+  position: relative;
+  font-size: 1.1em;
+  color: #000000;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 40px;
+}
+
+.navigation a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 3px;
+  background: #000000;
+  border-radius: 5px;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.5s;
+}
+
+.navigation a:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup {
+  width: 130px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #000000;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  color: #000000;
+  font-weight: 500;
+  margin-left: 40px;
+  transition: 0.5s;
+}
+
+.navigation .btnLogin-popup:hover {
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.receipt-page,
+.receipt-page * {
+  box-sizing: border-box;
+}
+.receipt-page {
+  background: #ffffff;
+  padding: 104px 384px 104px 384px;
+  width: 1924px;
+  height: 1113px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient {
+  background: radial-gradient(
+    closest-side,
+    rgba(148, 102, 34, 0) 0%,
+    rgba(222, 160, 141, 1) 100%
+  );
+  width: 1924px;
+  height: 1112px;
+  position: fixed;
+  left: 0px;
+  top: 1px;
+}
+
+.receipt-frame {
+  width: 575.5px;
+  height: 973.12px;
+  position: absolute;
+  left: 152.4px;
+  top: 70.74px;
+}
+
+.rectangle-88 {
+  background: #ffffff;
+  border-radius: 31.39px;
+  width: 575.5px;
+  height: 973.12px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+
+.purchase-details {
+  color: #000000;
+  text-align: left;
+  font: 400 51.01px "Impact", sans-serif;
+  position: absolute;
+  left: 71.94px;
+  top: 39.24px;
+}
+
+.original-character {
+  color: #000000;
+  text-align: left;
+  font: 400 30.08px "Inter", sans-serif;
+  position: absolute;
+  left: 27.47px;
+  top: 141.26px;
+}
+
+.includes-colored-8-x-8-size {
+  color: #000000;
+  text-align: left;
+  font: 400 30.08px "Inter", sans-serif;
+  position: absolute;
+  left: 27.47px;
+  top: 194.88px;
+}
+
+.cost-86-00 {
+  color: #000000;
+  text-align: left;
+  font: 800 26.16px "Inter", sans-serif;
+  position: absolute;
+  left: 313.91px;
+  top: 280.74px;
+}
+
+.cost-76-00 {
+  color: #000000;
+  text-align: left;
+  font: 800 26.16px "Inter", sans-serif;
+  position: absolute;
+  left: 313.91px;
+  top: 430.24px;
+}
+
+.character-illustration {
+  color: #000000;
+  text-align: left;
+  font: 400 30.08px "Inter", sans-serif;
+  position: absolute;
+  left: 178px;
+  top: 307.37px;
+}
+
+.character-with-matching-accessories {
+  color: #000000;
+  text-align: left;
+  font: 400 30.08px "Inter", sans-serif;
+  position: absolute;
+  left: 178px;
+  top: 420px;
+}
+
+.character-with-matching-accessories-span {
+  color: #000000;
+  font: 400 30.08px "Inter", sans-serif;
+}
+
+.character-with-matching-accessories-span2 {
+  color: #000000;
+  font: 400 30.08px "Inter", sans-serif;
+}
+
+.amount {
+  color: #006a1e;
+  text-align: left;
+  font: 800 30.08px "Inter", sans-serif;
+  position: absolute;
+  left: 270px;
+  top: 580px;
+}
+
+._156-00 {
+  color: #006a1e;
+  text-align: left;
+  font: 800 30.08px "Inter", sans-serif;
+  position: absolute;
+  left: 466px;
+  top: 573px;
+}
+
+.line-38 {
+  border-style: solid;
+  border-color: #000000;
+  border-width: 4px 0 0 0;
+  width: 498px;
+  height: 0px;
+  position: absolute;
+  left: 180px;
+  top: 540px;
+}
+
+.transaction-id {
+  color: #000000;
+  text-align: left;
+  font: 400 30.08px "Impact", sans-serif;
+  position: absolute;
+  left: 230px;
+  top: 585px;
+}
+
+._0009411456788175 {
+  color: #000000;
+  text-align: left;
+  font: 400 25px "Impact", sans-serif;
+  position: absolute;
+  left: 467px;
+  top: 585.26px;
+}
+
+.thank-you-for-commissioning-me-enjoy {
+  color: #000000;
+  text-align: left;
+  font: 400 18.15px "Arial", sans-serif;
+  position: absolute;
+  left: 275px;
+  top: 650.26px;
+}
+
+.thank-you-for-commissioning-me-enjoy2 {
+  color: #000000;
+  text-align: left;
+  font: 400 33px "Arial", sans-serif;
+  position: absolute;
+  left: 290px;
+  top: 685.26px;
+}
+
+.box {
+  width: 1033.28px;
+  height: 121.64px;
+  position: absolute;
+  left: 689.97px;
+  top: 664.55px;
+}
+
+.rectangle-86 {
+  background: #f7ff95;
+  width: 1033.28px;
+  height: 121.64px;
+  position: absolute;
+  left: 0px;
+  top: -130px;
+}
+
+.thank-you-for-purchasing {
+  color: #000000;
+  text-align: left;
+  font: 400 66.71px "Impact", sans-serif;
+  position: absolute;
+  left: 27.47px;
+  top: -112px;
+}
+
+.frame-1 {
+  padding: 10px;
+  width: 742px;
+  height: 1225px;
+  position: absolute;
+  left: 771px;
+  top: -130px;
+}
+
+.girl-image {
+  width: 732px;
+  height: 1205px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+.print-button {
+  width: 456.48px;
+  height: 83.71px;
+  position: absolute;
+  left: 1389.72px;
+  top: 620px;
+}
+
+.print-receipt {
+  color: #ffffff;
+  text-align: center;
+  font: 400 58.86px "Impact", sans-serif;
+  position: absolute;
+  left: 0.28px;
+  top: -0.18px;
+  width: 456px;
+  height: 84px;
+}
+
+/* star button  */
+.Btn {
+  width: 240px;
+  height: 40px;
+  display: flex;
+  top: 20px;
+  left: 50px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(15, 15, 15);
+  border: none;
+  color: white;
+  font-weight: 600;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+  position: relative;
+  overflow: hidden;
+  transition-duration: 0.3s;
+}
+
+.svgIcon {
+  width: 16px;
+}
+
+.svgIcon path {
+  fill: white;
+}
+
+.Btn::before {
+  width: 240px;
+  height: 130px;
+  position: absolute;
+  content: "";
+  background-color: white;
+  border-radius: 50%;
+  left: -100%;
+  top: 0;
+  transition-duration: 0.3s;
+  mix-blend-mode: difference;
+}
+
+.Btn:hover::before {
+  transition-duration: 0.3s;
+  transform: translate(100%, -50%);
+  border-radius: 0;
+}
+
+.Btn:active {
+  transform: translate(5px, 5px);
+  transition-duration: 0.3s;
+}
+
+.suggestion-area {
+  background: rgb(224, 191, 255);
+  border-radius: 12.18px;
+  border-style: solid;
+  border-color: #000000;
+  border-width: 0.94px;
+  width: 499.39px;
+  height: 50px;
+  position: absolute;
+  left: 185px;
+  top: 685px;
+}
+
+.add-comment-here {
+  position: absolute;
+  left: 200px;
+  top: 698px;
+}
+
+.input-text {
+  background: transparent;
+  border: none;
+  font: 400 18.74px "Inter", sans-serif;
+  color: #000000;
+  width: 470px;
+  outline: none;
+  height: 30px;
+  resize: none;
+  overflow: auto;
+}
+
+.paintst-art {
+  color: #000000;
+  text-align: left;
+  font: 400 25px "Impact", sans-serif;
+  position: absolute;
+  left: 200px;
+  top: 760px;
+}
+
+.Btn2 {
+  width: 100px;
+  height: 50px;
+  display: absolute;
+  top: 685px;
+  left: 585px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(15, 15, 15);
+  border: none;
+  border-radius: 12.18px;
+  color: white;
+  font-weight: 600;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+  position: absolute;
+  overflow: hidden;
+  transition-duration: 0.3s;
+}
+
+.Btn2::before {
+  width: 240px;
+  height: 130px;
+  position: absolute;
+  content: "";
+  background-color: white;
+  border-radius: 50%;
+  left: -100%;
+  top: 0;
+  transition-duration: 0.3s;
+  mix-blend-mode: difference;
+}
+
+.Btn2:hover::before {
+  transition-duration: 0.3s;
+  transform: translate(100%, -50%);
+  border-radius: 0;
+}
+
+.Btn2:active {
+  transform: translate(5px, 5px);
+  transition-duration: 0.3s;
+}
