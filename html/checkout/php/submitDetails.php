@@ -110,12 +110,12 @@ function saveFormDataToDatabase($userID, $formData, $username, $totalPrice)
         $formData['commissionDetails'],
         $totalPrice
     );
-    var_dump($_SESSION);
+
     if ($stmt->execute()) {
-        echo '<script>';
-        echo 'console.log(' . json_encode($_SESSION) . ');';
-        echo '</script>';
-        var_dump($_SESSION);
+        //echo '<script>';
+        //echo 'console.log(' . json_encode($_SESSION) . ');';
+        //echo '</script>';
+        //var_dump($_SESSION);
 
         // Redirect after successful execution
         header("Location: /PaintstART_Files/html/receiptPage/receipt.php");
